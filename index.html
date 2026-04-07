@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-tertiary-fixed": "#31101e", "primary-fixed-dim": "#91d963",
+          "secondary-fixed-dim": "#b5ccc0", "on-background": "#191c1d",
+          "on-secondary": "#191c1d", "on-primary-fixed-variant": "#225100",
+          "tertiary-container": "#ffc5d7", "surface-container-low": "#f2f4f5",
+          "inverse-surface": "#2e3132", "on-secondary-fixed": "#0b1f18",
+          "on-surface": "#191c1d", "tertiary-fixed-dim": "#f0b7c9",
+          "error": "#ba1a1a", "on-tertiary": "#ffffff",
+          "on-primary-container": "#092100", "error-container": "#ffdad6",
+          "surface-container": "#eceeef", "primary": "#9fe870",
+          "outline-variant": "#c1cab5", "background": "#f8fafb",
+          "surface-container-lowest": "#ffffff", "primary-container": "#9fe870",
+          "tertiary": "#7e5161", "surface-tint": "#9fe870",
+          "surface-dim": "#d8dadb", "on-secondary-container": "#54695f",
+          "surface-container-highest": "#e1e3e4", "tertiary-fixed": "#ffd9e3",
+          "surface-variant": "#e1e3e4", "on-tertiary-container": "#7b4f5e",
+          "on-error": "#ffffff", "inverse-on-surface": "#eff1f2",
+          "on-primary": "#092100", "on-error-container": "#93000a",
+          "surface-container-high": "#e6e8e9", "secondary-fixed": "#d0e8dc",
+          "secondary-container": "#d0e8dc", "surface-bright": "#f8fafb",
+          "primary-fixed": "#acf67c", "on-tertiary-fixed-variant": "#643a49",
+          "outline": "#717a68", "secondary": "#4e6359",
+          "inverse-primary": "#91d963", "on-surface-variant": "#41493a",
+          "surface": "#f8fafb", "on-primary-fixed": "#092100",
+          "on-secondary-fixed-variant": "#374b42"
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"
+        },
+        fontFamily: {
+          "headline": ["Plus Jakarta Sans"], "body": ["Manrope"], "label": ["Manrope"]
+        }
+      },
+    },
+  }
+</script>
+<style type="text/tailwindcss">
+  body { font-family: 'Manrope', sans-serif; }
+  h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* ── Shadows ──────────────────────────────────────── */
+  .editorial-shadow {
+    box-shadow: 0 10px 30px -10px rgba(159,232,112,0.4), 0 20px 40px -15px rgba(0,0,0,0.1);
+  }
+  .btn-deep-shadow {
+    box-shadow:
+      0 4px 6px rgba(0,0,0,0.14),
+      0 12px 28px -6px rgba(159,232,112,0.65),
+      0 24px 48px -12px rgba(0,0,0,0.18);
+  }
+
+  /* ── Buttons ──────────────────────────────────────── */
+  .btn-primary-gradient {
+    background: linear-gradient(135deg, #d0f7aa 0%, #9fe870 45%, #7ad444 100%);
+  }
+  .btn-primary-gradient:hover {
+    background: linear-gradient(135deg, #dafab8 0%, #aaed7e 45%, #84de50 100%);
+  }
+
+  /* ── CTA ──────────────────────────────────────────── */
+  .cta-gradient-subtle {
+    background: linear-gradient(135deg, #c4f590 0%, #9fe870 40%, #7ad444 75%, #62c230 100%);
+  }
+
+  /* ── Timeline ─────────────────────────────────────── */
+  .timeline-line {
+    background: linear-gradient(to bottom, #9fe870 0%, #9fe870 70%, transparent 100%);
+  }
+
+  /* ── Hero text animation ──────────────────────────── */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-anim { opacity: 0; animation: fadeSlideUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .hero-anim-1 { animation-delay: 0.05s; }
+  .hero-anim-2 { animation-delay: 0.22s; }
+  .hero-anim-3 { animation-delay: 0.40s; }
+  .hero-anim-4 { animation-delay: 0.56s; }
+
+  /* ── TextRotate ───────────────────────────────────── */
+  .text-rotate-wrap {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: 0.14em;
+    padding-right: 0.1em;
+    margin-bottom: -0.14em;
+    margin-right: -0.1em;
+  }
+  .text-rotate-inner { display: inline-block; line-height: 1.1; }
+  @keyframes trIn  { from { opacity:0; transform: translateY(106%); } to { opacity:1; transform: translateY(0); } }
+  @keyframes trOut { from { opacity:1; transform: translateY(0); }    to { opacity:0; transform: translateY(-112%); } }
+  .tr-enter { animation: trIn  0.55s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .tr-exit  { animation: trOut 0.38s cubic-bezier(0.7,0,1,1) forwards; }
+
+  /* ── Scroll reveal ────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── ContainerScroll (werkwijze) ──────────────────── */
+  #process-perspective-wrap { perspective: 1200px; transform-style: preserve-3d; }
+  #process-card {
+    transform-origin: top center;
+    transition: transform 0.05s linear;
+    will-change: transform;
+  }
+
+  /* ── Parallax hover ───────────────────────────────── */
+  .px-el { will-change: translate; }
+
+  /* ── Logo marquee ─────────────────────────────────── */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes marquee-rev {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+  .marquee-track-rev {
+    display: flex;
+    width: max-content;
+    animation: marquee-rev 26s linear infinite;
+  }
+  .marquee-track:hover,
+  .marquee-track-rev:hover { animation-play-state: paused; }
+</style>
+</head>
+
+<body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
+
+<!-- ═══════════════════════════════════════════════════
+     ETHERAL SHADOW  — full-page animated green blobs
+     Uses SVG feTurbulence + feDisplacementMap (same as
+     the React Etheral Shadow component, ported to vanilla).
+     position:fixed  →  follows the viewport everywhere.
+     pointer-events:none  →  never blocks interaction.
+═════════════════════════════════════════════════════ -->
+<div id="etheral-overlay" style="
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+">
+  <!-- SVG filter definitions -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden;">
+    <defs>
+      <!-- Filter A — slow organic warp -->
+      <filter id="ef-a" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="turbulence" baseFrequency="0.0014,0.0048"
+          numOctaves="2" seed="3" result="undulation"/>
+        <feColorMatrix id="eh-a" in="undulation" type="hueRotate" values="0" result="hued"/>
+        <feColorMatrix in="hued" result="circ" type="matrix"
+          values="4 0 0 0 1  4 0 0 0 1  4 0 0 0 1  1 0 0 0 0"/>
+        <feDisplacementMap in="SourceGraphic" in2="circ" scale="120" result="dist"/>
+        <feDisplacementMap in="dist" in2="undulation" scale="120"/>
+      </filter>
+      <!-- Filter B — slightly faster, different seed -->
+      <filter id="ef-b" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="turbulence" baseFrequency="0.0019,0.006"
+          numOctaves="2" seed="11" result="undulation"/>
+        <feColorMatrix id="eh-b" in="undulation" type="hueRotate" values="120" result="hued"/>
+        <feColorMatrix in="hued" result="circ" type="matrix"
+          values="4 0 0 0 1  4 0 0 0 1  4 0 0 0 1  1 0 0 0 0"/>
+        <feDisplacementMap in="SourceGraphic" in2="circ" scale="95" result="dist"/>
+        <feDisplacementMap in="dist" in2="undulation" scale="95"/>
+      </filter>
+      <!-- Filter C — bottom, large sweep -->
+      <filter id="ef-c" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="turbulence" baseFrequency="0.001,0.0035"
+          numOctaves="2" seed="17" result="undulation"/>
+        <feColorMatrix id="eh-c" in="undulation" type="hueRotate" values="240" result="hued"/>
+        <feColorMatrix in="hued" result="circ" type="matrix"
+          values="4 0 0 0 1  4 0 0 0 1  4 0 0 0 1  1 0 0 0 0"/>
+        <feDisplacementMap in="SourceGraphic" in2="circ" scale="110" result="dist"/>
+        <feDisplacementMap in="dist" in2="undulation" scale="110"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Blob A: top-left -->
+  <div class="etheral-blob" style="
+    position:absolute;
+    width:75vw; height:75vh;
+    top:-20%; left:-15%;
+    filter: url(#ef-a) blur(12px);
+  ">
+    <div style="
+      background-color: rgba(159,232,112,0.28);
+      mask-image: url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');
+      mask-size: cover; mask-repeat: no-repeat; mask-position: center;
+      width:100%; height:100%;
+    "></div>
+  </div>
+
+  <!-- Blob B: top-right -->
+  <div class="etheral-blob" style="
+    position:absolute;
+    width:65vw; height:65vh;
+    top:-10%; right:-20%;
+    filter: url(#ef-b) blur(14px);
+  ">
+    <div style="
+      background-color: rgba(172,246,124,0.22);
+      mask-image: url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');
+      mask-size: cover; mask-repeat: no-repeat; mask-position: center;
+      width:100%; height:100%;
+    "></div>
+  </div>
+
+  <!-- Blob C: bottom center -->
+  <div class="etheral-blob" style="
+    position:absolute;
+    width:90vw; height:80vh;
+    bottom:-25%; left:5%;
+    filter: url(#ef-c) blur(16px);
+  ">
+    <div style="
+      background-color: rgba(145,217,99,0.25);
+      mask-image: url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');
+      mask-size: cover; mask-repeat: no-repeat; mask-position: center;
+      width:100%; height:100%;
+    "></div>
+  </div>
+
+  <!-- Noise grain -->
+  <div style="
+    position:absolute; inset:0;
+    background-image: url('https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png');
+    background-size: 180px; background-repeat: repeat;
+    opacity: 0.04;
+  "></div>
+</div>
+
+<!-- ═══════════════ NAV ═══════════════════════════════ -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-surface-container">
+  <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+    <div class="text-xl font-bold tracking-tighter text-on-surface font-headline px-el" data-depth="0.5">SASA</div>
+    <div class="hidden md:flex items-center gap-10">
+      <a class="font-headline font-semibold text-primary border-b-2 border-primary pb-1" href="#">Our Story</a>
+      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="./diensten.html">Diensten</a>
+      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="#">Projecten</a>
+      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="./over-ons.html">Over ons</a>
+    </div>
+    <button class="btn-primary-gradient text-on-primary px-7 py-3 rounded-xl font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-95 transition-transform duration-200 px-el" data-depth="0.8">
+      Start Your Project
+    </button>
+  </div>
+</nav>
+
+<main class="pt-20">
+
+  <!-- ═══════════════ HERO ═══════════════════════════════ -->
+  <section class="bg-white overflow-hidden py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="flex flex-col md:flex-row items-center gap-16">
+
+        <div class="w-full md:w-3/5">
+          <h1 class="text-5xl md:text-8xl font-extrabold text-on-surface leading-[0.95] tracking-tighter mb-10 font-headline hero-anim hero-anim-1 px-el" data-depth="0.7">
+            Wij bouwen<br/>
+            <span class="text-primary italic text-rotate-wrap" id="tr-wrap">
+              <span class="text-rotate-inner" id="tr-inner">websites</span>
+            </span><br/>
+            die jou helpen groeien
+          </h1>
+
+          <p class="text-xl text-on-surface-variant leading-relaxed font-body hero-anim hero-anim-2 px-el" data-depth="0.5">
+            Wij willen elke startende ondernemer in Nederland de kans geven op
+            de online aanwezigheid die voor grote bedrijven vanzelfsprekend zijn,
+            voor een prijs die past bij waar ze nu staan
+          </p>
+
+          <div class="mt-12 flex items-center gap-8 hero-anim hero-anim-3 px-el" data-depth="0.6">
+            <button class="btn-primary-gradient text-on-primary px-10 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-4px] transition-transform duration-200">
+              Koffie doen?
+            </button>
+            <a class="text-on-surface font-bold text-lg hover:text-primary transition-colors flex items-center gap-2" href="#process">
+              Onze werkwijze <span class="material-symbols-outlined">arrow_downward</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full md:w-2/5 hero-anim hero-anim-4">
+          <div class="relative px-el" data-depth="1.6">
+            <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] blur-2xl -z-10"></div>
+            <img alt="SASA Founders"
+              class="w-full aspect-[4/5] object-cover rounded-[3rem] shadow-2xl"
+              src="hero.jpg"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ LOGO MARQUEE ════════════════════════ -->
+  <section class="bg-white border-y border-surface-container py-7 overflow-hidden" aria-hidden="true">
+    <!-- Row 1: left → right -->
+    <div class="overflow-hidden mb-3">
+      <div class="marquee-track">
+        <!-- set 1 -->
+        <span class="flex items-center gap-10 pr-10 text-sm font-black font-headline tracking-tighter text-on-surface/18">
+          <span>FINTECH</span><span class="text-primary text-xs">✦</span>
+          <span>MODERNIST</span><span class="text-primary text-xs">✦</span>
+          <span>LUMINA</span><span class="text-primary text-xs">✦</span>
+          <span>ORBIT.CO</span><span class="text-primary text-xs">✦</span>
+          <span>KINETIC</span><span class="text-primary text-xs">✦</span>
+          <span>NEXUS</span><span class="text-primary text-xs">✦</span>
+          <span>AURA</span><span class="text-primary text-xs">✦</span>
+          <span>VERDANT</span><span class="text-primary text-xs">✦</span>
+          <span>STELLAR</span><span class="text-primary text-xs">✦</span>
+          <span>VAULT</span><span class="text-primary text-xs">✦</span>
+        </span>
+        <!-- set 2 (duplicate for seamless loop) -->
+        <span class="flex items-center gap-10 pr-10 text-sm font-black font-headline tracking-tighter text-on-surface/18">
+          <span>FINTECH</span><span class="text-primary text-xs">✦</span>
+          <span>MODERNIST</span><span class="text-primary text-xs">✦</span>
+          <span>LUMINA</span><span class="text-primary text-xs">✦</span>
+          <span>ORBIT.CO</span><span class="text-primary text-xs">✦</span>
+          <span>KINETIC</span><span class="text-primary text-xs">✦</span>
+          <span>NEXUS</span><span class="text-primary text-xs">✦</span>
+          <span>AURA</span><span class="text-primary text-xs">✦</span>
+          <span>VERDANT</span><span class="text-primary text-xs">✦</span>
+          <span>STELLAR</span><span class="text-primary text-xs">✦</span>
+          <span>VAULT</span><span class="text-primary text-xs">✦</span>
+        </span>
+      </div>
+    </div>
+    <!-- Row 2: right → left (reverse, slightly smaller) -->
+    <div class="overflow-hidden">
+      <div class="marquee-track-rev">
+        <!-- set 1 -->
+        <span class="flex items-center gap-10 pr-10 text-xs font-bold font-headline tracking-widest uppercase text-on-surface/10">
+          <span>Web Design</span><span class="text-primary/50">·</span>
+          <span>AI Automatie</span><span class="text-primary/50">·</span>
+          <span>Branding</span><span class="text-primary/50">·</span>
+          <span>SEO</span><span class="text-primary/50">·</span>
+          <span>E-Commerce</span><span class="text-primary/50">·</span>
+          <span>Conversie</span><span class="text-primary/50">·</span>
+          <span>UX Design</span><span class="text-primary/50">·</span>
+          <span>Strategie</span><span class="text-primary/50">·</span>
+          <span>Analytics</span><span class="text-primary/50">·</span>
+          <span>Growth</span><span class="text-primary/50">·</span>
+        </span>
+        <!-- set 2 -->
+        <span class="flex items-center gap-10 pr-10 text-xs font-bold font-headline tracking-widest uppercase text-on-surface/10">
+          <span>Web Design</span><span class="text-primary/50">·</span>
+          <span>AI Automatie</span><span class="text-primary/50">·</span>
+          <span>Branding</span><span class="text-primary/50">·</span>
+          <span>SEO</span><span class="text-primary/50">·</span>
+          <span>E-Commerce</span><span class="text-primary/50">·</span>
+          <span>Conversie</span><span class="text-primary/50">·</span>
+          <span>UX Design</span><span class="text-primary/50">·</span>
+          <span>Strategie</span><span class="text-primary/50">·</span>
+          <span>Analytics</span><span class="text-primary/50">·</span>
+          <span>Growth</span><span class="text-primary/50">·</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WERKWIJZE ═══════════════════════════ -->
+  <section class="bg-surface-container-low py-32 px-8" id="process">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-20" id="process-header">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label reveal px-el" data-depth="0.4">SASA</span>
+        <h2 class="text-4xl md:text-6xl font-bold font-headline tracking-tight text-on-surface mb-8 reveal px-el" style="transition-delay:0.08s;" data-depth="0.6">Onze Werkwijze</h2>
+        <p class="text-on-surface-variant text-xl font-body max-w-2xl mx-auto reveal px-el" style="transition-delay:0.16s;" data-depth="0.4">
+          Wij helpen jouw bedrijf naar een hoger niveau te tillen, door jouw visie te vertalen
+          naar een website die passend is bij de situatie van een startende ondernemer zoals jij
+        </p>
+      </div>
+
+      <!-- Two-column: 65% funnel steps | 35% succes image -->
+      <div class="flex gap-12 items-start" id="process-perspective-wrap">
+
+        <!-- LEFT: funnel steps (65%) -->
+        <div class="w-[65%]" id="process-card">
+
+          <!-- Step 1 — full width -->
+          <div class="w-full reveal" >
+            <div class="bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="flex items-start gap-6">
+                <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
+                  <span class="text-4xl font-black font-headline text-primary/25 leading-none">01</span>
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
+                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">insights</span>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold font-headline mb-3 tracking-tight">Wat wil jij bereiken?</h3>
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Wat is het doel van jouw website? Wil je meer klanten aantrekken, vindbaar worden
+                    in de regio of een algehele verbetering van je huidige website? Op basis van jouw
+                    doelen, kijken we samen naar hoe we dit gaan bereiken.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Funnel connector 1→2 -->
+          <div class="flex pl-14 py-2">
+            <div class="flex flex-col items-center" style="width:40px;">
+              <div class="w-px flex-1 bg-gradient-to-b from-primary/40 to-primary/20" style="min-height:32px;"></div>
+              <div class="w-2 h-2 rounded-full bg-primary/40"></div>
+            </div>
+          </div>
+
+          <!-- Step 2 — 83% width -->
+          <div class="w-[83%] reveal" style="transition-delay:0.12s;">
+            <div class="bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="flex items-start gap-6">
+                <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
+                  <span class="text-4xl font-black font-headline text-primary/25 leading-none">02</span>
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
+                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">terminal</span>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold font-headline mb-3 tracking-tight">Bouwen</h3>
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Wij doen al het technische werk. Jij bepaalt of het bij je past. Pas als jij tevreden
+                    bent, zijn wij tevreden. We bouwen met de toekomst van jouw groei in gedachten.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Funnel connector 2→3 -->
+          <div class="flex pl-14 py-2" style="width:83%;">
+            <div class="flex flex-col items-center" style="width:40px;">
+              <div class="w-px flex-1 bg-gradient-to-b from-primary/30 to-primary/15" style="min-height:32px;"></div>
+              <div class="w-2 h-2 rounded-full bg-primary/30"></div>
+            </div>
+          </div>
+
+          <!-- Step 3 — 66% width -->
+          <div class="w-[66%] reveal" style="transition-delay:0.24s;">
+            <div class="bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="flex items-start gap-6">
+                <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
+                  <span class="text-4xl font-black font-headline text-primary/25 leading-none">03</span>
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
+                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">auto_graph</span>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold font-headline mb-3 tracking-tight">Groei</h3>
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Je website gaat live, maar wij gaan nergens heen. We meten wat werkt, optimaliseren
+                    door en blijven aan boord. Jij groeit, wij groeien mee naar het volgende niveau.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: succes image (35%) -->
+        <div class="w-[35%] sticky top-28 reveal" style="transition-delay:0.1s;">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5 block font-label">Succes</span>
+          <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl editorial-shadow" style="aspect-ratio:3/4;">
+            <img
+              alt="Succes"
+              class="w-full h-full object-cover"
+              src="https://placehold.co/600x800/9fe870/092100?text=Succes"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8">
+              <p class="text-white font-bold font-headline text-xl leading-snug">Van ambitie<br/>naar resultaat.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ ONZE EXPERTISE ══════════════════════ -->
+  <section class="bg-surface py-32 px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20 reveal px-el" data-depth="0.5">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label">Projecten</span>
+        <h2 class="text-5xl md:text-7xl font-bold font-headline tracking-tighter text-on-surface">Onze Expertise</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+
+        <div class="md:col-span-8 group relative min-h-[600px] overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" data-depth="0.9">
+          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            src="./sasa-img-1.jpeg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-16">
+            <span class="text-primary font-bold mb-4 font-label uppercase tracking-widest text-sm">SASA • 2025</span>
+            <h3 class="text-4xl md:text-5xl font-bold text-white font-headline leading-tight">Digital Masterpieces:<br/>SASA Agency</h3>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 flex flex-col gap-8">
+          <div class="flex-1 group relative overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.1s;" data-depth="1.2">
+            <img alt="Aura Lifestyle" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6fOrGAnE-aFnl81kqUMDJGphmfn7WgyhIWj0H513USPPAnSsxrB8Qsan5RiJmc_WvPe6pSEaJespszQ_aNZYKnVeOuOZrnBMJcRwPXoH4o72vh7rpXxy_SH6ydKrYSiuSrx98cmbs5P8jg6Njc2T6TN0_g_Qr-SqZwwGMg2-p_TVibaeLoVV-I2fFa7n1svfruUydg7e5YM5E5xAWGVj3TAG1kLZ0nKxsMn0IOWA3O3WRK1FKAejCnLZc7tlV9y9pqZDM7y5-TMc"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
+              <span class="text-primary font-bold mb-2 font-label uppercase tracking-widest text-xs">E-Commerce • 2023</span>
+              <h3 class="text-2xl font-bold text-white font-headline">Aura Lifestyle</h3>
+            </div>
+          </div>
+          <div class="flex-1 group relative overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.2s;" data-depth="1.0">
+            <img alt="Stellar Architecture" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyYtupAUWMgrITQWQHaiCKrzTOaADtn0uVMLjoP1giPL7mox53rdBd74upBcnRSnIPmj3HXlcL7WKezADob-c54izSoL_ttmJNGpr0yObmqHSbikiFSiyiOIX4rqhJ9ECcWejcMuXT6NnVLy55N3gVjy39PBmfmxj8jSupChj8DqWuKLbNu9Qzh0roWAdHF4S0CUPZUM1iA_YlpYYoHSCXTi7l7i-hnwpXC3RDZ1bycQeetKAA2MbXn9aPmNeN_vFOjyfFTf_GifU"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
+              <span class="text-primary font-bold mb-2 font-label uppercase tracking-widest text-xs">Architecture • 2024</span>
+              <h3 class="text-2xl font-bold text-white font-headline">Stellar Studio</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-12 group relative h-[500px] overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.15s;" data-depth="0.8">
+          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            src="./sasa-img-2.jpeg"/>
+          <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent flex flex-col justify-center p-16">
+            <div class="max-w-xl">
+              <span class="text-primary font-bold mb-4 font-label uppercase tracking-widest text-sm">SASA • 2025</span>
+              <h3 class="text-4xl md:text-5xl font-bold text-white font-headline mb-6">SASA Results</h3>
+              <p class="text-white/70 text-lg leading-relaxed">Groeiende online aanwezigheid voor Nederlandse ondernemers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KLANTEN ══════════════════════════════ -->
+  <section class="bg-surface-container-high py-32 px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col items-center text-center mb-20 reveal px-el" data-depth="0.5">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label">Klantverhalen</span>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tight text-on-surface max-w-2xl">Klanten aan het woord</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-surface-container-lowest p-12 rounded-[3rem] shadow-sm relative overflow-hidden group reveal px-el" data-depth="0.8">
+          <span class="material-symbols-outlined text-9xl text-primary/5 absolute -top-10 -right-10 select-none">format_quote</span>
+          <p class="text-2xl font-body text-on-surface leading-relaxed italic mb-12 relative z-10">
+            "Verdant Agency transformed our online presence. Their attention to detail and ability
+            to translate our complex vision into a seamless digital experience was unparalleled."
+          </p>
+          <div class="flex items-center gap-6">
+            <div class="w-20 h-20 rounded-2xl bg-surface-container overflow-hidden border-2 border-primary editorial-shadow">
+              <img alt="Client portrait" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH8U3jXcj3duP76D5n1WPWheNRg8hx5wKp6B-4NTogyIVcDSG9vM-NGQtWDPuKJMKKVJsPjS3zJ8UDCrp81Th_tIQ9_UEN6L-HsQgYt_VvH7YPQikCy3LLb_kOrVY1-ta0a1mtnncJhAandOjisR52pFw7pqC8OlfJoqLnCVwTmpLCF6Ff-Uc-SX3jTkgdse9VRDYQuizSjC0yRSipzoPUQv68u65IGegdKSGGpy9VHYs1u0UPdqK7jopKRPUql8rleUkacJ9GYZo"/>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-on-surface font-headline">Thomas Reith</h4>
+              <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest">CEO, Nexus Global</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface-container-lowest p-12 rounded-[3rem] shadow-sm relative overflow-hidden group reveal px-el" style="transition-delay:0.12s;" data-depth="0.8">
+          <span class="material-symbols-outlined text-9xl text-primary/5 absolute -top-10 -right-10 select-none">format_quote</span>
+          <p class="text-2xl font-body text-on-surface leading-relaxed italic mb-12 relative z-10">
+            "The team at Verdant doesn't just build websites; they build businesses. Our conversion
+            rates increased by 40% within three months of launching the new platform."
+          </p>
+          <div class="flex items-center gap-6">
+            <div class="w-20 h-20 rounded-2xl bg-surface-container overflow-hidden border-2 border-primary editorial-shadow">
+              <img alt="Client portrait" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtxCceMem_GKJ52F9C6owzysFQFhkBOgUxMsyPb-Gvpfi6H93cdpvZP_1Au0NBXOqe-8KPaRb8k0TZUo3tBLEhl2L5PQb1ZGmhwQ19aUmFEMZE2EoATKp00zbciB8AKIqeQMKRNsXY__VqoL2Z6aKjBrfPbYMYuW4ewC7dUyDmdVh_lR0zEoiRfVUC068aQbCeBlWo-mnhI0K6M2PWfCCaj461i-Sooflbzk2RZey1ppHgGeJA1gJeCQU8olPSOpK47bdpU6A-V9c"/>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-on-surface font-headline">Sarah Jenkins</h4>
+              <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest">Founder, Aura Collective</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-24 pt-12 flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 reveal px-el" style="transition-delay:0.2s;" data-depth="0.3">
+        <span class="text-2xl font-black font-headline tracking-tighter">FINTECH.</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">MODERNIST</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">LUMINA</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">ORBIT.CO</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">KINETIC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CTA ═══════════════════════════════ -->
+  <section class="py-32 px-8 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto rounded-[3rem] p-12 md:p-24 relative overflow-hidden text-center md:text-left cta-gradient-subtle reveal px-el" data-depth="0.5"
+      style="box-shadow:
+        0 40px 80px -10px rgba(159,232,112,0.65),
+        0 20px 40px rgba(0,0,0,0.14),
+        0 0 0 1px rgba(159,232,112,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.45);">
+      <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/25 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/6 to-transparent"></div>
+      <div class="relative z-10 max-w-3xl">
+        <h2 class="text-4xl md:text-7xl font-extrabold font-headline tracking-tighter mb-8 leading-tight text-on-primary">
+          Jouw start om te groeien begint hier!
+        </h2>
+        <p class="text-xl md:text-2xl font-body mb-12 max-w-xl text-on-primary/90">
+          Jouw ambities verdienen een website die dat laat zien. Plan een vrijblijvend
+          gesprek in en laten we samen groeien.
+        </p>
+        <div class="flex flex-col md:flex-row gap-6">
+          <button class="bg-on-primary text-primary px-12 py-6 rounded-2xl font-bold text-xl hover:translate-y-[-4px] transition-transform duration-200 px-el" data-depth="0.9"
+            style="box-shadow:0 8px 20px rgba(0,0,0,0.2), 0 20px 40px rgba(0,0,0,0.12);">
+            Kennismaking
+          </button>
+          <a href="./over-ons.html" class="border-2 border-on-primary/30 text-on-primary px-12 py-6 rounded-2xl font-bold text-xl hover:bg-on-primary/10 transition-colors duration-200 inline-block text-center">
+            Over ons
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════ FOOTER ════════════════════════════ -->
+<footer class="bg-white border-t border-surface-container py-20 px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+    <div class="mb-12 md:mb-0 px-el" data-depth="0.4">
+      <div class="text-2xl font-black text-on-surface mb-4 font-headline">SASA</div>
+      <p class="text-on-surface-variant max-w-xs font-body">Crafting high-impact digital experiences for Dutch entrepreneurs. Built with Precision.</p>
+    </div>
+    <div class="grid grid-cols-2 md:flex gap-16 md:gap-24">
+      <div class="flex flex-col gap-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 font-label">Links</span>
+        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="#">Home</a>
+        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="#">Process</a>
+        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="#">Expertise</a>
+      </div>
+      <div class="flex flex-col gap-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 font-label">Legal</span>
+        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Terms of Service</a>
+        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto border-t border-surface-container mt-16 pt-8">
+    <p class="text-slate-400 text-sm">© 2024 SASA. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════ SCRIPTS ═════ -->
+<script>
+/* ────────────────────────────────────────────────────────
+   1. ETHERAL SHADOW  — animate hue on all 3 filters
+      speed = 10-second rotation, offset each blob by 120°
+──────────────────────────────────────────────────────── */
+(function () {
+  const ha = document.getElementById('eh-a');
+  const hb = document.getElementById('eh-b');
+  const hc = document.getElementById('eh-c');
+  if (!ha) return;
+
+  const DEG_PER_MS = 360 / (10 * 1000); // 10 s full rotation
+  let hue = 0, last = null;
+
+  function tick(ts) {
+    if (last !== null) {
+      hue = (hue + DEG_PER_MS * (ts - last)) % 360;
+      ha.setAttribute('values', String(hue));
+      hb.setAttribute('values', String((hue + 120) % 360));
+      hc.setAttribute('values', String((hue + 240) % 360));
+    }
+    last = ts;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ────────────────────────────────────────────────────────
+   2. TEXT ROTATE  — 'websites' ↔ 'AI-automations'
+──────────────────────────────────────────────────────── */
+(function () {
+  const words = ['websites', 'AI-automations'];
+  const inner = document.getElementById('tr-inner');
+  if (!inner) return;
+
+  let idx = 0;
+
+  function rotate() {
+    inner.classList.remove('tr-enter');
+    inner.classList.add('tr-exit');
+    setTimeout(() => {
+      idx = (idx + 1) % words.length;
+      inner.textContent = words[idx];
+      inner.classList.remove('tr-exit');
+      void inner.offsetWidth; // force reflow to restart animation
+      inner.classList.add('tr-enter');
+    }, 420);
+  }
+
+  // First rotation earlier so 'websites' isn't on screen disproportionately longer
+  setTimeout(() => { rotate(); setInterval(rotate, 2800); }, 2400);
+})();
+
+/* ────────────────────────────────────────────────────────
+   3. CONTAINER SCROLL (Werkwijze)  — 3-D tilt on scroll
+──────────────────────────────────────────────────────── */
+(function () {
+  const section = document.getElementById('process');
+  const card    = document.getElementById('process-card');
+  const header  = document.getElementById('process-header');
+  if (!section || !card) return;
+
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+  function onScroll() {
+    const rect = section.getBoundingClientRect();
+    const vh   = window.innerHeight;
+    const sh   = section.offsetHeight;
+    const prog = clamp((vh - rect.top) / (sh * 0.7), 0, 1);
+
+    card.style.transform = `perspective(1200px) rotateX(${18 * (1 - prog)}deg) scale(${1 + 0.06 * (1 - prog)})`;
+    if (header) header.style.transform = `translateY(${clamp(-prog * 40, -40, 0)}px)`;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ────────────────────────────────────────────────────────
+   4. PARALLAX MOUSE  — moves .px-el elements based on
+      data-depth and mouse position (Floating component
+      equivalent, using CSS `translate` so it stacks
+      cleanly on top of any existing transforms).
+──────────────────────────────────────────────────────── */
+(function () {
+  const SENSITIVITY  = 1.1;   // overall strength
+  const EASING       = 0.10;  // spring smoothness (lower = lazier)
+
+  let mouseX = 0, mouseY = 0;
+  const items = [];
+
+  // Collect all parallax elements
+  document.querySelectorAll('.px-el[data-depth]').forEach(el => {
+    items.push({ el, depth: parseFloat(el.dataset.depth || '1'), x: 0, y: 0 });
+  });
+
+  // Update mouse position (relative to viewport centre)
+  window.addEventListener('mousemove', e => {
+    mouseX = e.clientX - window.innerWidth  / 2;
+    mouseY = e.clientY - window.innerHeight / 2;
+  }, { passive: true });
+
+  // Animation loop
+  function loop() {
+    items.forEach(item => {
+      const strength = (item.depth * SENSITIVITY) / 20;
+      const tx = mouseX * strength;
+      const ty = mouseY * strength;
+
+      item.x += (tx - item.x) * EASING;
+      item.y += (ty - item.y) * EASING;
+
+      // CSS `translate` is independent of `transform` — no conflicts
+      item.el.style.translate = `${item.x.toFixed(2)}px ${item.y.toFixed(2)}px`;
+    });
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+/* ────────────────────────────────────────────────────────
+   5. SCROLL REVEAL  — IntersectionObserver
+──────────────────────────────────────────────────────── */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+
+</body></html>
