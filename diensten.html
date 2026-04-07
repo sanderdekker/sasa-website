@@ -89,11 +89,29 @@
   /* ── Scroll reveal ───────────────────────────────── */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
-                transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    transform: translateY(16px);
+    transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+                transform 0.6s cubic-bezier(0.16,1,0.3,1);
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Nav link underline ───────────────────────────── */
+  .nav-link {
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 1.5px;
+    background: #7bd345;
+    transition: width 0.2s ease;
+    border-radius: 2px;
+  }
+  .nav-link:hover::after { width: 100%; }
+  :focus-visible { outline: 2px solid #7bd345; outline-offset: 2px; border-radius: 4px; }
+  .px-el { will-change: translate; }
 
   /* ── Hero entrance ───────────────────────────────── */
   @keyframes fadeSlideUp {
@@ -114,37 +132,79 @@
 </head>
 
 <body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
-
+<!-- Ethereal shadow -->
+<div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;">
+  <svg style="position:absolute;width:0;height:0;overflow:hidden;"><defs>
+    <filter id="ef-a" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.0014,0.0048" numOctaves="2" seed="3" result="u"/><feColorMatrix in="u" type="hueRotate" values="0" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="120" result="d"/><feDisplacementMap in="d" in2="u" scale="120"/></filter>
+    <filter id="ef-b" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.0019,0.006" numOctaves="2" seed="11" result="u"/><feColorMatrix in="u" type="hueRotate" values="120" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="95" result="d"/><feDisplacementMap in="d" in2="u" scale="95"/></filter>
+    <filter id="ef-c" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.001,0.0035" numOctaves="2" seed="17" result="u"/><feColorMatrix in="u" type="hueRotate" values="240" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="110" result="d"/><feDisplacementMap in="d" in2="u" scale="110"/></filter>
+  </defs></svg>
+  <div style="position:absolute;width:75vw;height:75vh;top:-20%;left:-15%;filter:url(#ef-a) blur(12px);"><div style="background:rgba(159,232,112,0.28);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;width:65vw;height:65vh;top:-10%;right:-20%;filter:url(#ef-b) blur(14px);"><div style="background:rgba(172,246,124,0.22);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;width:90vw;height:80vh;bottom:-25%;left:5%;filter:url(#ef-c) blur(16px);"><div style="background:rgba(145,217,99,0.25);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;inset:0;background-image:url('https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png');background-size:180px;background-repeat:repeat;opacity:0.04;"></div>
+</div>
 <!-- ═══════════════ NAV ═══════════════════════════════ -->
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-surface-container">
   <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
-    <a href="./index.html" class="text-xl font-bold tracking-tighter text-on-surface font-headline hover:text-primary transition-colors">SASA</a>
+    <a href="./index.html" class="text-xl font-black tracking-tighter text-on-surface font-headline">SASA</a>
     <div class="hidden md:flex items-center gap-10">
-      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="./index.html">Our Story</a>
-      <a class="font-headline font-semibold text-primary border-b-2 border-primary pb-1" href="./diensten.html">Diensten</a>
-      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="#">Projecten</a>
-      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="./over-ons.html">Over ons</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./index.html">Home</a>
+      <a class="font-headline font-semibold text-[#7bd345] border-b-2 border-[#7bd345] pb-1" href="./diensten.html">Diensten</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./projecten.html">Projecten</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./over-ons.html">Over ons</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./blog.html">Blog &amp; artikelen</a>
     </div>
-    <button class="btn-primary-gradient text-on-primary px-7 py-3 rounded-xl font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-95 transition-transform duration-200">
-      Start Your Project
-    </button>
+    <div class="flex items-center gap-3">
+      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2">
+        Kennismaking
+      </a>
+      <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors focus-visible:ring-2 focus-visible:ring-[#7bd345]" aria-label="Menu openen" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobiel menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-surface-container px-8 py-6">
+    <div class="flex flex-col gap-1">
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./index.html">Home</a>
+      <a class="font-headline font-semibold text-[#7bd345] py-3 border-b border-surface-container-low" href="./diensten.html">Diensten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./projecten.html">Projecten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./over-ons.html">Over ons</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./blog.html">Blog &amp; artikelen</a>
+      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">Kennismaking</a>
+    </div>
   </div>
 </nav>
+<script>
+(function() {
+  var toggle = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      var isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', !isOpen);
+      toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+    });
+  }
+})();
+</script>
 
 <main class="pt-20">
 
   <!-- ═══════════════ HERO ═══════════════════════════════ -->
   <section class="relative overflow-hidden bg-mesh py-32 lg:py-44">
     <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container mb-6 hero-anim hero-anim-1">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container mb-6 hero-anim hero-anim-1 px-el" data-depth="0.9">
         <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">eco</span>
         <span class="text-xs font-bold tracking-wider uppercase font-label">Resultaatgerichte Dienstverlening</span>
       </div>
-      <h1 class="font-headline text-6xl md:text-8xl font-extrabold text-on-background tracking-tight leading-[1.0] mb-8 hero-anim hero-anim-2">
+      <h1 class="font-headline text-6xl md:text-8xl font-extrabold text-on-background tracking-tight leading-[1.0] mb-8 hero-anim hero-anim-2 px-el" data-depth="0.5">
         High-Performance<br/>
         <span class="text-primary">Digital Foundations</span>
       </h1>
-      <p class="max-w-2xl mx-auto text-on-surface-variant text-lg md:text-xl leading-relaxed hero-anim hero-anim-3">
+      <p class="max-w-2xl mx-auto text-on-surface-variant text-lg md:text-xl leading-relaxed hero-anim hero-anim-3 px-el" data-depth="0.3">
         Wij bouwen razendsnel, op maat gemaakte websites die jouw conversies maximaliseren. Persoonlijk, ambitieus en altijd gericht op groei.
       </p>
     </div>
@@ -165,7 +225,7 @@
       <div class="grid lg:grid-cols-3 gap-8 items-start">
 
         <!-- Core -->
-        <div class="bg-white p-10 rounded-[2rem] pricing-shadow border border-slate-100 flex flex-col transition-transform hover:-translate-y-2 duration-300 reveal">
+        <div class="bg-white p-10 rounded-[2rem] pricing-shadow border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300 reveal px-el" data-depth="0.4">
           <div class="mb-8">
             <div class="flex items-center gap-2 mb-4">
               <span class="material-symbols-outlined text-primary font-bold">bolt</span>
@@ -202,7 +262,7 @@
         </div>
 
         <!-- Advanced (Featured) -->
-        <div class="pricing-featured p-10 rounded-[2rem] pricing-shadow border-2 border-primary/40 flex flex-col relative transition-transform hover:-translate-y-2 duration-300 lg:scale-105 z-10 reveal">
+        <div class="pricing-featured p-10 rounded-[2rem] pricing-shadow border-2 border-primary/40 flex flex-col relative transition-transform hover:-translate-y-1 duration-300 lg:scale-105 z-10 reveal px-el" data-depth="0.65">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-6 py-1.5 rounded-full text-xs font-black tracking-widest uppercase"
             style="box-shadow: 0 4px 16px rgba(159,232,112,0.4);">
             Meest Gekozen
@@ -245,7 +305,7 @@
         </div>
 
         <!-- Enterprise -->
-        <div class="bg-white p-10 rounded-[2rem] pricing-shadow border border-slate-100 flex flex-col transition-transform hover:-translate-y-2 duration-300 reveal">
+        <div class="bg-white p-10 rounded-[2rem] pricing-shadow border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300 reveal px-el" data-depth="0.35">
           <div class="mb-8">
             <div class="flex items-center gap-2 mb-4">
               <span class="material-symbols-outlined text-primary font-bold">business</span>
@@ -368,7 +428,7 @@
 
         <!-- Step 1 -->
         <div class="relative bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20 hover:border-primary/40 transition-colors duration-300 group z-10 reveal">
-          <div class="w-16 h-16 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+          <div class="w-16 h-16 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300"
             style="box-shadow: 0 4px 16px rgba(172,246,124,0.4);">
             <span class="material-symbols-outlined text-on-primary text-3xl">lightbulb</span>
           </div>
@@ -380,7 +440,7 @@
 
         <!-- Step 2 -->
         <div class="relative bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20 hover:border-primary/40 transition-colors duration-300 group z-10 md:mt-12 reveal">
-          <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+          <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300"
             style="box-shadow: 0 4px 16px rgba(159,232,112,0.4);">
             <span class="material-symbols-outlined text-on-primary text-3xl">code</span>
           </div>
@@ -392,7 +452,7 @@
 
         <!-- Step 3 -->
         <div class="relative bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20 hover:border-primary/40 transition-colors duration-300 group z-10 reveal">
-          <div class="w-16 h-16 bg-secondary-fixed rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+          <div class="w-16 h-16 bg-secondary-fixed rounded-2xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300"
             style="box-shadow: 0 4px 16px rgba(208,232,220,0.6);">
             <span class="material-symbols-outlined text-secondary text-3xl">trending_up</span>
           </div>
@@ -426,7 +486,7 @@
           <span class="font-bold text-on-surface font-label">100% Green Hosting</span>
         </div>
       </div>
-      <button class="btn-primary-gradient text-on-primary px-12 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-2px] active:scale-95 transition-transform duration-200">
+      <button class="btn-primary-gradient text-on-primary px-12 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200">
         Start een gesprek
       </button>
     </div>
@@ -435,29 +495,34 @@
 </main>
 
 <!-- ═══════════════ FOOTER ════════════════════════════ -->
-<footer class="bg-white border-t border-surface-container py-20 px-8">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
-    <div class="mb-12 md:mb-0">
-      <div class="text-2xl font-black text-on-surface mb-4 font-headline">SASA</div>
-      <p class="text-on-surface-variant max-w-xs font-body">Crafting high-impact digital experiences for Dutch entrepreneurs. Built with Precision.</p>
+<footer class="bg-[#1A2E26] w-full">
+  <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start gap-8">
+    <div class="space-y-2">
+      <div class="text-xl font-bold text-white font-headline">SASA</div>
+      <p class="text-slate-400 text-sm max-w-xs font-body">Digitale ervaringen met impact voor Nederlandse ondernemers.</p>
     </div>
-    <div class="grid grid-cols-2 md:flex gap-16 md:gap-24">
-      <div class="flex flex-col gap-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 font-label">Links</span>
-        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="./index.html">Home</a>
-        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="./diensten.html">Diensten</a>
-        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="#">Projecten</a>
-      </div>
-      <div class="flex flex-col gap-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 font-label">Legal</span>
-        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
-        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Terms of Service</a>
-        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Contact</a>
-      </div>
+    <div class="flex flex-wrap gap-6 font-body text-sm">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./index.html">Home</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./diensten.html">Diensten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./projecten.html">Projecten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./over-ons.html">Over ons</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./blog.html">Blog &amp; artikelen</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./kennismaking.html">Kennismaking</a>
+    </div>
+    <div class="flex gap-6 font-body text-sm font-semibold">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">LinkedIn</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">Instagram</a>
     </div>
   </div>
-  <div class="max-w-7xl mx-auto border-t border-surface-container mt-16 pt-8">
-    <p class="text-slate-400 text-sm">© 2024 SASA. All rights reserved.</p>
+  <div class="border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 font-body text-sm">
+      <p class="text-slate-500">© 2024 SASA. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Privacybeleid</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Algemene voorwaarden</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Cookiebeleid</a>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -476,6 +541,9 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   els.forEach(el => io.observe(el));
 })();
+</script>
+<script>
+(function(){var S=0.3,E=0.10,mx=0,my=0,items=[];document.querySelectorAll('.px-el[data-depth]').forEach(function(el){items.push({el:el,depth:parseFloat(el.dataset.depth||'1'),x:0,y:0});});window.addEventListener('mousemove',function(e){mx=e.clientX-innerWidth/2;my=e.clientY-innerHeight/2;},{passive:true});function loop(){items.forEach(function(i){var s=(i.depth*S)/20,tx=mx*s,ty=my*s;i.x+=(tx-i.x)*E;i.y+=(ty-i.y)*E;i.el.style.translate=i.x.toFixed(2)+'px '+i.y.toFixed(2)+'px';});requestAnimationFrame(loop);}requestAnimationFrame(loop);})();
 </script>
 </body>
 </html>

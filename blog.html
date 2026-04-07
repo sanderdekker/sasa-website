@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog &amp; artikelen | SASA</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#707a67",
+                    "surface-container": "#eceeef",
+                    "tertiary-fixed": "#ffd8e7",
+                    "inverse-on-surface": "#eff1f2",
+                    "on-surface": "#191c1d",
+                    "on-secondary-fixed-variant": "#374b42",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-tint": "#2e6c00",
+                    "on-primary-fixed-variant": "#215100",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#83dc4d",
+                    "secondary-fixed": "#d0e8dc",
+                    "surface-container-high": "#e6e8e9",
+                    "secondary-container": "#d0e8dc",
+                    "surface-variant": "#e1e3e4",
+                    "surface-bright": "#f8fafb",
+                    "inverse-primary": "#83dc4d",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f8fafb",
+                    "on-primary-fixed": "#092100",
+                    "inverse-surface": "#2e3132",
+                    "tertiary-container": "#ffa1cd",
+                    "secondary-fixed-dim": "#b5ccc0",
+                    "on-surface-variant": "#404a38",
+                    "tertiary": "#91446c",
+                    "primary-fixed": "#9ef966",
+                    "on-background": "#191c1d",
+                    "background": "#f8fafb",
+                    "primary": "#2e6c00",
+                    "on-tertiary-fixed-variant": "#752d53",
+                    "on-tertiary-fixed": "#3d0026",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c0cab3",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "secondary": "#4e6359",
+                    "on-secondary-fixed": "#0b1f18",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#54695f",
+                    "primary-container": "#7bd345",
+                    "tertiary-fixed-dim": "#ffafd3",
+                    "on-primary-container": "#245800",
+                    "surface-container-low": "#f2f4f5",
+                    "surface-dim": "#d8dadb",
+                    "on-tertiary-container": "#7b3359"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -2px; left: 0;
+            width: 0; height: 1.5px; background: #7bd345;
+            border-radius: 2px; transition: width 0.2s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        :focus-visible { outline: 2px solid #7bd345; outline-offset: 2px; border-radius: 4px; }
+        .px-el { will-change: translate; }
+        .btn-primary-gradient { background: linear-gradient(135deg, #d0f7aa 0%, #9fe870 45%, #7ad444 100%); }
+        .btn-primary-gradient:hover { background: linear-gradient(135deg, #dafab8 0%, #aaed7e 45%, #84de50 100%); }
+        .btn-deep-shadow { box-shadow: 0 4px 6px rgba(0,0,0,0.14), 0 12px 28px -6px rgba(159,232,112,0.65), 0 24px 48px -12px rgba(0,0,0,0.18); }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- Ethereal shadow -->
+<div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;">
+  <svg style="position:absolute;width:0;height:0;overflow:hidden;"><defs>
+    <filter id="ef-a" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.0014,0.0048" numOctaves="2" seed="3" result="u"/><feColorMatrix in="u" type="hueRotate" values="0" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="120" result="d"/><feDisplacementMap in="d" in2="u" scale="120"/></filter>
+    <filter id="ef-b" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.0019,0.006" numOctaves="2" seed="11" result="u"/><feColorMatrix in="u" type="hueRotate" values="120" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="95" result="d"/><feDisplacementMap in="d" in2="u" scale="95"/></filter>
+    <filter id="ef-c" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.001,0.0035" numOctaves="2" seed="17" result="u"/><feColorMatrix in="u" type="hueRotate" values="240" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="110" result="d"/><feDisplacementMap in="d" in2="u" scale="110"/></filter>
+  </defs></svg>
+  <div style="position:absolute;width:75vw;height:75vh;top:-20%;left:-15%;filter:url(#ef-a) blur(12px);"><div style="background:rgba(159,232,112,0.28);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;width:65vw;height:65vh;top:-10%;right:-20%;filter:url(#ef-b) blur(14px);"><div style="background:rgba(172,246,124,0.22);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;width:90vw;height:80vh;bottom:-25%;left:5%;filter:url(#ef-c) blur(16px);"><div style="background:rgba(145,217,99,0.25);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;inset:0;background-image:url('https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png');background-size:180px;background-repeat:repeat;opacity:0.04;"></div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-surface-container">
+  <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+    <a href="./index.html" class="text-xl font-black tracking-tighter text-on-surface font-headline">SASA</a>
+    <div class="hidden md:flex items-center gap-10">
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./index.html">Home</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./diensten.html">Diensten</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./projecten.html">Projecten</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./over-ons.html">Over ons</a>
+      <a class="font-headline font-semibold text-[#7bd345] border-b-2 border-[#7bd345] pb-1" href="./blog.html">Blog &amp; artikelen</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2">
+        Kennismaking
+      </a>
+      <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Menu openen" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobiel menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-surface-container px-8 py-6">
+    <div class="flex flex-col gap-1">
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./index.html">Home</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./diensten.html">Diensten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./projecten.html">Projecten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./over-ons.html">Over ons</a>
+      <a class="font-headline font-semibold text-[#7bd345] py-3 border-b border-slate-100" href="./blog.html">Blog &amp; artikelen</a>
+      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">Kennismaking</a>
+    </div>
+  </div>
+</nav>
+<script>
+(function() {
+  var toggle = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      var isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', !isOpen);
+      toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+    });
+  }
+})();
+</script>
+<main class="max-w-7xl mx-auto px-8 pt-32 pb-20">
+<!-- Header & Category Filter -->
+<header class="mb-16">
+<h1 class="text-5xl md:text-6xl font-extrabold text-on-surface mb-8 tracking-tight px-el" data-depth="0.5">Blog &amp; artikelen</h1>
+<div class="flex flex-wrap gap-3" id="category-filters">
+<button data-filter="alles" class="filter-btn px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-bold text-sm transition-all shadow-sm active-filter">Alles</button>
+<button data-filter="marketing" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Marketing Tips</button>
+<button data-filter="strategie" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Bedrijfsstrategie</button>
+<button data-filter="groei" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Groei</button>
+<button data-filter="design" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Creative Direction</button>
+<button data-filter="tech" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Tech Stack</button>
+</div>
+</header>
+<!-- Featured Section (Bento Inspired) -->
+<section class="mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<!-- Featured Image -->
+<div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl group relative px-el" data-depth="0.35">
+<img alt="Featured artikel" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" src="https://placehold.co/900x500"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+</div>
+<!-- Featured Content -->
+<div class="lg:col-span-5 flex flex-col justify-center px-4 lg:px-8 px-el" data-depth="0.6">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/30 text-primary font-bold text-xs uppercase tracking-widest mb-6 w-fit">
+                        Nieuws
+                    </div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-on-surface">Digitale excellentie in een AI-gedreven wereld</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        Ontdek hoe SASA traditionele marketingprocessen hertekent door generatieve AI te combineren met mensgerichte creatieve richting voor een ongekend resultaat.
+                    </p>
+<div class="flex items-center gap-4 mb-10">
+<img alt="Auteur" class="w-12 h-12 rounded-full object-cover border-2 border-primary-container" src="https://placehold.co/48x48"/>
+<div>
+<p class="font-bold text-on-surface">Sarah Janssen</p>
+<p class="text-sm text-on-surface-variant">Directeur Strategie • 8 min lezen</p>
+</div>
+</div>
+<button class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
+                        Lees meer
+                        <span class="material-symbols-outlined font-bold">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Latest Insights Section -->
+<section>
+<div class="flex items-center justify-between mb-12">
+<h3 class="text-3xl font-bold tracking-tight">Laatste inzichten en trends</h3>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<article class="group cursor-pointer px-el" data-category="marketing" data-depth="0.4">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
+<img alt="Inzicht 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mb-3">24 mrt 2024 • Marketing</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">De verschuiving naar zero-party data: Waarom privacy-first marketing wint</h4>
+</article>
+<!-- Card 2 -->
+<article class="group cursor-pointer px-el" data-category="strategie" data-depth="0.55">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
+<img alt="Inzicht 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mb-3">21 mrt 2024 • Strategie</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Navigeren in de nieuwe normale: hybride werkcultuur bij creatieve bureaus</h4>
+</article>
+<!-- Card 3 -->
+<article class="group cursor-pointer px-el" data-category="tech" data-depth="0.35">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
+<img alt="Inzicht 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mb-3">18 mrt 2024 • Tech</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Bouwen voor morgen: Waarom Web3 nog steeds belangrijk is voor merkbetrokkenheid</h4>
+</article>
+<!-- Card 4 -->
+<article class="group cursor-pointer px-el" data-category="design" data-depth="0.5">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
+<img alt="Inzicht 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mb-3">15 mrt 2024 • Design</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Visueel storytelling: De 2024 gids voor meeslepende merkidentiteiten</h4>
+</article>
+<!-- Card 5 -->
+<article class="group cursor-pointer px-el" data-category="groei" data-depth="0.45">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
+<img alt="Inzicht 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mb-3">12 mrt 2024 • Groei</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Conversieoptimalisatie: Kleine aanpassingen die enorme resultaten opleveren</h4>
+</article>
+<!-- Subscribe Card (Bento Style) -->
+<div class="bg-[#1A2E26] rounded-xl p-8 flex flex-col justify-between text-white shadow-xl relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary opacity-20 blur-3xl rounded-full"></div>
+<div>
+<h4 class="text-2xl font-bold mb-4">Blijf voorop lopen</h4>
+<p class="text-slate-300 mb-8">Ontvang onze wekelijkse samenvatting van de meest impactvolle trends in digitale strategie en tech.</p>
+</div>
+<div class="space-y-4">
+<input class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Jouw e-mailadres" type="email"/>
+<button class="w-full py-3 rounded-lg bg-primary text-on-primary font-bold hover:bg-primary-fixed transition-colors">Nu inschrijven</button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="mt-24 py-16 px-8 rounded-full bg-surface-container-low border border-outline-variant/30 text-center relative overflow-hidden">
+<div class="max-w-2xl mx-auto relative z-10">
+<h3 class="text-3xl font-bold mb-4">Klaar om jouw project te starten?</h3>
+<p class="text-on-surface-variant mb-8 text-lg">Laten we samen iets bijzonders bouwen. Ons team staat klaar om jouw visie te verwezenlijken.</p>
+<a href="./kennismaking.html" class="bg-[#1A2E26] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-800 transition-all shadow-xl inline-block">Plan een kennismaking</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1A2E26] w-full">
+  <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start gap-8">
+    <div class="space-y-2">
+      <div class="text-xl font-bold text-white font-headline">SASA</div>
+      <p class="text-slate-400 text-sm max-w-xs font-body">Digitale ervaringen met impact voor Nederlandse ondernemers.</p>
+    </div>
+    <div class="flex flex-wrap gap-6 font-body text-sm">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./index.html">Home</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./diensten.html">Diensten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./projecten.html">Projecten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./over-ons.html">Over ons</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./blog.html">Blog &amp; artikelen</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./kennismaking.html">Kennismaking</a>
+    </div>
+    <div class="flex gap-6 font-body text-sm font-semibold">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">LinkedIn</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">Instagram</a>
+    </div>
+  </div>
+  <div class="border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 font-body text-sm">
+      <p class="text-slate-500">© 2024 SASA. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Privacybeleid</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Algemene voorwaarden</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Cookiebeleid</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function() {
+  var filters = document.querySelectorAll('.filter-btn');
+  var articles = document.querySelectorAll('[data-category]');
+  var activeClass = ['bg-primary-container', 'text-on-primary-container', 'font-bold', 'shadow-sm'];
+  var inactiveClass = ['bg-surface-container-low', 'text-on-surface-variant', 'font-semibold', 'hover:bg-surface-container-high'];
+
+  filters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = btn.getAttribute('data-filter');
+
+      // Update button styles
+      filters.forEach(function(b) {
+        activeClass.forEach(function(c) { b.classList.remove(c); });
+        inactiveClass.forEach(function(c) { b.classList.add(c); });
+      });
+      inactiveClass.forEach(function(c) { btn.classList.remove(c); });
+      activeClass.forEach(function(c) { btn.classList.add(c); });
+
+      // Show/hide articles
+      articles.forEach(function(card) {
+        if (filter === 'alles' || card.getAttribute('data-category') === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){var S=0.3,E=0.10,mx=0,my=0,items=[];document.querySelectorAll('.px-el[data-depth]').forEach(function(el){items.push({el:el,depth:parseFloat(el.dataset.depth||'1'),x:0,y:0});});window.addEventListener('mousemove',function(e){mx=e.clientX-innerWidth/2;my=e.clientY-innerHeight/2;},{passive:true});function loop(){items.forEach(function(i){var s=(i.depth*S)/20,tx=mx*s,ty=my*s;i.x+=(tx-i.x)*E;i.y+=(ty-i.y)*E;i.el.style.translate=i.x.toFixed(2)+'px '+i.y.toFixed(2)+'px';});requestAnimationFrame(loop);}requestAnimationFrame(loop);})();
+</script>
+</body></html>

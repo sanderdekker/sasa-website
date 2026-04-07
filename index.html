@@ -113,10 +113,46 @@
   /* ── Scroll reveal ────────────────────────────────── */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    transform: translateY(16px);
+    transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Card lift on hover ───────────────────────────── */
+  .card-lift {
+    transition: transform 0.25s cubic-bezier(0.16,1,0.3,1),
+                box-shadow 0.25s cubic-bezier(0.16,1,0.3,1);
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -6px rgba(0,0,0,0.1),
+                0 4px 12px -4px rgba(0,0,0,0.06),
+                0 0 0 1px rgba(159,232,112,0.08);
+  }
+
+  /* ── Subtle image zoom ────────────────────────────── */
+  .img-zoom { overflow: hidden; }
+  .img-zoom img {
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .img-zoom:hover img { transform: scale(1.03); }
+
+  /* ── Nav link underline ───────────────────────────── */
+  .nav-link {
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 1.5px;
+    background: #7bd345;
+    transition: width 0.2s ease;
+    border-radius: 2px;
+  }
+  .nav-link:hover::after { width: 100%; }
+  :focus-visible { outline: 2px solid #7bd345; outline-offset: 2px; border-radius: 4px; }
 
   /* ── ContainerScroll (werkwijze) ──────────────────── */
   #process-perspective-wrap { perspective: 1200px; transform-style: preserve-3d; }
@@ -261,18 +297,49 @@
 <!-- ═══════════════ NAV ═══════════════════════════════ -->
 <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-surface-container">
   <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
-    <div class="text-xl font-bold tracking-tighter text-on-surface font-headline px-el" data-depth="0.5">SASA</div>
+    <a href="./index.html" class="text-xl font-black tracking-tighter text-on-surface font-headline">SASA</a>
     <div class="hidden md:flex items-center gap-10">
-      <a class="font-headline font-semibold text-primary border-b-2 border-primary pb-1" href="#">Our Story</a>
-      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="./diensten.html">Diensten</a>
-      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="#">Projecten</a>
-      <a class="font-headline font-semibold text-slate-500 hover:text-primary transition-colors" href="./over-ons.html">Over ons</a>
+      <a class="font-headline font-semibold text-[#7bd345] border-b-2 border-[#7bd345] pb-1" href="./index.html">Home</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./diensten.html">Diensten</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./projecten.html">Projecten</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./over-ons.html">Over ons</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./blog.html">Blog &amp; artikelen</a>
     </div>
-    <button class="btn-primary-gradient text-on-primary px-7 py-3 rounded-xl font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-95 transition-transform duration-200 px-el" data-depth="0.8">
-      Start Your Project
-    </button>
+    <div class="flex items-center gap-3">
+      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2">
+        Kennismaking
+      </a>
+      <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors focus-visible:ring-2 focus-visible:ring-[#7bd345]" aria-label="Menu openen" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobiel menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-surface-container px-8 py-6">
+    <div class="flex flex-col gap-1">
+      <a class="font-headline font-semibold text-[#7bd345] py-3 border-b border-surface-container-low" href="./index.html">Home</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./diensten.html">Diensten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./projecten.html">Projecten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./over-ons.html">Over ons</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="./blog.html">Blog &amp; artikelen</a>
+      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">Kennismaking</a>
+    </div>
   </div>
 </nav>
+<script>
+(function() {
+  var toggle = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      var isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', !isOpen);
+      toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+    });
+  }
+})();
+</script>
 
 <main class="pt-20">
 
@@ -296,8 +363,8 @@
             voor een prijs die past bij waar ze nu staan
           </p>
 
-          <div class="mt-12 flex items-center gap-8 hero-anim hero-anim-3 px-el" data-depth="0.6">
-            <button class="btn-primary-gradient text-on-primary px-10 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-4px] transition-transform duration-200">
+          <div class="mt-12 flex items-center gap-8 hero-anim hero-anim-3">
+            <button class="btn-primary-gradient text-on-primary px-10 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200">
               Koffie doen?
             </button>
             <a class="text-on-surface font-bold text-lg hover:text-primary transition-colors flex items-center gap-2" href="#process">
@@ -406,7 +473,7 @@
 
           <!-- Step 1 — full width -->
           <div class="w-full reveal" >
-            <div class="bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="card-lift bg-white rounded-[2rem] p-8 shadow-lg">
               <div class="flex items-start gap-6">
                 <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
                   <span class="text-4xl font-black font-headline text-primary/25 leading-none">01</span>
@@ -436,7 +503,7 @@
 
           <!-- Step 2 — 83% width -->
           <div class="w-[83%] reveal" style="transition-delay:0.12s;">
-            <div class="bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="card-lift bg-white rounded-[2rem] p-8 shadow-lg">
               <div class="flex items-start gap-6">
                 <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
                   <span class="text-4xl font-black font-headline text-primary/25 leading-none">02</span>
@@ -465,7 +532,7 @@
 
           <!-- Step 3 — 66% width -->
           <div class="w-[66%] reveal" style="transition-delay:0.24s;">
-            <div class="bg-white rounded-[2rem] p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="card-lift bg-white rounded-[2rem] p-8 shadow-lg">
               <div class="flex items-start gap-6">
                 <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
                   <span class="text-4xl font-black font-headline text-primary/25 leading-none">03</span>
@@ -517,7 +584,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 
         <div class="md:col-span-8 group relative min-h-[600px] overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" data-depth="0.9">
-          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
             src="./sasa-img-1.jpeg"/>
           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-16">
             <span class="text-primary font-bold mb-4 font-label uppercase tracking-widest text-sm">SASA • 2025</span>
@@ -527,7 +594,7 @@
 
         <div class="md:col-span-4 flex flex-col gap-8">
           <div class="flex-1 group relative overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.1s;" data-depth="1.2">
-            <img alt="Aura Lifestyle" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            <img alt="Aura Lifestyle" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6fOrGAnE-aFnl81kqUMDJGphmfn7WgyhIWj0H513USPPAnSsxrB8Qsan5RiJmc_WvPe6pSEaJespszQ_aNZYKnVeOuOZrnBMJcRwPXoH4o72vh7rpXxy_SH6ydKrYSiuSrx98cmbs5P8jg6Njc2T6TN0_g_Qr-SqZwwGMg2-p_TVibaeLoVV-I2fFa7n1svfruUydg7e5YM5E5xAWGVj3TAG1kLZ0nKxsMn0IOWA3O3WRK1FKAejCnLZc7tlV9y9pqZDM7y5-TMc"/>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
               <span class="text-primary font-bold mb-2 font-label uppercase tracking-widest text-xs">E-Commerce • 2023</span>
@@ -535,7 +602,7 @@
             </div>
           </div>
           <div class="flex-1 group relative overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.2s;" data-depth="1.0">
-            <img alt="Stellar Architecture" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            <img alt="Stellar Architecture" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyYtupAUWMgrITQWQHaiCKrzTOaADtn0uVMLjoP1giPL7mox53rdBd74upBcnRSnIPmj3HXlcL7WKezADob-c54izSoL_ttmJNGpr0yObmqHSbikiFSiyiOIX4rqhJ9ECcWejcMuXT6NnVLy55N3gVjy39PBmfmxj8jSupChj8DqWuKLbNu9Qzh0roWAdHF4S0CUPZUM1iA_YlpYYoHSCXTi7l7i-hnwpXC3RDZ1bycQeetKAA2MbXn9aPmNeN_vFOjyfFTf_GifU"/>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
               <span class="text-primary font-bold mb-2 font-label uppercase tracking-widest text-xs">Architecture • 2024</span>
@@ -545,7 +612,7 @@
         </div>
 
         <div class="md:col-span-12 group relative h-[500px] overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.15s;" data-depth="0.8">
-          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
             src="./sasa-img-2.jpeg"/>
           <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent flex flex-col justify-center p-16">
             <div class="max-w-xl">
@@ -567,7 +634,7 @@
         <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tight text-on-surface max-w-2xl">Klanten aan het woord</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="bg-surface-container-lowest p-12 rounded-[3rem] shadow-sm relative overflow-hidden group reveal px-el" data-depth="0.8">
+        <div class="card-lift bg-surface-container-lowest p-12 rounded-[3rem] shadow-sm relative overflow-hidden group reveal px-el" data-depth="0.8">
           <span class="material-symbols-outlined text-9xl text-primary/5 absolute -top-10 -right-10 select-none">format_quote</span>
           <p class="text-2xl font-body text-on-surface leading-relaxed italic mb-12 relative z-10">
             "Verdant Agency transformed our online presence. Their attention to detail and ability
@@ -631,7 +698,7 @@
           gesprek in en laten we samen groeien.
         </p>
         <div class="flex flex-col md:flex-row gap-6">
-          <button class="bg-on-primary text-primary px-12 py-6 rounded-2xl font-bold text-xl hover:translate-y-[-4px] transition-transform duration-200 px-el" data-depth="0.9"
+          <button class="bg-on-primary text-primary px-12 py-6 rounded-2xl font-bold text-xl hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200"
             style="box-shadow:0 8px 20px rgba(0,0,0,0.2), 0 20px 40px rgba(0,0,0,0.12);">
             Kennismaking
           </button>
@@ -646,29 +713,34 @@
 </main>
 
 <!-- ═══════════════ FOOTER ════════════════════════════ -->
-<footer class="bg-white border-t border-surface-container py-20 px-8">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
-    <div class="mb-12 md:mb-0 px-el" data-depth="0.4">
-      <div class="text-2xl font-black text-on-surface mb-4 font-headline">SASA</div>
-      <p class="text-on-surface-variant max-w-xs font-body">Crafting high-impact digital experiences for Dutch entrepreneurs. Built with Precision.</p>
+<footer class="bg-[#1A2E26] w-full">
+  <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start gap-8">
+    <div class="space-y-2">
+      <div class="text-xl font-bold text-white font-headline">SASA</div>
+      <p class="text-slate-400 text-sm max-w-xs font-body">Digitale ervaringen met impact voor Nederlandse ondernemers.</p>
     </div>
-    <div class="grid grid-cols-2 md:flex gap-16 md:gap-24">
-      <div class="flex flex-col gap-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 font-label">Links</span>
-        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="#">Home</a>
-        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="#">Process</a>
-        <a class="text-on-surface font-semibold hover:text-primary transition-colors" href="#">Expertise</a>
-      </div>
-      <div class="flex flex-col gap-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 font-label">Legal</span>
-        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
-        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Terms of Service</a>
-        <a class="text-slate-500 hover:text-on-surface transition-colors" href="#">Contact</a>
-      </div>
+    <div class="flex flex-wrap gap-6 font-body text-sm">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./index.html">Home</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./diensten.html">Diensten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./projecten.html">Projecten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./over-ons.html">Over ons</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./blog.html">Blog &amp; artikelen</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./kennismaking.html">Kennismaking</a>
+    </div>
+    <div class="flex gap-6 font-body text-sm font-semibold">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">LinkedIn</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">Instagram</a>
     </div>
   </div>
-  <div class="max-w-7xl mx-auto border-t border-surface-container mt-16 pt-8">
-    <p class="text-slate-400 text-sm">© 2024 SASA. All rights reserved.</p>
+  <div class="border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 font-body text-sm">
+      <p class="text-slate-500">© 2024 SASA. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Privacybeleid</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Algemene voorwaarden</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Cookiebeleid</a>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -758,7 +830,7 @@
       cleanly on top of any existing transforms).
 ──────────────────────────────────────────────────────── */
 (function () {
-  const SENSITIVITY  = 1.1;   // overall strength
+  const SENSITIVITY  = 0.3;   // overall strength
   const EASING       = 0.10;  // spring smoothness (lower = lazier)
 
   let mouseX = 0, mouseY = 0;
