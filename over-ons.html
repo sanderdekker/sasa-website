@@ -146,15 +146,14 @@
   <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
     <a href="./index.html" class="text-xl font-black tracking-tighter text-on-surface font-headline">SASA</a>
     <div class="hidden md:flex items-center gap-10">
-      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./index.html">Home</a>
       <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./diensten.html">Diensten</a>
       <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./projecten.html">Projecten</a>
       <a class="font-headline font-semibold text-[#7bd345] border-b-2 border-[#7bd345] pb-1" href="./over-ons.html">Over ons</a>
-      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./blog.html">Blog &amp; artikelen</a>
+      <a class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors" href="./blog.html">Nieuws</a>
     </div>
     <div class="flex items-center gap-3">
-      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2">
-        Kennismaking
+      <a href="./contact.html" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2">
+        Contact
       </a>
       <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Menu openen" aria-expanded="false">
         <span class="material-symbols-outlined">menu</span>
@@ -164,12 +163,11 @@
   <!-- Mobiel menu -->
   <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-200 px-8 py-6">
     <div class="flex flex-col gap-1">
-      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./index.html">Home</a>
       <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./diensten.html">Diensten</a>
       <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./projecten.html">Projecten</a>
       <a class="font-headline font-semibold text-[#7bd345] py-3 border-b border-slate-100" href="./over-ons.html">Over ons</a>
-      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./blog.html">Blog &amp; artikelen</a>
-      <a href="./kennismaking.html" class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">Kennismaking</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100" href="./blog.html">Nieuws</a>
+      <a href="./contact.html" class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">Contact</a>
     </div>
   </div>
 </nav>
@@ -201,8 +199,8 @@
                     </p>
 </div>
 <div class="w-full md:w-1/2 relative px-el" data-depth="0.4">
-<div class="aspect-square rounded-full overflow-hidden vibrant-glow">
-<img alt="Modern minimalistisch kantoor met grote ramen" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://placehold.co/800x800"/>
+<div class="aspect-square rounded-[3rem] overflow-hidden vibrant-glow">
+<img alt="SASA team" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" src="./team-foto.jpg"/>
 </div>
 <div class="absolute -bottom-6 -left-6 bg-primary p-8 rounded-full shadow-xl">
 <span class="material-symbols-outlined text-white text-4xl">eco</span>
@@ -249,105 +247,108 @@
 </section>
 <!-- Core Ethos Section -->
 <section class="py-24 bg-white overflow-hidden">
-<div class="max-w-7xl mx-auto px-8 text-center mb-24">
+<style>
+  @media (min-width: 768px) {
+    .kw-offset-2 { margin-top: 48px; }
+    .kw-offset-3 { margin-top: 16px; }
+    .kw-offset-4 { margin-top: 64px; }
+    .kw-offset-5 { margin-top: 24px; }
+  }
+</style>
+<div class="max-w-7xl mx-auto px-8 text-center mb-20">
 <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-[#1A2E26] mb-4">Onze kernwaarden</h2>
 <p class="text-on-surface-variant text-lg">De principes die elke beslissing die we nemen sturen.</p>
 </div>
-<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-<!-- Value 01 -->
-<div class="value-card group flex flex-col px-el" data-depth="0.6">
-  <span class="value-num mb-4">01</span>
-  <div class="w-full h-px bg-slate-200 mb-6 group-hover:bg-[#9fe870] transition-colors duration-300"></div>
+<div class="max-w-7xl mx-auto px-8 flex flex-wrap gap-8 items-start">
+<!-- Value 1 -->
+<div class="value-card group flex flex-col px-el w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-1.6rem)]" data-depth="0.6">
+  <div class="w-8 h-1 rounded-full bg-[#9fe870] mb-5 group-hover:w-12 transition-all duration-300"></div>
   <h3 class="font-headline text-lg font-bold mb-3 text-[#1A2E26]">Radicale intentie</h3>
   <p class="text-on-surface-variant text-sm leading-relaxed">Elk pixel en elke regel code wordt geplaatst met doelbewuste opzet om de reis van de gebruiker te verbeteren.</p>
 </div>
-<!-- Value 02 -->
-<div class="value-card group flex flex-col px-el" data-depth="0.8">
-  <span class="value-num mb-4">02</span>
-  <div class="w-full h-px bg-slate-200 mb-6 group-hover:bg-[#9fe870] transition-colors duration-300"></div>
+<!-- Value 2 -->
+<div class="value-card group flex flex-col px-el w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-1.6rem)] kw-offset-2" data-depth="0.8">
+  <div class="w-8 h-1 rounded-full bg-[#9fe870] mb-5 group-hover:w-12 transition-all duration-300"></div>
   <h3 class="font-headline text-lg font-bold mb-3 text-[#1A2E26]">Organische schaalbaarheid</h3>
   <p class="text-on-surface-variant text-sm leading-relaxed">Architecturen ontworpen om te groeien. Flexibele systemen waarmee merken kunnen uitbreiden zonder wrijving.</p>
 </div>
-<!-- Value 03 -->
-<div class="value-card group flex flex-col px-el" data-depth="0.5">
-  <span class="value-num mb-4">03</span>
-  <div class="w-full h-px bg-slate-200 mb-6 group-hover:bg-[#9fe870] transition-colors duration-300"></div>
+<!-- Value 3 -->
+<div class="value-card group flex flex-col px-el w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-1.6rem)] kw-offset-3" data-depth="0.5">
+  <div class="w-8 h-1 rounded-full bg-[#9fe870] mb-5 group-hover:w-12 transition-all duration-300"></div>
   <h3 class="font-headline text-lg font-bold mb-3 text-[#1A2E26]">Esthetische integriteit</h3>
   <p class="text-on-surface-variant text-sm leading-relaxed">Schoonheid is een vereiste voor vertrouwen. Wij handhaven hoge visuele standaarden op alle platforms.</p>
 </div>
-<!-- Value 04 -->
-<div class="value-card group flex flex-col px-el" data-depth="0.7">
-  <span class="value-num mb-4">04</span>
-  <div class="w-full h-px bg-slate-200 mb-6 group-hover:bg-[#9fe870] transition-colors duration-300"></div>
+<!-- Value 4 -->
+<div class="value-card group flex flex-col px-el w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-1.6rem)] kw-offset-4" data-depth="0.7">
+  <div class="w-8 h-1 rounded-full bg-[#9fe870] mb-5 group-hover:w-12 transition-all duration-300"></div>
   <h3 class="font-headline text-lg font-bold mb-3 text-[#1A2E26]">Duurzame innovatie</h3>
   <p class="text-on-surface-variant text-sm leading-relaxed">Langetermijnwaarde boven kortetermijntrends. Innovaties gebouwd op solide, duurzame fundamenten.</p>
 </div>
-<!-- Value 05 -->
-<div class="value-card group flex flex-col px-el" data-depth="0.9">
-  <span class="value-num mb-4">05</span>
-  <div class="w-full h-px bg-slate-200 mb-6 group-hover:bg-[#9fe870] transition-colors duration-300"></div>
+<!-- Value 5 -->
+<div class="value-card group flex flex-col px-el w-full sm:w-[calc(50%-1rem)] lg:w-[calc(20%-1.6rem)] kw-offset-5" data-depth="0.9">
+  <div class="w-8 h-1 rounded-full bg-[#9fe870] mb-5 group-hover:w-12 transition-all duration-300"></div>
   <h3 class="font-headline text-lg font-bold mb-3 text-[#1A2E26]">Mensgerichte tech</h3>
   <p class="text-on-surface-variant text-sm leading-relaxed">Tech moet mensen dienen. Wij ontwerpen eerst voor de menselijke ervaring, waarbij we empathie waarborgen.</p>
 </div>
 </div>
 </section>
-<!-- Our Growth Process Section -->
+<!-- Tijdlijn Section -->
 <section class="py-24 px-8 bg-surface-container-low">
 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 <div class="space-y-12">
 <div class="space-y-4">
-<h2 class="font-headline text-5xl font-extrabold text-[#1A2E26]">Ons <span class="text-primary">groei</span>proces</h2>
-<p class="text-on-surface-variant text-lg">Een systematische reis van eerste idee tot volledig gerealiseerd digitaal landschap.</p>
+<h2 class="font-headline text-5xl font-extrabold text-[#1A2E26] px-el" data-depth="0.5">Onze <span class="text-primary">Tijdlijn</span></h2>
+<p class="text-on-surface-variant text-lg">Van eerste idee tot groeiend succes — ons verhaal in vier fases.</p>
 </div>
-<div class="relative rounded-2xl overflow-hidden shadow-2xl">
-<img alt="Samenwerkend team in modern kantoor" class="w-full grayscale" src="https://placehold.co/800x500"/>
+<div class="relative rounded-2xl overflow-hidden shadow-2xl px-el" data-depth="0.8">
+<img alt="SASA team" class="w-full h-72 object-cover" src="./team-foto.jpg"/>
 </div>
 </div>
 <div class="relative pl-12 space-y-16">
 <!-- Vertical Timeline Line -->
 <div class="absolute left-0 top-4 bottom-4 w-0.5 bg-verdant-accent/30"></div>
 <!-- Phase 01 -->
-<div class="relative">
+<div class="relative px-el" data-depth="0.3">
 <div class="absolute -left-[54px] top-1.5 w-4 h-4 bg-white border-2 border-primary rounded-full z-10 flex items-center justify-center shadow-[0_0_0_8px_rgba(123,211,69,0.1)]">
 <div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
 </div>
 <div class="space-y-2">
 <span class="text-primary font-bold tracking-widest text-xs uppercase">Fase 01</span>
-<h3 class="font-headline text-2xl font-bold text-on-background">Ontdekking &amp; voorbereiding</h3>
-<p class="text-on-surface-variant leading-relaxed">We duiken diep in het erfgoed van jouw merk, de marktpositie en toekomstige ambities om het ecosysteem te begrijpen waarvoor we bouwen.</p>
+<h3 class="font-headline text-2xl font-bold text-on-background">Startup</h3>
+<p class="text-on-surface-variant leading-relaxed">Begonnen als twee studenten met een missie: elke startende ondernemer verdient een professionele online aanwezigheid. Vanuit een kleine kamer bouwden we onze eerste websites met passie en ambitie.</p>
 </div>
 </div>
 <!-- Phase 02 -->
-<div class="relative">
+<div class="relative px-el" data-depth="0.3">
 <div class="absolute -left-[54px] top-1.5 w-4 h-4 bg-white border-2 border-primary rounded-full z-10 flex items-center justify-center shadow-[0_0_0_8px_rgba(123,211,69,0.1)]">
 <div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
 </div>
 <div class="space-y-2">
 <span class="text-primary font-bold tracking-widest text-xs uppercase">Fase 02</span>
-<h3 class="font-headline text-2xl font-bold text-on-background">Conceptarchitectuur</h3>
-<p class="text-on-surface-variant leading-relaxed">Gebruikersreizen in kaart brengen en vloeiende lay-outs ontwerpen die de bewegingsvrijheid en duidelijkheid van informatie prioriteren.</p>
+<h3 class="font-headline text-2xl font-bold text-on-background">Eerste klanten</h3>
+<p class="text-on-surface-variant leading-relaxed">Onze eerste klanten vertrouwden ons met hun online identiteit. Van mond-tot-mondreclame groeide ons klantenbestand organisch — elk project beter dan het vorige en elke samenwerking een leermoment.</p>
 </div>
 </div>
 <!-- Phase 03 -->
-<div class="relative">
+<div class="relative px-el" data-depth="0.3">
 <div class="absolute -left-[54px] top-1.5 w-4 h-4 bg-white border-2 border-primary rounded-full z-10 flex items-center justify-center shadow-[0_0_0_8px_rgba(123,211,69,0.1)]">
 <div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
 </div>
 <div class="space-y-2">
 <span class="text-primary font-bold tracking-widest text-xs uppercase">Fase 03</span>
-<h3 class="font-headline text-2xl font-bold text-on-background">Designcultivatie</h3>
-<p class="text-on-surface-variant leading-relaxed">Ons kenmerkende soft-futuristische esthetiek toepassen en jouw merk tot leven brengen met levendige kleurpaletten en dynamische interacties.</p>
+<h3 class="font-headline text-2xl font-bold text-on-background">100 klanten</h3>
+<p class="text-on-surface-variant leading-relaxed">Een mijlpaal die bewees dat onze aanpak werkt. 100 tevreden ondernemers die hun doelen online bereiken, met een gemiddelde stijging van 40% in online zichtbaarheid en conversie.</p>
 </div>
 </div>
 <!-- Phase 04 -->
-<div class="relative">
+<div class="relative px-el" data-depth="0.3">
 <div class="absolute -left-[54px] top-1.5 w-4 h-4 bg-white border-2 border-primary rounded-full z-10 flex items-center justify-center shadow-[0_0_0_8px_rgba(123,211,69,0.1)]">
 <div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
 </div>
 <div class="space-y-2">
 <span class="text-primary font-bold tracking-widest text-xs uppercase">Fase 04</span>
-<h3 class="font-headline text-2xl font-bold text-on-background">Lancering &amp; schaling</h3>
-<p class="text-on-surface-variant leading-relaxed">Volledige uitrol en optimalisatie. We bewaken de groei en verfijnen de ervaring naarmate jouw digitale publiek evolueert.</p>
+<h3 class="font-headline text-2xl font-bold text-on-background">Groei &amp; Succes</h3>
+<p class="text-on-surface-variant leading-relaxed">Vandaag helpen we honderden Nederlandse ondernemers met razendsnel groeiende digitale aanwezigheid. We zijn er trots op te zeggen: we zijn nog maar net begonnen.</p>
 </div>
 </div>
 </div>
@@ -362,12 +363,11 @@
       <p class="text-slate-400 text-sm max-w-xs font-body">Digitale ervaringen met impact voor Nederlandse ondernemers.</p>
     </div>
     <div class="flex flex-wrap gap-6 font-body text-sm">
-      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./index.html">Home</a>
       <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./diensten.html">Diensten</a>
       <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./projecten.html">Projecten</a>
       <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./over-ons.html">Over ons</a>
-      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./blog.html">Blog &amp; artikelen</a>
-      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./kennismaking.html">Kennismaking</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./blog.html">Nieuws</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./contact.html">Contact</a>
     </div>
     <div class="flex gap-6 font-body text-sm font-semibold">
       <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">LinkedIn</a>

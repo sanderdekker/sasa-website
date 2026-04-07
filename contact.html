@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact – SASA</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0b1f18",
+                    "surface-container-high": "#e6e8e9",
+                    "on-primary-container": "#245800",
+                    "outline-variant": "#c0cab3",
+                    "inverse-on-surface": "#eff1f2",
+                    "primary-fixed-dim": "#83dc4d",
+                    "on-primary-fixed-variant": "#215100",
+                    "on-tertiary-fixed": "#3d0026",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#092100",
+                    "surface-dim": "#d8dadb",
+                    "surface-container-highest": "#e1e3e4",
+                    "secondary-fixed": "#d0e8dc",
+                    "secondary": "#4e6359",
+                    "on-secondary-fixed-variant": "#374b42",
+                    "surface-bright": "#f8fafb",
+                    "primary-fixed": "#9ef966",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffd8e7",
+                    "tertiary-fixed-dim": "#ffafd3",
+                    "on-secondary-container": "#54695f",
+                    "on-primary": "#ffffff",
+                    "primary": "#2e6c00",
+                    "inverse-primary": "#83dc4d",
+                    "secondary-container": "#d0e8dc",
+                    "on-surface": "#191c1d",
+                    "surface-container-low": "#f2f4f5",
+                    "on-background": "#191c1d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#7b3359",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#2e6c00",
+                    "inverse-surface": "#2e3132",
+                    "primary-container": "#7bd345",
+                    "background": "#f8fafb",
+                    "tertiary": "#91446c",
+                    "secondary-fixed-dim": "#b5ccc0",
+                    "surface-container": "#eceeef",
+                    "outline": "#707a67",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#752d53",
+                    "surface": "#f8fafb",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary-container": "#ffa1cd",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#404a38"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-glow {
+            box-shadow: 0 25px 50px -12px rgba(123, 211, 69, 0.25);
+        }
+        .btn-primary-gradient { background: linear-gradient(135deg, #d0f7aa 0%, #9fe870 45%, #7ad444 100%); }
+        .btn-primary-gradient:hover { background: linear-gradient(135deg, #dafab8 0%, #aaed7e 45%, #84de50 100%); }
+        .btn-deep-shadow { box-shadow: 0 4px 6px rgba(0,0,0,0.14), 0 12px 28px -6px rgba(159,232,112,0.65), 0 24px 48px -12px rgba(0,0,0,0.18); }
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: #7bd345; border-radius: 2px; transition: width 0.2s ease; }
+        .nav-link:hover::after { width: 100%; }
+        :focus-visible { outline: 2px solid #7bd345; outline-offset: 2px; border-radius: 4px; }
+        .px-el { will-change: translate; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased">
+<!-- Ethereal shadow -->
+<div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;">
+  <svg style="position:absolute;width:0;height:0;overflow:hidden;"><defs>
+    <filter id="ef-a" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.0014,0.0048" numOctaves="2" seed="3" result="u"/><feColorMatrix in="u" type="hueRotate" values="0" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="120" result="d"/><feDisplacementMap in="d" in2="u" scale="120"/></filter>
+    <filter id="ef-b" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.0019,0.006" numOctaves="2" seed="11" result="u"/><feColorMatrix in="u" type="hueRotate" values="120" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="95" result="d"/><feDisplacementMap in="d" in2="u" scale="95"/></filter>
+    <filter id="ef-c" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="turbulence" baseFrequency="0.001,0.0035" numOctaves="2" seed="17" result="u"/><feColorMatrix in="u" type="hueRotate" values="240" result="h"/><feColorMatrix in="h" result="c" type="matrix" values="4 0 0 0 1 4 0 0 0 1 4 0 0 0 1 1 0 0 0 0"/><feDisplacementMap in="SourceGraphic" in2="c" scale="110" result="d"/><feDisplacementMap in="d" in2="u" scale="110"/></filter>
+  </defs></svg>
+  <div style="position:absolute;width:75vw;height:75vh;top:-20%;left:-15%;filter:url(#ef-a) blur(12px);"><div style="background:rgba(159,232,112,0.28);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;width:65vw;height:65vh;top:-10%;right:-20%;filter:url(#ef-b) blur(14px);"><div style="background:rgba(172,246,124,0.22);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;width:90vw;height:80vh;bottom:-25%;left:5%;filter:url(#ef-c) blur(16px);"><div style="background:rgba(145,217,99,0.25);mask-image:url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png');mask-size:cover;mask-repeat:no-repeat;mask-position:center;width:100%;height:100%;"></div></div>
+  <div style="position:absolute;inset:0;background-image:url('https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png');background-size:180px;background-repeat:repeat;opacity:0.04;"></div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-surface-container">
+  <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+    <a href="./index.html" class="text-xl font-black tracking-tighter text-on-surface font-headline">SASA</a>
+    <div class="hidden md:flex items-center gap-10">
+      <a href="./diensten.html" class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors">Diensten</a>
+      <a href="./projecten.html" class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors">Projecten</a>
+      <a href="./over-ons.html" class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors">Over ons</a>
+      <a href="./blog.html" class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors">Nieuws</a>
+      <a href="./contact.html" class="font-headline font-semibold text-[#7bd345] border-b-2 border-[#7bd345] pb-1">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#formulier" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200">Stel een vraag</a>
+      <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Menu openen" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-surface-container px-8 py-6">
+    <div class="flex flex-col gap-1">
+      <a href="./diensten.html" class="font-headline font-semibold text-slate-600 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100">Diensten</a>
+      <a href="./projecten.html" class="font-headline font-semibold text-slate-600 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100">Projecten</a>
+      <a href="./over-ons.html" class="font-headline font-semibold text-slate-600 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100">Over ons</a>
+      <a href="./blog.html" class="font-headline font-semibold text-slate-600 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100">Nieuws</a>
+      <a href="./contact.html" class="font-headline font-semibold text-[#7bd345] py-3 border-b border-slate-100">Contact</a>
+      <a href="#formulier" class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">Stel een vraag</a>
+    </div>
+  </div>
+</nav>
+<script>
+(function() {
+  var toggle = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      var isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', !isOpen);
+      toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+    });
+  }
+})();
+</script>
+<main class="min-h-screen bg-white pt-20">
+<!-- Contact Hero/Section -->
+<section id="formulier" class="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Left Side Content -->
+<div class="space-y-10 px-el" data-depth="0.4">
+<div class="space-y-6">
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-on-background leading-tight tracking-tight px-el" data-depth="0.5">
+                        Laten we jouw <span class="text-primary">digitale toekomst</span> bouwen
+</h1>
+<p class="text-lg text-on-surface-variant max-w-lg leading-relaxed font-body">
+                        Versterk jouw merk met scherp design en strategische digitale oplossingen. Ons team staat klaar om jouw visie om te zetten naar een krachtige realiteit.
+                    </p>
+</div>
+<div class="space-y-6 pt-4">
+<div class="flex items-start gap-4 px-el" data-depth="0.5">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Email ons</p>
+<p class="text-xl font-headline font-bold text-on-background">info@sasa.nl</p>
+</div>
+</div>
+<div class="flex items-start gap-4 px-el" data-depth="0.4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Bel ons</p>
+<p class="text-xl font-headline font-bold text-on-background">+31 (0)6 00 000 000</p>
+</div>
+</div>
+<div class="flex items-start gap-4 px-el" data-depth="0.35">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Bezoek ons</p>
+<p class="text-xl font-headline font-bold text-on-background">Amsterdam, Nederland</p>
+</div>
+</div>
+</div>
+<!-- Decorative Image Component -->
+<div class="hidden lg:block pt-8">
+<div class="relative w-full h-48 rounded-2xl overflow-hidden bg-surface-container">
+<img alt="Modern minimalist office interior" class="w-full h-full object-cover grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-700" src="https://placehold.co/800x400"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Right Side Form Container -->
+<div class="relative group px-el" data-depth="0.65">
+<!-- Shadow/Glow layers -->
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-container rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative bg-primary-container p-8 md:p-12 rounded-3xl form-glow border border-white/20 backdrop-blur-sm overflow-hidden">
+<!-- Background texture/pattern -->
+<div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative space-y-8">
+<div class="space-y-2">
+<h2 class="text-3xl font-headline font-black text-on-primary-container">Stuur een bericht</h2>
+<p class="text-on-primary-container/80 font-medium">Vertel ons over jouw project of zeg gewoon hallo.</p>
+</div>
+<form id="contact-form" class="space-y-6" novalidate>
+<div class="space-y-2">
+<label for="naam" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">Volledige naam <span class="text-red-500">*</span></label>
+<input id="naam" name="naam" required class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="Jan de Vries" type="text"/>
+<p class="field-error hidden text-red-600 text-xs font-semibold mt-1">Vul je naam in.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label for="email" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">E-mailadres <span class="text-red-500">*</span></label>
+<input id="email" name="email" required type="email" class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="jan@voorbeeld.nl"/>
+<p class="field-error hidden text-red-600 text-xs font-semibold mt-1">Vul een geldig e-mailadres in.</p>
+</div>
+<div class="space-y-2">
+<label for="telefoon" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">Telefoonnummer</label>
+<input id="telefoon" name="telefoon" type="tel" class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="+31 (0)6 000 000 00"/>
+</div>
+</div>
+<div class="space-y-2">
+<label for="bericht" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">Bericht <span class="text-red-500">*</span></label>
+<textarea id="bericht" name="bericht" required rows="5" class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="Hoe kunnen wij jouw merk laten groeien?"></textarea>
+<p class="field-error hidden text-red-600 text-xs font-semibold mt-1">Schrijf een kort bericht.</p>
+</div>
+<button id="submit-btn" class="w-full group btn-primary-gradient text-on-surface py-5 rounded-xl font-headline font-extrabold text-lg flex items-center justify-center gap-3 hover:translate-y-[-2px] active:scale-[0.98] transition-all btn-deep-shadow" type="submit">
+  Verstuur bericht
+  <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">send</span>
+</button>
+</form>
+<!-- Success message (hidden by default) -->
+<div id="success-msg" class="hidden text-center py-10 space-y-4">
+  <span class="material-symbols-outlined text-6xl text-primary">check_circle</span>
+  <h3 class="font-headline text-2xl font-black text-on-primary-container">Bericht verzonden!</h3>
+  <p class="text-on-primary-container/80">We nemen zo snel mogelijk contact met je op.</p>
+</div>
+<script>
+(function() {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+    var fields = [
+      { id: 'naam', check: function(v) { return v.trim().length > 0; } },
+      { id: 'email', check: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
+      { id: 'bericht', check: function(v) { return v.trim().length > 0; } }
+    ];
+    fields.forEach(function(f) {
+      var el = document.getElementById(f.id);
+      var err = el.parentElement.querySelector('.field-error');
+      if (!f.check(el.value)) {
+        valid = false;
+        el.classList.add('ring-2', 'ring-red-400');
+        if (err) err.classList.remove('hidden');
+      } else {
+        el.classList.remove('ring-2', 'ring-red-400');
+        if (err) err.classList.add('hidden');
+      }
+    });
+    if (!valid) return;
+    // Show success (swap form for success message)
+    form.classList.add('hidden');
+    document.getElementById('success-msg').classList.remove('hidden');
+  });
+})();
+</script>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof/Logos section for extra depth -->
+<section class="border-t border-surface-container py-12">
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-sm font-bold text-outline uppercase tracking-[0.2em] mb-8">Vertrouwd door toonaangevende bedrijven</p>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-20 opacity-40 grayscale">
+<span class="text-2xl font-headline font-black">LUMINA</span>
+<span class="text-2xl font-headline font-black">ORBITAL</span>
+<span class="text-2xl font-headline font-black">NEXUS</span>
+<span class="text-2xl font-headline font-black">PRISM</span>
+<span class="text-2xl font-headline font-black">COBALT</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1A2E26] w-full">
+  <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start gap-8">
+    <div class="space-y-2">
+      <div class="text-xl font-bold text-white font-headline">SASA</div>
+      <p class="text-slate-400 text-sm max-w-xs font-body">Digitale ervaringen met impact voor Nederlandse ondernemers.</p>
+    </div>
+    <div class="flex flex-wrap gap-6 font-body text-sm">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./diensten.html">Diensten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./projecten.html">Projecten</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./over-ons.html">Over ons</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./blog.html">Nieuws</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="./contact.html">Contact</a>
+    </div>
+    <div class="flex gap-6 font-body text-sm font-semibold">
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">LinkedIn</a>
+      <a class="text-slate-400 hover:text-[#7bd345] transition-colors duration-200" href="#">Instagram</a>
+    </div>
+  </div>
+  <div class="border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 font-body text-sm">
+      <p class="text-slate-500">© 2024 SASA. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Privacybeleid</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Algemene voorwaarden</a>
+        <a class="text-slate-500 hover:text-[#7bd345] transition-colors duration-200" href="#">Cookiebeleid</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){var S=0.3,E=0.10,mx=0,my=0,items=[];document.querySelectorAll('.px-el[data-depth]').forEach(function(el){items.push({el:el,depth:parseFloat(el.dataset.depth||'1'),x:0,y:0});});window.addEventListener('mousemove',function(e){mx=e.clientX-innerWidth/2;my=e.clientY-innerHeight/2;},{passive:true});function loop(){items.forEach(function(i){var s=(i.depth*S)/20,tx=mx*s,ty=my*s;i.x+=(tx-i.x)*E;i.y+=(ty-i.y)*E;i.el.style.translate=i.x.toFixed(2)+'px '+i.y.toFixed(2)+'px';});requestAnimationFrame(loop);}requestAnimationFrame(loop);})();
+</script>
+</body></html>
