@@ -21,7 +21,10 @@
       "Bash(vercel --version)",
       "Bash(vercel whoami:*)",
       "Bash(vercel --prod --yes)",
-      "Bash(node \"c:/Users/sande/OneDrive/Nieuwe map/sasa-website/serve.mjs\")"
+      "Bash(node \"c:/Users/sande/OneDrive/Nieuwe map/sasa-website/serve.mjs\")",
+      "Bash(mv sasa-website/* .)",
+      "Bash(mv sasa-website/.* .)",
+      "Bash(rmdir sasa-website:*)"
     ],
     "additionalDirectories": [
       "c:\\Users\\sande\\Downloads",
