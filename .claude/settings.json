@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Read(//c/Users/sande/OneDrive/**)",
+      "Read(//c/Users/sande/Downloads/**)",
+      "Read(//c/Users/sande/AppData/Local/Temp/**)",
+      "Bash(node serve.mjs)",
+      "Bash(node screenshot.mjs*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000*)",
+      "Bash(pkill -f \"serve.mjs\")",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npm --version)",
+      "Bash(node -e:*)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(gh repo:*)",
+      "Bash(gh auth:*)",
+      "Bash(vercel --version)",
+      "Bash(vercel whoami:*)",
+      "Bash(vercel --prod --yes)",
+      "Bash(node \"c:/Users/sande/OneDrive/Nieuwe map/sasa-website/serve.mjs\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\sande\\Downloads",
+      "c:\\Users\\sande\\OneDrive\\Claude\\Leren"
+    ]
+  }
+}
