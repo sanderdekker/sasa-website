@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Kennismaking | SASA"
+  ctaText="Stel een vraag"
+  ctaHref="#formulier"
+  navVariant="kennismaking"
+  footerVariant="kennismaking"
+  bodyClass="bg-background font-body text-on-background antialiased"
+>
+<main class="min-h-screen bg-white pt-20">
+<!-- Contact Hero/Section -->
+<section id="formulier" class="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<!-- Left Side Content -->
+<div class="space-y-10 px-el" data-depth="0.4">
+<div class="space-y-6">
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-on-background leading-tight tracking-tight px-el" data-depth="0.5">
+  Laten we jouw <span class="text-primary">digitale toekomst</span> bouwen
+</h1>
+<p class="text-lg text-on-surface-variant max-w-lg leading-relaxed font-body">
+  Versterk jouw merk met scherp design en strategische digitale oplossingen. Ons team staat klaar om jouw visie om te zetten naar een krachtige realiteit.
+</p>
+</div>
+<div class="space-y-6 pt-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Email ons</p>
+<p class="text-xl font-headline font-bold text-on-background">info@sasa.nl</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Bel ons</p>
+<p class="text-xl font-headline font-bold text-on-background">+31 (0)6 00 000 000</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Bezoek ons</p>
+<p class="text-xl font-headline font-bold text-on-background">Amsterdam, Nederland</p>
+</div>
+</div>
+</div>
+<div class="hidden lg:block pt-8">
+<div class="relative w-full h-48 rounded-2xl overflow-hidden bg-surface-container">
+<img alt="Modern minimalist office interior" class="w-full h-full object-cover grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-700" src="https://placehold.co/800x400"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Right Side Form Container -->
+<div class="relative group px-el" data-depth="0.65">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-container rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative bg-primary-container p-8 md:p-12 rounded-3xl form-glow border border-white/20 backdrop-blur-sm overflow-hidden">
+<div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative space-y-8">
+<div class="space-y-2">
+<h2 class="text-3xl font-headline font-black text-on-primary-container">Stuur een bericht</h2>
+<p class="text-on-primary-container/80 font-medium">Vertel ons over jouw project of zeg gewoon hallo.</p>
+</div>
+<form id="contact-form" class="space-y-6" novalidate>
+<div class="space-y-2">
+<label for="naam" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">Volledige naam <span class="text-red-500">*</span></label>
+<input id="naam" name="naam" required class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="Jan de Vries" type="text"/>
+<p class="field-error hidden text-red-600 text-xs font-semibold mt-1">Vul je naam in.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label for="email" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">E-mailadres <span class="text-red-500">*</span></label>
+<input id="email" name="email" required type="email" class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="jan@voorbeeld.nl"/>
+<p class="field-error hidden text-red-600 text-xs font-semibold mt-1">Vul een geldig e-mailadres in.</p>
+</div>
+<div class="space-y-2">
+<label for="telefoon" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">Telefoonnummer</label>
+<input id="telefoon" name="telefoon" type="tel" class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="+31 (0)6 000 000 00"/>
+</div>
+</div>
+<div class="space-y-2">
+<label for="bericht" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">Bericht <span class="text-red-500">*</span></label>
+<textarea id="bericht" name="bericht" required rows="5" class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="Hoe kunnen wij jouw merk laten groeien?"></textarea>
+<p class="field-error hidden text-red-600 text-xs font-semibold mt-1">Schrijf een kort bericht.</p>
+</div>
+<button id="submit-btn" class="w-full group btn-primary-gradient text-on-surface py-5 rounded-xl font-headline font-extrabold text-lg flex items-center justify-center gap-3 hover:translate-y-[-2px] active:scale-[0.98] transition-all btn-deep-shadow" type="submit">
+  Verstuur bericht
+  <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">send</span>
+</button>
+</form>
+<!-- Success message (hidden by default) -->
+<div id="success-msg" class="hidden text-center py-10 space-y-4">
+  <span class="material-symbols-outlined text-6xl text-primary">check_circle</span>
+  <h3 class="font-headline text-2xl font-black text-on-primary-container">Bericht verzonden!</h3>
+  <p class="text-on-primary-container/80">We nemen zo snel mogelijk contact met je op.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof/Logos -->
+<section class="border-t border-surface-container py-12">
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-sm font-bold text-outline uppercase tracking-[0.2em] mb-8">Vertrouwd door toonaangevende bedrijven</p>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-20 opacity-40 grayscale">
+<span class="text-2xl font-headline font-black">LUMINA</span>
+<span class="text-2xl font-headline font-black">ORBITAL</span>
+<span class="text-2xl font-headline font-black">NEXUS</span>
+<span class="text-2xl font-headline font-black">PRISM</span>
+<span class="text-2xl font-headline font-black">COBALT</span>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+(function() {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+    var fields = [
+      { id: 'naam', check: function(v) { return v.trim().length > 0; } },
+      { id: 'email', check: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
+      { id: 'bericht', check: function(v) { return v.trim().length > 0; } }
+    ];
+    fields.forEach(function(f) {
+      var el = document.getElementById(f.id);
+      var err = el.parentElement.querySelector('.field-error');
+      if (!f.check(el.value)) {
+        valid = false;
+        el.classList.add('ring-2', 'ring-red-400');
+        if (err) err.classList.remove('hidden');
+      } else {
+        el.classList.remove('ring-2', 'ring-red-400');
+        if (err) err.classList.add('hidden');
+      }
+    });
+    if (!valid) return;
+    form.classList.add('hidden');
+    document.getElementById('success-msg').classList.remove('hidden');
+  });
+})();
+</script>
+</BaseLayout>

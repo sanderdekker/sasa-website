@@ -1,0 +1,89 @@
+---
+// BaseLayout.astro — gedeelde wrapper voor alle pagina's
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import EtherealShadow from '../components/EtherealShadow.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  navVariant?: 'default' | 'kennismaking';
+  footerVariant?: 'default' | 'kennismaking';
+  bodyClass?: string;
+}
+
+const {
+  title = 'SASA',
+  ctaText,
+  ctaHref,
+  navVariant = 'default',
+  footerVariant = 'default',
+  bodyClass = 'bg-background text-on-surface selection:bg-primary selection:text-on-primary',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="light" lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class={bodyClass}>
+
+  <EtherealShadow />
+  <Nav ctaText={ctaText} ctaHref={ctaHref} variant={navVariant} />
+
+  <slot />
+
+  <Footer variant={footerVariant} />
+
+  <!-- Gedeelde scripts: parallax + scroll reveal -->
+  <script>
+  (function () {
+    const SENSITIVITY = 0.3;
+    const EASING = 0.10;
+    let mouseX = 0, mouseY = 0;
+    const items = [];
+    document.querySelectorAll('.px-el[data-depth]').forEach(function(el) {
+      items.push({ el: el, depth: parseFloat(el.dataset.depth || '1'), x: 0, y: 0 });
+    });
+    window.addEventListener('mousemove', function(e) {
+      mouseX = e.clientX - window.innerWidth / 2;
+      mouseY = e.clientY - window.innerHeight / 2;
+    }, { passive: true });
+    function loop() {
+      items.forEach(function(item) {
+        var strength = (item.depth * SENSITIVITY) / 20;
+        var tx = mouseX * strength;
+        var ty = mouseY * strength;
+        item.x += (tx - item.x) * EASING;
+        item.y += (ty - item.y) * EASING;
+        item.el.style.translate = item.x.toFixed(2) + 'px ' + item.y.toFixed(2) + 'px';
+      });
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function(el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+  </script>
+
+</body>
+</html>
