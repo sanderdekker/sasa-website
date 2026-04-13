@@ -2,8 +2,7 @@ agents/
 rules/
 skills/
 mijn-astro-project/
-sasa-website/
-serve.mjs
+node_modules/
 
 .vercel
 node_modules

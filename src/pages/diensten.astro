@@ -24,7 +24,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ═══════════════ PRICING ════════════════════════════ -->
-  <section class="py-28 bg-white relative overflow-hidden">
+  <section class="py-28 relative overflow-hidden" style="background:rgba(255,255,255,0.52);">
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="text-center mb-20 reveal">
         <span class="text-xs font-bold uppercase tracking-widest text-primary font-label mb-4 block">Investering</span>
@@ -115,7 +115,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ═══════════════ WHY IT WORKS ══════════════════════ -->
-  <section class="py-28 bg-surface-container-low">
+  <section class="py-28" style="background:transparent;">
     <div class="max-w-7xl mx-auto px-8">
       <div class="grid lg:grid-cols-2 gap-20 items-center">
         <div class="reveal">
@@ -167,93 +167,231 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ═══════════════ PROCESS ════════════════════════════ -->
-  <section class="py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-8">
+  <!-- ═══════════════ PROCESS / WERKWIJZE ══════════════ -->
+  <section id="werkwijze" class="py-28 relative overflow-hidden" style="background:rgba(255,255,255,0.52);">
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+
+      <!-- Section header -->
       <div class="text-center mb-20 reveal">
         <span class="text-xs font-bold uppercase tracking-widest text-primary font-label mb-4 block">Werkwijze</span>
         <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-background mb-4 tracking-tight px-el" data-depth="0.5">Onze aanpak in 3 stappen</h2>
         <p class="text-on-surface-variant max-w-xl mx-auto">Van eerste gesprek tot een groeiende digitale aanwezigheid — zo pakken we het aan.</p>
       </div>
-      <div class="hidden md:block relative reveal" style="height:440px;">
-        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1000 380" preserveAspectRatio="none" aria-hidden="true" style="overflow:visible;">
+
+      <!-- ── Desktop: premium SVG ascending graph ─────────── -->
+      <div class="hidden md:block ww-wrap" style="position:relative; height:500px;">
+
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1000 420"
+          preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow:visible;">
           <defs>
-            <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#9fe870" stop-opacity="0.5"/>
+            <!-- Area gradient -->
+            <linearGradient id="wwArea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#7ad444" stop-opacity="0.18"/>
+              <stop offset="60%"  stop-color="#9fe870" stop-opacity="0.06"/>
               <stop offset="100%" stop-color="#9fe870" stop-opacity="0"/>
             </linearGradient>
+            <!-- Line stroke gradient -->
+            <linearGradient id="wwStroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="#acf67c"/>
+              <stop offset="50%"  stop-color="#7ad444"/>
+              <stop offset="100%" stop-color="#5ab52a"/>
+            </linearGradient>
+            <!-- Node shadow filter -->
+            <filter id="wwGlow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <!-- Line glow filter -->
+            <filter id="wwLineGlow" x="-5%" y="-100%" width="110%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
           </defs>
-          <line x1="0" y1="360" x2="1000" y2="360" stroke="#e8ede4" stroke-width="1"/>
-          <line x1="0" y1="260" x2="1000" y2="260" stroke="#e8ede4" stroke-width="1" stroke-dasharray="6,10"/>
-          <line x1="0" y1="160" x2="1000" y2="160" stroke="#e8ede4" stroke-width="1" stroke-dasharray="6,10"/>
-          <path d="M 160 330 Q 380 270 500 210 Q 660 140 840 70 L 840 360 L 160 360 Z" fill="url(#areaGrad)" opacity="0.18"/>
-          <path d="M 160 330 Q 380 270 500 210 Q 660 140 840 70" fill="none" stroke="#9fe870" stroke-width="3" stroke-linecap="round" style="filter:drop-shadow(0 4px 8px rgba(159,232,112,0.5));"/>
-          <circle cx="160" cy="330" r="11" fill="#acf67c" stroke="white" stroke-width="3" style="filter:drop-shadow(0 4px 12px rgba(172,246,124,0.6));"/>
-          <text x="160" y="334" text-anchor="middle" dominant-baseline="middle" font-family="Plus Jakarta Sans" font-weight="800" font-size="10" fill="#092100">01</text>
-          <circle cx="500" cy="210" r="11" fill="#9fe870" stroke="white" stroke-width="3" style="filter:drop-shadow(0 4px 12px rgba(159,232,112,0.6));"/>
-          <text x="500" y="214" text-anchor="middle" dominant-baseline="middle" font-family="Plus Jakarta Sans" font-weight="800" font-size="10" fill="#092100">02</text>
-          <circle cx="840" cy="70" r="13" fill="#7ad444" stroke="white" stroke-width="3" style="filter:drop-shadow(0 6px 16px rgba(122,212,68,0.7));"/>
-          <text x="840" y="74" text-anchor="middle" dominant-baseline="middle" font-family="Plus Jakarta Sans" font-weight="800" font-size="10" fill="white">03</text>
-          <text x="870" y="52" font-family="Plus Jakarta Sans" font-weight="700" font-size="11" fill="#7ad444" opacity="0.7">↑ Groei</text>
+
+          <!-- Grid: horizontal rules -->
+          <line x1="120" y1="390" x2="920" y2="390" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+          <line x1="120" y1="290" x2="920" y2="290" stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="5,14"/>
+          <line x1="120" y1="190" x2="920" y2="190" stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="5,14"/>
+          <line x1="120" y1="90"  x2="920" y2="90"  stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="5,14"/>
+
+          <!-- Y-axis tick labels -->
+          <text x="108" y="390" text-anchor="end" dominant-baseline="middle" font-family="Manrope" font-size="9" font-weight="600" fill="rgba(65,73,58,0.40)" letter-spacing="1">0</text>
+          <text x="108" y="290" text-anchor="end" dominant-baseline="middle" font-family="Manrope" font-size="9" font-weight="600" fill="rgba(65,73,58,0.40)" letter-spacing="1">33</text>
+          <text x="108" y="190" text-anchor="end" dominant-baseline="middle" font-family="Manrope" font-size="9" font-weight="600" fill="rgba(65,73,58,0.40)" letter-spacing="1">66</text>
+          <text x="108" y="90"  text-anchor="end" dominant-baseline="middle" font-family="Manrope" font-size="9" font-weight="600" fill="rgba(65,73,58,0.40)" letter-spacing="1">100</text>
+          <text transform="translate(62,240) rotate(-90)" text-anchor="middle" font-family="Manrope" font-size="9" font-weight="700" fill="rgba(65,73,58,0.28)" letter-spacing="3">GROEI %</text>
+
+          <!-- Vertical drop lines at nodes -->
+          <line x1="190" y1="350" x2="190" y2="390" stroke="rgba(122,212,68,0.35)" stroke-width="1" stroke-dasharray="4,7"/>
+          <line x1="500" y1="220" x2="500" y2="390" stroke="rgba(122,212,68,0.25)" stroke-width="1" stroke-dasharray="4,7"/>
+          <line x1="810" y1="75"  x2="810" y2="390" stroke="rgba(90,181,42,0.25)"  stroke-width="1" stroke-dasharray="4,7"/>
+
+          <!-- Area fill (animated) -->
+          <path class="ww-area"
+            d="M 190 350 C 320 290 420 255 500 220 C 620 175 710 120 810 75 L 810 390 L 190 390 Z"
+            fill="url(#wwArea)"/>
+
+          <!-- Main ascending line (animated draw) -->
+          <path class="ww-line"
+            d="M 190 350 C 320 290 420 255 500 220 C 620 175 710 120 810 75"
+            fill="none" stroke="url(#wwStroke)" stroke-width="2.5" stroke-linecap="round"
+            filter="url(#wwLineGlow)"/>
+
+          <!-- ── Node 1 (cx=190, cy=350): Plan ───────────── -->
+          <circle class="ww-pulse-1" cx="190" cy="350" r="20" fill="none" stroke="#acf67c" stroke-width="1.5" opacity="0"/>
+          <circle cx="190" cy="350" r="20" fill="none" stroke="rgba(172,246,124,0.22)" stroke-width="1"/>
+          <circle cx="190" cy="350" r="12" fill="white" stroke="#acf67c" stroke-width="2.5" filter="url(#wwGlow)"/>
+          <circle cx="190" cy="350" r="4.5" fill="#7ad444"/>
+          <text x="190" y="410" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="rgba(65,73,58,0.50)" letter-spacing="1">PLAN</text>
+
+          <!-- ── Node 2 (cx=500, cy=220): Bouwen ────────── -->
+          <circle class="ww-pulse-2" cx="500" cy="220" r="20" fill="none" stroke="#9fe870" stroke-width="1.5" opacity="0"/>
+          <circle cx="500" cy="220" r="20" fill="none" stroke="rgba(159,232,112,0.22)" stroke-width="1"/>
+          <circle cx="500" cy="220" r="12" fill="white" stroke="#9fe870" stroke-width="2.5" filter="url(#wwGlow)"/>
+          <circle cx="500" cy="220" r="4.5" fill="#5ab52a"/>
+          <text x="500" y="410" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="rgba(65,73,58,0.50)" letter-spacing="1">BOUWEN</text>
+
+          <!-- ── Node 3 (cx=810, cy=75): Groeien ───────── -->
+          <circle class="ww-pulse-3" cx="810" cy="75" r="20" fill="none" stroke="#7ad444" stroke-width="1.5" opacity="0"/>
+          <circle cx="810" cy="75" r="20" fill="none" stroke="rgba(122,212,68,0.30)" stroke-width="1"/>
+          <circle cx="810" cy="75" r="14" fill="white" stroke="#7ad444" stroke-width="3" filter="url(#wwGlow)"/>
+          <circle cx="810" cy="75" r="5.5" fill="#5ab52a"/>
+          <text x="810" y="48" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="rgba(90,181,42,0.70)" letter-spacing="2">↑ GROEI</text>
+          <text x="810" y="410" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="rgba(65,73,58,0.50)" letter-spacing="1">GROEIEN</text>
+
         </svg>
-        <div class="absolute bg-white rounded-2xl p-6 shadow-md border border-outline-variant/20" style="left:0;bottom:32px;width:240px;">
+
+        <!-- Cards (light, white with shadow) -->
+        <!-- Card 1: Plan — bottom-left near node 1 -->
+        <div class="ww-card absolute rounded-2xl p-6 bg-white"
+          style="left:0; bottom:48px; width:226px;
+                 border:1px solid rgba(172,246,124,0.35);
+                 box-shadow:0 4px 24px rgba(0,0,0,0.07), 0 0 0 1px rgba(172,246,124,0.10), 0 16px 40px rgba(159,232,112,0.12);">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-primary-fixed rounded-xl flex items-center justify-center shrink-0" style="box-shadow:0 4px 16px rgba(172,246,124,0.4);">
-              <span class="material-symbols-outlined text-on-primary text-xl">lightbulb</span>
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+              style="background:rgba(172,246,124,0.18); border:1px solid rgba(172,246,124,0.35);">
+              <span class="material-symbols-outlined text-xl" style="color:#5ab52a;">lightbulb</span>
             </div>
             <h3 class="font-headline text-lg font-bold text-on-background">Plan</h3>
           </div>
-          <p class="text-on-surface-variant text-sm leading-relaxed">Diepgaand gesprek over jouw doelen en groeiwensen. Roadmap op maat voor jouw succes.</p>
+          <p class="text-sm leading-relaxed text-on-surface-variant">
+            Diepgaand gesprek over jouw doelen en groeiwensen. Roadmap op maat voor jouw succes.
+          </p>
         </div>
-        <div class="absolute bg-white rounded-2xl p-6 shadow-md border border-outline-variant/20" style="left:50%;transform:translateX(-50%);top:220px;width:240px;">
+
+        <!-- Card 2: Bouwen — centered, vertically mid -->
+        <div class="ww-card absolute rounded-2xl p-6 bg-white"
+          style="left:50%; transform:translateX(-50%); top:240px; width:226px;
+                 border:1px solid rgba(159,232,112,0.35);
+                 box-shadow:0 4px 24px rgba(0,0,0,0.07), 0 0 0 1px rgba(159,232,112,0.10), 0 16px 40px rgba(159,232,112,0.12);">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shrink-0" style="box-shadow:0 4px 16px rgba(159,232,112,0.4);">
-              <span class="material-symbols-outlined text-on-primary text-xl">code</span>
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+              style="background:rgba(159,232,112,0.18); border:1px solid rgba(159,232,112,0.35);">
+              <span class="material-symbols-outlined text-xl" style="color:#5ab52a;">code</span>
             </div>
             <h3 class="font-headline text-lg font-bold text-on-background">Bouwen</h3>
           </div>
-          <p class="text-on-surface-variant text-sm leading-relaxed">Jouw visie in strak code en responsief design. Alleen performance, geen ballast.</p>
+          <p class="text-sm leading-relaxed text-on-surface-variant">
+            Jouw visie in strak code en responsief design. Alleen performance, geen ballast.
+          </p>
         </div>
-        <div class="absolute bg-white rounded-2xl p-6 shadow-md border border-[#9fe870]/30" style="right:0;top:40px;width:240px;">
+
+        <!-- Card 3: Groeien — top-right near node 3 -->
+        <div class="ww-card absolute rounded-2xl p-6 bg-white"
+          style="right:0; top:32px; width:226px;
+                 border:1px solid rgba(122,212,68,0.40);
+                 box-shadow:0 4px 24px rgba(0,0,0,0.07), 0 0 0 1px rgba(122,212,68,0.12), 0 16px 40px rgba(122,212,68,0.15);">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-secondary-fixed rounded-xl flex items-center justify-center shrink-0" style="box-shadow:0 4px 16px rgba(208,232,220,0.6);">
-              <span class="material-symbols-outlined text-secondary text-xl">trending_up</span>
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+              style="background:rgba(122,212,68,0.18); border:1px solid rgba(122,212,68,0.38);">
+              <span class="material-symbols-outlined text-xl" style="color:#5ab52a;">trending_up</span>
             </div>
             <h3 class="font-headline text-lg font-bold text-on-background">Groeien</h3>
           </div>
-          <p class="text-on-surface-variant text-sm leading-relaxed">Continue optimalisatie en data-analyse zodat jouw website een groeiend ROI-asset blijft.</p>
+          <p class="text-sm leading-relaxed text-on-surface-variant">
+            Continue optimalisatie en data-analyse zodat jouw website een groeiend ROI-asset blijft.
+          </p>
         </div>
-      </div>
-      <!-- Mobile fallback -->
-      <div class="flex flex-col gap-6 md:hidden">
-        <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center shrink-0" style="box-shadow:0 4px 16px rgba(172,246,124,0.4);">
-              <span class="material-symbols-outlined text-on-primary text-2xl">lightbulb</span>
-            </div>
-            <h3 class="font-headline text-xl font-bold text-on-background">01. Plan</h3>
+
+      </div><!-- end desktop ww-wrap -->
+
+      <!-- ── Mobile: vertical animated timeline ─────────── -->
+      <div class="flex flex-col md:hidden ww-mob" style="position:relative; padding-left:56px;">
+
+        <!-- Vertical connector line -->
+        <div class="ww-vline absolute"
+          style="left:21px; top:28px; bottom:28px; width:2px;
+                 background:linear-gradient(to bottom, #acf67c 0%, #9fe870 50%, rgba(122,212,68,0.3) 100%);"></div>
+
+        <!-- Mobile card 1: Plan -->
+        <div class="ww-card relative flex gap-4 p-5 rounded-2xl mb-4 bg-white"
+          style="border:1px solid rgba(172,246,124,0.30);
+                 box-shadow:0 4px 20px rgba(0,0,0,0.06), 0 0 24px rgba(172,246,124,0.10);">
+          <div class="absolute rounded-full flex items-center justify-center"
+            style="left:-46px; top:50%; transform:translateY(-50%); width:22px; height:22px;
+                   background:white; border:2px solid #acf67c; box-shadow:0 0 10px rgba(172,246,124,0.5);">
+            <div style="width:7px;height:7px;border-radius:50%;background:#7ad444;"></div>
           </div>
-          <p class="text-on-surface-variant leading-relaxed">Diepgaand gesprek over jouw doelen en groeiwensen. We bouwen een roadmap op maat.</p>
-        </div>
-        <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shrink-0" style="box-shadow:0 4px 16px rgba(159,232,112,0.4);">
-              <span class="material-symbols-outlined text-on-primary text-2xl">code</span>
-            </div>
-            <h3 class="font-headline text-xl font-bold text-on-background">02. Bouwen</h3>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+            style="background:rgba(172,246,124,0.15); border:1px solid rgba(172,246,124,0.28);">
+            <span class="material-symbols-outlined text-2xl" style="color:#5ab52a;">lightbulb</span>
           </div>
-          <p class="text-on-surface-variant leading-relaxed">Jouw visie in strak code en responsief design. Geen overbodige ballast — alleen performance.</p>
-        </div>
-        <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 bg-secondary-fixed rounded-xl flex items-center justify-center shrink-0" style="box-shadow:0 4px 16px rgba(208,232,220,0.6);">
-              <span class="material-symbols-outlined text-secondary text-2xl">trending_up</span>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-xs font-bold uppercase tracking-widest font-label text-primary">01</span>
+              <h3 class="font-headline text-lg font-bold text-on-background">Plan</h3>
             </div>
-            <h3 class="font-headline text-xl font-bold text-on-background">03. Groeien</h3>
+            <p class="text-sm leading-relaxed text-on-surface-variant">Diepgaand gesprek over jouw doelen en groeiwensen. We bouwen een roadmap op maat.</p>
           </div>
-          <p class="text-on-surface-variant leading-relaxed">Continue optimalisatie via data-analyse zodat jouw website een groeiend ROI-asset blijft.</p>
         </div>
-      </div>
+
+        <!-- Mobile card 2: Bouwen -->
+        <div class="ww-card relative flex gap-4 p-5 rounded-2xl mb-4 bg-white"
+          style="border:1px solid rgba(159,232,112,0.30);
+                 box-shadow:0 4px 20px rgba(0,0,0,0.06), 0 0 24px rgba(159,232,112,0.10);">
+          <div class="absolute rounded-full flex items-center justify-center"
+            style="left:-46px; top:50%; transform:translateY(-50%); width:22px; height:22px;
+                   background:white; border:2px solid #9fe870; box-shadow:0 0 10px rgba(159,232,112,0.5);">
+            <div style="width:7px;height:7px;border-radius:50%;background:#5ab52a;"></div>
+          </div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+            style="background:rgba(159,232,112,0.15); border:1px solid rgba(159,232,112,0.28);">
+            <span class="material-symbols-outlined text-2xl" style="color:#5ab52a;">code</span>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-xs font-bold uppercase tracking-widest font-label text-primary">02</span>
+              <h3 class="font-headline text-lg font-bold text-on-background">Bouwen</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-on-surface-variant">Jouw visie in strak code en responsief design. Geen overbodige ballast — alleen performance.</p>
+          </div>
+        </div>
+
+        <!-- Mobile card 3: Groeien -->
+        <div class="ww-card relative flex gap-4 p-5 rounded-2xl bg-white"
+          style="border:1px solid rgba(122,212,68,0.35);
+                 box-shadow:0 4px 20px rgba(0,0,0,0.06), 0 0 28px rgba(122,212,68,0.12);">
+          <div class="absolute rounded-full flex items-center justify-center"
+            style="left:-46px; top:50%; transform:translateY(-50%); width:22px; height:22px;
+                   background:white; border:2px solid #7ad444; box-shadow:0 0 12px rgba(122,212,68,0.55);">
+            <div style="width:7px;height:7px;border-radius:50%;background:#5ab52a;"></div>
+          </div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+            style="background:rgba(122,212,68,0.15); border:1px solid rgba(122,212,68,0.30);">
+            <span class="material-symbols-outlined text-2xl" style="color:#5ab52a;">trending_up</span>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-xs font-bold uppercase tracking-widest font-label text-primary">03</span>
+              <h3 class="font-headline text-lg font-bold text-on-background">Groeien</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-on-surface-variant">Continue optimalisatie via data-analyse zodat jouw website een groeiend ROI-asset blijft.</p>
+          </div>
+        </div>
+
+      </div><!-- end mobile ww-mob -->
+
     </div>
   </section>
 
@@ -283,4 +421,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
 </main>
+
+<script>
+/* Werkwijze animation trigger */
+(function () {
+  var targets = document.querySelectorAll('.ww-wrap, .ww-mob');
+  if (!targets.length) return;
+  /* Precise stroke-dasharray based on actual path length */
+  var lp = document.querySelector('.ww-wrap .ww-line');
+  if (lp) {
+    try {
+      var len = Math.ceil(lp.getTotalLength()) + 20;
+      lp.style.strokeDasharray = len;
+      lp.style.strokeDashoffset = len;
+    } catch(e) {}
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('ww-go');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  targets.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </BaseLayout>
