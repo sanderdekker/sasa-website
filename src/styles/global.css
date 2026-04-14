@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────── */
+body { font-family: 'Manrope', sans-serif; }
+h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Shadows ──────────────────────────────────────── */
+.editorial-shadow {
+  box-shadow: 0 10px 30px -10px rgba(159,232,112,0.4), 0 20px 40px -15px rgba(0,0,0,0.1);
+}
+.btn-deep-shadow {
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.14),
+    0 12px 28px -6px rgba(159,232,112,0.65),
+    0 24px 48px -12px rgba(0,0,0,0.18);
+}
+.card-shadow {
+  box-shadow:
+    0 4px 12px -2px rgba(0,0,0,0.06),
+    0 16px 32px -8px rgba(159,232,112,0.12),
+    0 32px 56px -16px rgba(0,0,0,0.06);
+}
+.pricing-shadow {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.04);
+}
+.layered-shadow {
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.1),
+    0 10px 15px -3px rgba(0,0,0,0.1),
+    0 20px 25px -5px rgba(0,0,0,0.05);
+}
+.vibrant-glow {
+  box-shadow: 0 20px 40px -15px rgba(123,211,69,0.3);
+}
+.form-glow {
+  box-shadow: 0 25px 50px -12px rgba(123,211,69,0.25);
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #d0f7aa 0%, #9fe870 45%, #7ad444 100%);
+}
+.btn-primary-gradient:hover {
+  background: linear-gradient(135deg, #dafab8 0%, #aaed7e 45%, #84de50 100%);
+}
+
+/* ── CTA ──────────────────────────────────────────── */
+.cta-gradient-subtle {
+  background: linear-gradient(135deg, #c4f590 0%, #9fe870 40%, #7ad444 75%, #62c230 100%);
+}
+
+/* ── Timeline ─────────────────────────────────────── */
+.timeline-line {
+  background: linear-gradient(to bottom, #9fe870 0%, #9fe870 70%, transparent 100%);
+}
+
+/* ── Mesh background ──────────────────────────────── */
+.bg-mesh {
+  background-color: #f8fafb;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(159,232,112,0.18) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(172,246,124,0.12) 0px, transparent 55%);
+}
+
+/* ── Pricing card featured ────────────────────────── */
+.pricing-featured {
+  background: linear-gradient(160deg, #ffffff 0%, #f7fdf2 100%);
+}
+
+/* ── Glass card ───────────────────────────────────── */
+.glass-card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Text shadow ──────────────────────────────────── */
+.text-shadow-subtle {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ── Value cards (over-ons) ───────────────────────── */
+.value-num {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  color: #1A2E26;
+  transition: color 0.3s ease;
+  display: block;
+}
+.value-card:hover .value-num { color: #9fe870; }
+.value-card { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+.value-card:hover { transform: translateY(-4px); }
+
+@media (min-width: 768px) {
+  .kw-offset-2 { margin-top: 48px; }
+  .kw-offset-3 { margin-top: 16px; }
+  .kw-offset-4 { margin-top: 64px; }
+  .kw-offset-5 { margin-top: 24px; }
+}
+
+/* ── Hero text animation ──────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-anim { opacity: 0; animation: fadeSlideUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards; }
+.hero-anim-1 { animation-delay: 0.05s; }
+.hero-anim-2 { animation-delay: 0.22s; }
+.hero-anim-3 { animation-delay: 0.40s; }
+.hero-anim-4 { animation-delay: 0.56s; }
+
+/* ── TextRotate ───────────────────────────────────── */
+.text-rotate-wrap {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.14em;
+  padding-right: 0.1em;
+  margin-bottom: -0.14em;
+  margin-right: -0.1em;
+}
+.text-rotate-inner { display: inline-block; line-height: 1.1; }
+@keyframes trIn  { from { opacity:0; transform: translateY(106%); } to { opacity:1; transform: translateY(0); } }
+@keyframes trOut { from { opacity:1; transform: translateY(0); }    to { opacity:0; transform: translateY(-112%); } }
+.tr-enter { animation: trIn  0.55s cubic-bezier(0.16,1,0.3,1) forwards; }
+.tr-exit  { animation: trOut 0.38s cubic-bezier(0.7,0,1,1) forwards; }
+
+/* ── Scroll reveal ────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Card lift on hover ───────────────────────────── */
+.card-lift {
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 28px -6px rgba(0,0,0,0.1),
+    0 4px 12px -4px rgba(0,0,0,0.06),
+    0 0 0 1px rgba(159,232,112,0.08);
+}
+
+/* ── Subtle image zoom ────────────────────────────── */
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+.img-zoom:hover img { transform: scale(1.03); }
+
+/* ── Nav link underline ───────────────────────────── */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1.5px;
+  background: #7bd345;
+  transition: width 0.2s ease;
+  border-radius: 2px;
+}
+.nav-link:hover::after { width: 100%; }
+:focus-visible { outline: 2px solid #7bd345; outline-offset: 2px; border-radius: 4px; }
+
+/* ── ContainerScroll (werkwijze) ──────────────────── */
+#process-perspective-wrap { perspective: 1200px; transform-style: preserve-3d; }
+#process-card {
+  transform-origin: top center;
+  transition: transform 0.05s linear;
+  will-change: transform;
+}
+
+/* ── Werkwijze premium graph ─────────────────────── */
+@keyframes ww-draw {
+  from { stroke-dashoffset: 1400; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes ww-area-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ww-pulse {
+  0%   { r: 20; opacity: 0.5; }
+  100% { r: 42; opacity: 0; }
+}
+@keyframes ww-card-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ww-mobile-line {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+/* Initial hidden states */
+.ww-wrap .ww-line   { stroke-dasharray: 1400; stroke-dashoffset: 1400; }
+.ww-wrap .ww-area   { opacity: 0; }
+.ww-wrap .ww-card   { opacity: 0; }
+.ww-mob  .ww-card   { opacity: 0; }
+.ww-mob  .ww-vline  { transform: scaleY(0); transform-origin: top center; }
+/* Triggered states */
+.ww-wrap.ww-go .ww-line {
+  animation: ww-draw 1.8s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;
+}
+.ww-wrap.ww-go .ww-area {
+  animation: ww-area-in 1.2s ease 1.0s forwards;
+}
+.ww-wrap.ww-go .ww-pulse-1 { animation: ww-pulse 2.4s ease-out 1.5s infinite; }
+.ww-wrap.ww-go .ww-pulse-2 { animation: ww-pulse 2.4s ease-out 2.1s infinite; }
+.ww-wrap.ww-go .ww-pulse-3 { animation: ww-pulse 2.4s ease-out 2.7s infinite; }
+.ww-wrap.ww-go .ww-card:nth-child(2) { animation: ww-card-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.7s forwards; }
+.ww-wrap.ww-go .ww-card:nth-child(3) { animation: ww-card-up 0.7s cubic-bezier(0.16,1,0.3,1) 1.1s forwards; }
+.ww-wrap.ww-go .ww-card:nth-child(4) { animation: ww-card-up 0.7s cubic-bezier(0.16,1,0.3,1) 1.5s forwards; }
+.ww-mob.ww-go .ww-vline {
+  animation: ww-mobile-line 1.0s cubic-bezier(0.4,0,0.2,1) 0.2s forwards;
+}
+.ww-mob.ww-go .ww-card:nth-child(1) { animation: ww-card-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
+.ww-mob.ww-go .ww-card:nth-child(2) { animation: ww-card-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.55s forwards; }
+.ww-mob.ww-go .ww-card:nth-child(3) { animation: ww-card-up 0.6s cubic-bezier(0.16,1,0.3,1) 0.9s forwards; }
+
+/* ── Parallax hover ───────────────────────────────── */
+.px-el { will-change: translate; }
+
+/* ── Logo marquee ─────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-track-rev {
+  display: flex;
+  width: max-content;
+  animation: marquee-rev 26s linear infinite;
+}
+.marquee-track:hover,
+.marquee-track-rev:hover { animation-play-state: paused; }

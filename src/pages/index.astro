@@ -1,0 +1,358 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="SASA — Websites die jou helpen groeien">
+<main class="pt-20">
+
+  <!-- ═══════════════ HERO ═══════════════════════════════ -->
+  <section class="bg-white overflow-hidden py-14 md:py-16">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="w-full md:w-3/5">
+          <h1 class="text-4xl md:text-6xl font-extrabold text-on-surface leading-[0.95] tracking-tighter mb-6 font-headline hero-anim hero-anim-1 px-el" data-depth="0.7">
+            Wij bouwen<br/>
+            <span class="text-primary italic text-rotate-wrap" id="tr-wrap">
+              <span class="text-rotate-inner" id="tr-inner">websites</span>
+            </span><br/>
+            die jou helpen groeien
+          </h1>
+          <p class="text-base md:text-lg text-on-surface-variant leading-relaxed font-body hero-anim hero-anim-2 px-el" data-depth="0.5">
+            Wij willen elke startende ondernemer in Nederland de kans geven op
+            de online aanwezigheid die voor grote bedrijven vanzelfsprekend zijn,
+            voor een prijs die past bij waar ze nu staan
+          </p>
+          <div class="mt-6 flex items-center gap-8 hero-anim hero-anim-3">
+            <a href="/contact" class="btn-primary-gradient text-on-primary px-10 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 inline-block">
+              Neem contact op
+            </a>
+            <a class="text-on-surface font-bold text-lg hover:text-primary transition-colors flex items-center gap-2" href="#process">
+              Onze werkwijze <span class="material-symbols-outlined">arrow_downward</span>
+            </a>
+          </div>
+        </div>
+        <div class="w-full md:w-2/5 hero-anim hero-anim-4">
+          <div class="relative px-el" data-depth="1.6">
+            <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] blur-2xl -z-10"></div>
+            <img alt="SASA Founders" class="w-full aspect-[4/5] object-cover rounded-[3rem] shadow-2xl" src="/team-foto.jpg"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ LOGO MARQUEE ════════════════════════ -->
+  <section class="bg-white border-y border-surface-container py-4 overflow-hidden" aria-hidden="true">
+    <div style="-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);" class="overflow-hidden">
+      <div class="marquee-track">
+        <span class="flex items-center gap-10 pr-10 text-sm font-black font-headline tracking-tighter text-on-surface/20">
+          <span>FINTECH</span><span class="text-primary text-xs">✦</span>
+          <span>MODERNIST</span><span class="text-primary text-xs">✦</span>
+          <span>LUMINA</span><span class="text-primary text-xs">✦</span>
+          <span>ORBIT.CO</span><span class="text-primary text-xs">✦</span>
+          <span>KINETIC</span><span class="text-primary text-xs">✦</span>
+          <span>NEXUS</span><span class="text-primary text-xs">✦</span>
+          <span>AURA</span><span class="text-primary text-xs">✦</span>
+          <span>VERDANT</span><span class="text-primary text-xs">✦</span>
+          <span>STELLAR</span><span class="text-primary text-xs">✦</span>
+          <span>VAULT</span><span class="text-primary text-xs">✦</span>
+        </span>
+        <span class="flex items-center gap-10 pr-10 text-sm font-black font-headline tracking-tighter text-on-surface/20">
+          <span>FINTECH</span><span class="text-primary text-xs">✦</span>
+          <span>MODERNIST</span><span class="text-primary text-xs">✦</span>
+          <span>LUMINA</span><span class="text-primary text-xs">✦</span>
+          <span>ORBIT.CO</span><span class="text-primary text-xs">✦</span>
+          <span>KINETIC</span><span class="text-primary text-xs">✦</span>
+          <span>NEXUS</span><span class="text-primary text-xs">✦</span>
+          <span>AURA</span><span class="text-primary text-xs">✦</span>
+          <span>VERDANT</span><span class="text-primary text-xs">✦</span>
+          <span>STELLAR</span><span class="text-primary text-xs">✦</span>
+          <span>VAULT</span><span class="text-primary text-xs">✦</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WERKWIJZE ═══════════════════════════ -->
+  <section class="bg-surface-container-low py-32 px-8" id="process">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20" id="process-header">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label reveal px-el" data-depth="0.4">SASA</span>
+        <h2 class="text-4xl md:text-6xl font-bold font-headline tracking-tight text-on-surface mb-8 reveal px-el" style="transition-delay:0.08s;" data-depth="0.6">Onze Werkwijze</h2>
+        <p class="text-on-surface-variant text-xl font-body max-w-2xl mx-auto reveal px-el" style="transition-delay:0.16s;" data-depth="0.4">
+          Wij helpen jouw bedrijf naar een hoger niveau te tillen, door jouw visie te vertalen
+          naar een website die passend is bij de situatie van een startende ondernemer zoals jij
+        </p>
+      </div>
+      <div class="flex gap-12 items-start" id="process-perspective-wrap">
+        <!-- LEFT: funnel steps (65%) -->
+        <div class="w-[65%]" id="process-card">
+          <!-- Step 1 -->
+          <div class="w-full reveal">
+            <div class="card-lift bg-white rounded-[2rem] p-8 shadow-lg">
+              <div class="flex items-start gap-6">
+                <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
+                  <span class="text-4xl font-black font-headline text-primary/25 leading-none">01</span>
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
+                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">insights</span>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold font-headline mb-3 tracking-tight">Wat wil jij bereiken?</h3>
+                  <p class="text-on-surface-variant leading-relaxed">Wat is het doel van jouw website? Wil je meer klanten aantrekken, vindbaar worden in de regio of een algehele verbetering van je huidige website? Op basis van jouw doelen, kijken we samen naar hoe we dit gaan bereiken.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Connector 1→2 -->
+          <div class="flex pl-14 py-2">
+            <div class="flex flex-col items-center" style="width:40px;">
+              <div class="w-px flex-1 bg-gradient-to-b from-primary/40 to-primary/20" style="min-height:32px;"></div>
+              <div class="w-2 h-2 rounded-full bg-primary/40"></div>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="w-[83%] reveal" style="transition-delay:0.12s;">
+            <div class="card-lift bg-white rounded-[2rem] p-8 shadow-lg">
+              <div class="flex items-start gap-6">
+                <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
+                  <span class="text-4xl font-black font-headline text-primary/25 leading-none">02</span>
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
+                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">terminal</span>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold font-headline mb-3 tracking-tight">Bouwen</h3>
+                  <p class="text-on-surface-variant leading-relaxed">Wij doen al het technische werk. Jij bepaalt of het bij je past. Pas als jij tevreden bent, zijn wij tevreden. We bouwen met de toekomst van jouw groei in gedachten.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Connector 2→3 -->
+          <div class="flex pl-14 py-2" style="width:83%;">
+            <div class="flex flex-col items-center" style="width:40px;">
+              <div class="w-px flex-1 bg-gradient-to-b from-primary/30 to-primary/15" style="min-height:32px;"></div>
+              <div class="w-2 h-2 rounded-full bg-primary/30"></div>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="w-[66%] reveal" style="transition-delay:0.24s;">
+            <div class="card-lift bg-white rounded-[2rem] p-8 shadow-lg">
+              <div class="flex items-start gap-6">
+                <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
+                  <span class="text-4xl font-black font-headline text-primary/25 leading-none">03</span>
+                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
+                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">auto_graph</span>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold font-headline mb-3 tracking-tight">Groei</h3>
+                  <p class="text-on-surface-variant leading-relaxed">Je website gaat live, maar wij gaan nergens heen. We meten wat werkt, optimaliseren door en blijven aan boord. Jij groeit, wij groeien mee naar het volgende niveau.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT: werkwijze image (35%) -->
+        <div class="w-[35%] sticky top-28 reveal" style="transition-delay:0.1s;">
+          <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl editorial-shadow" style="aspect-ratio:3/4;">
+            <img alt="Onze werkwijze" class="w-full h-full object-cover" src="/werkwijze-img.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div class="absolute bottom-8 left-8 right-8">
+              <p class="text-white font-bold font-headline text-xl leading-snug">Van ambitie<br/>naar resultaat.</p>
+            </div>
+          </div>
+          <div class="mt-8">
+            <a href="/contact" class="btn-primary-gradient text-on-primary px-8 py-4 rounded-2xl font-bold text-base btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 inline-block w-full text-center">
+              Neem contact op
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ONZE EXPERTISE ══════════════════════ -->
+  <section class="bg-surface py-32 px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20 reveal px-el" data-depth="0.5">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label">Projecten</span>
+        <h2 class="text-5xl md:text-7xl font-bold font-headline tracking-tighter text-on-surface">Onze Expertise</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="md:col-span-8 group relative min-h-[600px] overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" data-depth="0.9">
+          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]" src="/sasa-img-1.jpeg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-16">
+            <span class="text-primary font-bold mb-4 font-label uppercase tracking-widest text-sm">SASA • 2025</span>
+            <h3 class="text-4xl md:text-5xl font-bold text-white font-headline leading-tight">Digital Masterpieces:<br/>SASA Agency</h3>
+          </div>
+        </div>
+        <div class="md:col-span-4 flex flex-col gap-8">
+          <div class="flex-1 group relative overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.1s;" data-depth="1.2">
+            <img alt="Aura Lifestyle" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6fOrGAnE-aFnl81kqUMDJGphmfn7WgyhIWj0H513USPPAnSsxrB8Qsan5RiJmc_WvPe6pSEaJespszQ_aNZYKnVeOuOZrnBMJcRwPXoH4o72vh7rpXxy_SH6ydKrYSiuSrx98cmbs5P8jg6Njc2T6TN0_g_Qr-SqZwwGMg2-p_TVibaeLoVV-I2fFa7n1svfruUydg7e5YM5E5xAWGVj3TAG1kLZ0nKxsMn0IOWA3O3WRK1FKAejCnLZc7tlV9y9pqZDM7y5-TMc"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
+              <span class="text-primary font-bold mb-2 font-label uppercase tracking-widest text-xs">E-Commerce • 2023</span>
+              <h3 class="text-2xl font-bold text-white font-headline">Aura Lifestyle</h3>
+            </div>
+          </div>
+          <div class="flex-1 group relative overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.2s;" data-depth="1.0">
+            <img alt="Stellar Architecture" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyYtupAUWMgrITQWQHaiCKrzTOaADtn0uVMLjoP1giPL7mox53rdBd74upBcnRSnIPmj3HXlcL7WKezADob-c54izSoL_ttmJNGpr0yObmqHSbikiFSiyiOIX4rqhJ9ECcWejcMuXT6NnVLy55N3gVjy39PBmfmxj8jSupChj8DqWuKLbNu9Qzh0roWAdHF4S0CUPZUM1iA_YlpYYoHSCXTi7l7i-hnwpXC3RDZ1bycQeetKAA2MbXn9aPmNeN_vFOjyfFTf_GifU"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
+              <span class="text-primary font-bold mb-2 font-label uppercase tracking-widest text-xs">Architecture • 2024</span>
+              <h3 class="text-2xl font-bold text-white font-headline">Stellar Studio</h3>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-12 group relative h-[500px] overflow-hidden rounded-[3rem] shadow-lg hover:shadow-2xl transition-shadow duration-500 reveal px-el" style="transition-delay:0.15s;" data-depth="0.8">
+          <img alt="SASA Project" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" src="/sasa-img-2.jpeg"/>
+          <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent flex flex-col justify-center p-16">
+            <div class="max-w-xl">
+              <span class="text-primary font-bold mb-4 font-label uppercase tracking-widest text-sm">SASA • 2025</span>
+              <h3 class="text-4xl md:text-5xl font-bold text-white font-headline mb-6">SASA Results</h3>
+              <p class="text-white/70 text-lg leading-relaxed">Groeiende online aanwezigheid voor Nederlandse ondernemers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ KLANTEN ══════════════════════════════ -->
+  <section class="bg-surface-container-high py-32 px-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col items-center text-center mb-20 reveal px-el" data-depth="0.5">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label">Klantverhalen</span>
+        <h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tight text-on-surface max-w-2xl">Klanten aan het woord</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="card-lift bg-surface-container-lowest p-12 rounded-[3rem] shadow-sm relative overflow-hidden group reveal px-el" data-depth="0.8">
+          <span class="material-symbols-outlined text-9xl text-primary/5 absolute -top-10 -right-10 select-none">format_quote</span>
+          <p class="text-2xl font-body text-on-surface leading-relaxed italic mb-12 relative z-10">
+            "Verdant Agency transformed our online presence. Their attention to detail and ability to translate our complex vision into a seamless digital experience was unparalleled."
+          </p>
+          <div class="flex items-center gap-6">
+            <div class="w-20 h-20 rounded-2xl bg-surface-container overflow-hidden border-2 border-primary editorial-shadow">
+              <img alt="Client portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH8U3jXcj3duP76D5n1WPWheNRg8hx5wKp6B-4NTogyIVcDSG9vM-NGQtWDPuKJMKKVJsPjS3zJ8UDCrp81Th_tIQ9_UEN6L-HsQgYt_VvH7YPQikCy3LLb_kOrVY1-ta0a1mtnncJhAandOjisR52pFw7pqC8OlfJoqLnCVwTmpLCF6Ff-Uc-SX3jTkgdse9VRDYQuizSjC0yRSipzoPUQv68u65IGegdKSGGpy9VHYs1u0UPdqK7jopKRPUql8rleUkacJ9GYZo"/>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-on-surface font-headline">Thomas Reith</h4>
+              <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest">CEO, Nexus Global</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-surface-container-lowest p-12 rounded-[3rem] shadow-sm relative overflow-hidden group reveal px-el" style="transition-delay:0.12s;" data-depth="0.8">
+          <span class="material-symbols-outlined text-9xl text-primary/5 absolute -top-10 -right-10 select-none">format_quote</span>
+          <p class="text-2xl font-body text-on-surface leading-relaxed italic mb-12 relative z-10">
+            "The team at Verdant doesn't just build websites; they build businesses. Our conversion rates increased by 40% within three months of launching the new platform."
+          </p>
+          <div class="flex items-center gap-6">
+            <div class="w-20 h-20 rounded-2xl bg-surface-container overflow-hidden border-2 border-primary editorial-shadow">
+              <img alt="Client portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtxCceMem_GKJ52F9C6owzysFQFhkBOgUxMsyPb-Gvpfi6H93cdpvZP_1Au0NBXOqe-8KPaRb8k0TZUo3tBLEhl2L5PQb1ZGmhwQ19aUmFEMZE2EoATKp00zbciB8AKIqeQMKRNsXY__VqoL2Z6aKjBrfPbYMYuW4ewC7dUyDmdVh_lR0zEoiRfVUC068aQbCeBlWo-mnhI0K6M2PWfCCaj461i-Sooflbzk2RZey1ppHgGeJA1gJeCQU8olPSOpK47bdpU6A-V9c"/>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-on-surface font-headline">Sarah Jenkins</h4>
+              <p class="text-on-surface-variant text-sm font-label uppercase tracking-widest">Founder, Aura Collective</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-24 pt-12 flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 reveal px-el" style="transition-delay:0.2s;" data-depth="0.3">
+        <span class="text-2xl font-black font-headline tracking-tighter">FINTECH.</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">MODERNIST</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">LUMINA</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">ORBIT.CO</span>
+        <span class="text-2xl font-black font-headline tracking-tighter">KINETIC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT FORM ══════════════════════ -->
+  <section class="py-20 px-8 bg-surface-container-lowest">
+    <div class="max-w-5xl mx-auto reveal" data-depth="0.4">
+      <div class="rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row" style="box-shadow:0 32px 64px -10px rgba(159,232,112,0.3),0 16px 32px rgba(0,0,0,0.08);">
+        <div class="md:w-2/5 cta-gradient-subtle p-12 flex flex-col justify-center">
+          <h2 class="text-3xl md:text-4xl font-extrabold font-headline text-on-primary mb-4 leading-tight px-el" data-depth="0.5">
+            Jouw start begint hier
+          </h2>
+          <p class="text-on-primary/80 font-body leading-relaxed text-base">
+            Plan een vrijblijvend gesprek en laat ons samen bouwen aan jouw groei.
+          </p>
+        </div>
+        <div class="md:w-3/5 bg-white p-10 md:p-12">
+          <form class="space-y-5" id="homepage-form">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Naam</label>
+                <input type="text" placeholder="Jan de Vries" required class="w-full px-5 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 focus:ring-2 focus:ring-[#7bd345] focus:border-[#7bd345] focus-visible:outline-none text-on-surface placeholder:text-outline transition-all text-sm"/>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">E-mailadres</label>
+                <input type="email" placeholder="jan@voorbeeld.nl" required class="w-full px-5 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 focus:ring-2 focus:ring-[#7bd345] focus:border-[#7bd345] focus-visible:outline-none text-on-surface placeholder:text-outline transition-all text-sm"/>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Telefoonnummer</label>
+              <input type="tel" placeholder="+31 (0)6 000 000 00" class="w-full px-5 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 focus:ring-2 focus:ring-[#7bd345] focus:border-[#7bd345] focus-visible:outline-none text-on-surface placeholder:text-outline transition-all text-sm"/>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2">Bericht</label>
+              <textarea rows="4" placeholder="Vertel ons over jouw project..." class="w-full px-5 py-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 focus:ring-2 focus:ring-[#7bd345] focus:border-[#7bd345] focus-visible:outline-none text-on-surface placeholder:text-outline transition-all text-sm resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-primary-gradient text-on-primary w-full py-4 rounded-xl font-bold text-base btn-deep-shadow hover:translate-y-[-1px] active:scale-[0.99] transition-transform duration-200">
+              Verstuur bericht
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var words = ['websites', 'AI-automations'];
+  var inner = document.getElementById('tr-inner');
+  if (!inner) return;
+  var idx = 0;
+  function rotate() {
+    inner.classList.remove('tr-enter');
+    inner.classList.add('tr-exit');
+    setTimeout(function() {
+      idx = (idx + 1) % words.length;
+      inner.textContent = words[idx];
+      inner.classList.remove('tr-exit');
+      void inner.offsetWidth;
+      inner.classList.add('tr-enter');
+    }, 420);
+  }
+  setTimeout(function() { rotate(); setInterval(rotate, 2800); }, 2400);
+})();
+
+(function () {
+  var section = document.getElementById('process');
+  var card    = document.getElementById('process-card');
+  var header  = document.getElementById('process-header');
+  if (!section || !card) return;
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+  function onScroll() {
+    var rect = section.getBoundingClientRect();
+    var vh   = window.innerHeight;
+    var sh   = section.offsetHeight;
+    var prog = clamp((vh - rect.top) / (sh * 0.7), 0, 1);
+    card.style.transform = 'perspective(1200px) rotateX(' + (18 * (1 - prog)) + 'deg) scale(' + (1 + 0.06 * (1 - prog)) + ')';
+    if (header) header.style.transform = 'translateY(' + clamp(-prog * 40, -40, 0) + 'px)';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+(function() {
+  var form = document.getElementById('homepage-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    form.innerHTML = '<p class="text-center text-on-surface font-bold py-8">Bericht verzonden! We nemen snel contact op.</p>';
+  });
+})();
+</script>
+</BaseLayout>

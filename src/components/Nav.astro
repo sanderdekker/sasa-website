@@ -1,0 +1,109 @@
+---
+// Nav.astro
+// Props:
+//   ctaText  — tekst van de CTA-knop (default: 'Contact')
+//   ctaHref  — link van de CTA-knop (default: '/contact')
+//   variant  — 'kennismaking' voor de uitgebreide nav met Home + kennismaking link
+
+interface Props {
+  ctaText?: string;
+  ctaHref?: string;
+  variant?: 'default' | 'kennismaking';
+}
+
+const {
+  ctaText = 'Contact',
+  ctaHref = '/contact',
+  variant = 'default',
+} = Astro.props;
+
+const path = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === '/') return path === '/' || path === '/index';
+  return path.startsWith(href);
+}
+
+function linkClass(href: string): string {
+  if (isActive(href)) {
+    return 'font-headline font-semibold text-[#7bd345] border-b-2 border-[#7bd345] pb-1';
+  }
+  return 'nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors';
+}
+---
+
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-surface-container">
+  <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+    <a href="/" class="text-xl font-black tracking-tighter text-on-surface font-headline">SASA</a>
+
+    <div class="hidden md:flex items-center gap-10">
+      {variant === 'kennismaking' && (
+        <a class={linkClass('/')} href="/">Home</a>
+      )}
+      <a class={linkClass('/diensten')} href="/diensten">Diensten</a>
+      <a class={linkClass('/projecten')} href="/projecten">Projecten</a>
+      <a class={linkClass('/over-ons')} href="/over-ons">Over ons</a>
+      {variant === 'kennismaking' ? (
+        <a class={linkClass('/blog')} href="/blog">Blog &amp; artikelen</a>
+      ) : (
+        <a class={linkClass('/blog')} href="/blog">Nieuws</a>
+      )}
+      {variant === 'kennismaking' && (
+        <a class={linkClass('/kennismaking')} href="/kennismaking">Kennismaking</a>
+      )}
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a
+        href={ctaHref}
+        class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2"
+      >
+        {ctaText}
+      </a>
+      <button
+        id="menu-toggle"
+        class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors focus-visible:ring-2 focus-visible:ring-[#7bd345]"
+        aria-label="Menu openen"
+        aria-expanded="false"
+      >
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobiel menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-surface-container px-8 py-6">
+    <div class="flex flex-col gap-1">
+      {variant === 'kennismaking' && (
+        <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="/">Home</a>
+      )}
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="/diensten">Diensten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="/projecten">Projecten</a>
+      <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="/over-ons">Over ons</a>
+      {variant === 'kennismaking' ? (
+        <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="/blog">Blog &amp; artikelen</a>
+      ) : (
+        <a class="font-headline font-semibold text-slate-700 hover:text-[#7bd345] transition-colors py-3 border-b border-surface-container-low" href="/blog">Nieuws</a>
+      )}
+      {variant === 'kennismaking' && (
+        <a class="font-headline font-semibold text-[#7bd345] py-3 border-b border-slate-100" href="/kennismaking">Kennismaking</a>
+      )}
+      <a href={ctaHref} class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">{ctaText}</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function() {
+  var toggle = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      var isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+    });
+  }
+})();
+</script>
