@@ -22,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div>
 <div>
 <p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Email ons</p>
-<p class="text-xl font-headline font-bold text-on-background">info@sasa.nl</p>
+<p class="text-xl font-headline font-bold text-on-background">info@saasa-online.nl</p>
 </div>
 </div>
 <div class="flex items-start gap-4 px-el" data-depth="0.4">
@@ -31,7 +31,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div>
 <div>
 <p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Bel ons</p>
-<p class="text-xl font-headline font-bold text-on-background">+31 (0)6 00 000 000</p>
+<p class="text-xl font-headline font-bold text-on-background">—</p>
 </div>
 </div>
 <div class="flex items-start gap-4 px-el" data-depth="0.35">
@@ -40,7 +40,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div>
 <div>
 <p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Bezoek ons</p>
-<p class="text-xl font-headline font-bold text-on-background">Amsterdam, Nederland</p>
+<p class="text-xl font-headline font-bold text-on-background">—</p>
 </div>
 </div>
 </div>
@@ -58,11 +58,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
 <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
 <div class="relative space-y-8">
-<div class="space-y-2">
+<div id="form-header" class="space-y-2">
 <h2 class="text-3xl font-headline font-black text-on-primary-container">Stuur een bericht</h2>
 <p class="text-on-primary-container/80 font-medium">Vertel ons over jouw project of zeg gewoon hallo.</p>
 </div>
-<form id="contact-form" class="space-y-6" novalidate>
+<form id="contact-form" action="https://formspree.io/f/mbdqlprl" method="POST" class="space-y-6" novalidate>
 <div class="space-y-2">
 <label for="naam" class="block text-sm font-bold text-on-primary-container uppercase tracking-wider">Volledige naam <span class="text-red-500">*</span></label>
 <input id="naam" name="naam" required class="w-full px-6 py-4 bg-white/90 border-0 rounded-xl focus:ring-4 focus:ring-primary/20 focus-visible:outline-none text-on-surface placeholder:text-outline transition-all" placeholder="Jan de Vries" type="text"/>
@@ -93,7 +93,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <div id="success-msg" class="hidden text-center py-10 space-y-4">
   <span class="material-symbols-outlined text-6xl text-primary">check_circle</span>
   <h3 class="font-headline text-2xl font-black text-on-primary-container">Bericht verzonden!</h3>
-  <p class="text-on-primary-container/80">We nemen zo snel mogelijk contact met je op.</p>
+  <p class="text-on-primary-container/80">We nemen zo snel mogelijk contact met jou op.</p>
 </div>
 </div>
 </div>
@@ -139,8 +139,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       }
     });
     if (!valid) return;
-    form.classList.add('hidden');
-    document.getElementById('success-msg').classList.remove('hidden');
+
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Verzenden…';
+
+    var data = {
+      naam: document.getElementById('naam').value,
+      email: document.getElementById('email').value,
+      telefoon: document.getElementById('telefoon').value,
+      bericht: document.getElementById('bericht').value
+    };
+
+    fetch('https://formspree.io/f/mbdqlprl', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function(res) { return res.json().then(function(json) { return { ok: res.ok, json: json }; }); })
+    .then(function(r) {
+      if (r.ok) {
+        document.getElementById('form-header').classList.add('hidden');
+        form.classList.add('hidden');
+        document.getElementById('success-msg').classList.remove('hidden');
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Verstuur bericht';
+        alert('Er is iets misgegaan. Probeer het later opnieuw.');
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Verstuur bericht';
+      alert('Er is iets misgegaan. Controleer je internetverbinding.');
+    });
   });
 })();
 </script>
