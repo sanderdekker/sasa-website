@@ -56,7 +56,10 @@ function linkClass(href: string): string {
     <div class="flex items-center gap-3">
       <a
         href={ctaHref}
-        class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2"
+        aria-current={isActive(ctaHref) ? 'page' : undefined}
+        class={isActive(ctaHref)
+          ? 'btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight opacity-60 cursor-default pointer-events-none'
+          : 'btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-[#88FFE0] focus-visible:ring-offset-2'}
       >
         {ctaText}
       </a>
