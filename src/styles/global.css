@@ -128,6 +128,13 @@ h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
 .hero-anim-2 { animation-delay: 0.22s; }
 .hero-anim-3 { animation-delay: 0.40s; }
 .hero-anim-4 { animation-delay: 0.56s; }
+.hero-anim-5 { animation-delay: 0.72s; }
+
+/* ── USP icon ring ────────────────────────────────── */
+.usp-icon-ring {
+  background: linear-gradient(135deg, #acf67c 0%, #7ad444 100%);
+  box-shadow: 0 4px 16px rgba(159,232,112,0.45);
+}
 
 /* ── TextRotate ───────────────────────────────────── */
 .text-rotate-wrap {
