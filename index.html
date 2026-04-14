@@ -374,9 +374,11 @@
         <div class="w-full md:w-2/5 hero-anim hero-anim-4">
           <div class="relative px-el" data-depth="1.6">
             <div class="absolute -inset-4 bg-primary/10 rounded-[3rem] blur-2xl -z-10"></div>
-            <img alt="SASA Founders"
-              class="w-full aspect-[4/5] object-cover rounded-[3rem] shadow-2xl"
-              src="./team-foto.jpg"/>
+            <div class="w-full aspect-[4/5] rounded-[3rem] shadow-2xl overflow-hidden">
+              <img alt="SASA Homepage"
+                class="w-full h-full object-cover scale-[1.08] object-center"
+                src="./hero-homepage.png"/>
+            </div>
           </div>
         </div>
 
@@ -868,6 +870,7 @@
   }, { threshold: 0.1 });
   els.forEach(el => io.observe(el));
 })();
+
 </script>
 
 </body></html>

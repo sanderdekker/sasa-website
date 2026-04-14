@@ -24,7 +24,19 @@
       "Bash(node \"c:/Users/sande/OneDrive/Nieuwe map/sasa-website/serve.mjs\")",
       "Bash(mv sasa-website/* .)",
       "Bash(mv sasa-website/.* .)",
-      "Bash(rmdir sasa-website:*)"
+      "Bash(rmdir sasa-website:*)",
+      "Bash(node \"c:/Users/sande/OneDrive/Nieuwe map/serve.mjs\")",
+      "Bash(netstat -ano)",
+      "Bash(awk '{print $5}')",
+      "Bash(xargs -I{} taskkill //PID {} //F)",
+      "Bash(node \"c:/Users/sande/OneDrive/Nieuwe map/screenshot.mjs\" http://localhost:3000)",
+      "Read(//c/Users/sande/.cache/**)",
+      "Bash(grep -E \"\\\\.\\(html|json|mjs\\)$|^[^.]\")",
+      "Bash(grep -v \"^$\")",
+      "Bash(node \"c:/Users/sande/OneDrive/Nieuwe map/screenshot.mjs\" http://localhost:3000/diensten.html werkwijze)",
+      "Bash(code --version)",
+      "Bash(npm create:*)",
+      "Bash(npx astro:*)"
     ],
     "additionalDirectories": [
       "c:\\Users\\sande\\Downloads",

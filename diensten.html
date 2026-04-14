@@ -123,6 +123,38 @@
   .hero-anim-2 { animation-delay: 0.22s; }
   .hero-anim-3 { animation-delay: 0.38s; }
   .hero-anim-4 { animation-delay: 0.54s; }
+  .hero-anim-5 { animation-delay: 0.70s; }
+
+  /* ── USP cards ─────────────────────────────────────── */
+  .usp-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+                transform 0.6s cubic-bezier(0.16,1,0.3,1),
+                box-shadow 0.25s cubic-bezier(0.16,1,0.3,1);
+  }
+  .usp-card.usp-visible { opacity: 1; transform: translateY(0); }
+  .usp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -8px rgba(159,232,112,0.25), 0 8px 16px -4px rgba(0,0,0,0.06);
+  }
+  .usp-icon-ring {
+    background: linear-gradient(135deg, #d0f7aa 0%, #9fe870 60%, #7ad444 100%);
+    box-shadow: 0 4px 16px -4px rgba(159,232,112,0.55), 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  /* ── Client logos ──────────────────────────────────── */
+  .logo-card {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  @keyframes logoReveal {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .logo-card.logo-animated {
+    animation: logoReveal 0.65s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
 
   /* ── Pricing card featured ───────────────────────── */
   .pricing-featured {
@@ -244,146 +276,241 @@
     <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container mb-6 hero-anim hero-anim-1 px-el" data-depth="0.9">
         <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">eco</span>
-        <span class="text-xs font-bold tracking-wider uppercase font-label">Resultaatgerichte Dienstverlening</span>
+        <span class="text-xs font-bold tracking-wider uppercase font-label">Websites die resultaat leveren</span>
       </div>
-      <h1 class="font-headline text-6xl md:text-8xl font-extrabold text-on-background tracking-tight leading-[1.0] mb-8 hero-anim hero-anim-2 px-el" data-depth="0.5">
-        High-Performance<br/>
-        <span class="text-primary">Digital Foundations</span>
+      <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-background tracking-tight leading-[1.05] mb-8 hero-anim hero-anim-2 px-el" data-depth="0.5">
+        Websites die zorgen voor<br/>
+        <span class="text-primary italic">online zichtbaarheid</span><br/>
+        <span class="text-on-background">& meer conversie</span>
       </h1>
-      <p class="max-w-2xl mx-auto text-on-surface-variant text-lg md:text-xl leading-relaxed hero-anim hero-anim-3 px-el" data-depth="0.3">
-        Wij bouwen razendsnel, op maat gemaakte websites die jouw conversies maximaliseren. Persoonlijk, ambitieus en altijd gericht op groei.
+      <p class="max-w-xl mx-auto text-on-surface-variant text-lg leading-relaxed hero-anim hero-anim-3 px-el" data-depth="0.3">
+        Wij bouwen op maat gemaakte websites die jouw bedrijf beter vindbaar maken in Google <em>én</em> meer bezoekers omzetten in betalende klanten.
       </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4 hero-anim hero-anim-4">
+        <a href="./contact.html" class="btn-primary-gradient text-on-primary px-10 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 inline-block focus-visible:ring-2 focus-visible:ring-[#7bd345] focus-visible:ring-offset-2">
+          Gratis gesprek inplannen
+        </a>
+        <a href="#wat-wij-doen" class="inline-flex items-center gap-2 text-on-surface font-bold text-lg hover:text-primary transition-colors duration-200 group">
+          Onze aanpak
+          <span class="material-symbols-outlined transition-transform duration-200 group-hover:translate-y-1">arrow_downward</span>
+        </a>
+      </div>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 hero-anim hero-anim-5">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+          <span class="text-sm font-semibold text-on-surface-variant">50+ websites gebouwd</span>
+        </div>
+        <span class="w-px h-4 bg-outline-variant/50 hidden sm:block"></span>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+          <span class="text-sm font-semibold text-on-surface-variant">Gemiddeld 3× meer conversie</span>
+        </div>
+        <span class="w-px h-4 bg-outline-variant/50 hidden sm:block"></span>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary" style="font-size:18px;font-variation-settings:'FILL' 1;">check_circle</span>
+          <span class="text-sm font-semibold text-on-surface-variant">Altijd 100% op maat</span>
+        </div>
+      </div>
     </div>
     <!-- Decorative blobs -->
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary-fixed/25 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
   </section>
 
-  <!-- ═══════════════ PRICING ════════════════════════════ -->
-  <section class="py-28 relative overflow-hidden" style="background:rgba(255,255,255,0.52);">
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
-      <div class="text-center mb-20 reveal">
-        <span class="text-xs font-bold uppercase tracking-widest text-primary font-label mb-4 block">Investering</span>
-        <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-background mb-4 tracking-tight">Transparante prijzen</h2>
-        <p class="text-on-surface-variant max-w-md mx-auto">Eenvoudige, waardegedreven pakketten voor ondernemers in elke fase.</p>
+  <!-- ═══════════════ WAT WIJ DOEN ════════════════════════ -->
+  <section id="wat-wij-doen" class="py-28 px-8" style="background:rgba(248,250,251,0.85);position:relative;z-index:1;">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row gap-16 items-center">
+
+        <!-- Left: heading -->
+        <div class="lg:w-2/5 reveal">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label">Wat wij doen</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tight text-on-surface leading-[1.05]">
+            Websites die<br/>
+            <span class="text-primary italic">werken</span> — ook<br/>
+            als jij slaapt
+          </h2>
+          <div class="mt-8">
+            <a href="./contact.html" class="btn-primary-gradient text-on-primary px-8 py-4 rounded-xl font-bold inline-flex items-center gap-2 btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 group">
+              Start jouw project
+              <span class="material-symbols-outlined transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: description (max 150 words) + stats -->
+        <div class="lg:w-3/5 reveal" style="transition-delay:0.12s;">
+          <p class="text-lg text-on-surface-variant leading-[1.8] font-body">
+            Wij bouwen op maat gemaakte websites die jou helpen groeien. Met slimme <strong class="text-on-surface font-semibold">zoekmachineoptimalisatie</strong> zorgen we dat jouw doelgroep jou vindt in Google. Met een <strong class="text-on-surface font-semibold">conversiegericht design</strong> zetten we bezoekers om in betalende klanten.
+          </p>
+          <p class="mt-5 text-lg text-on-surface-variant leading-[1.8] font-body">
+            Geen standaard templates — elk project is maatwerk, afgestemd op jouw merk, doelgroep en ambities. Van strategie en design tot livegang en doorlopende optimalisatie: wij staan op elke stap aan jouw zijde.
+          </p>
+          <div class="mt-8 grid grid-cols-3 gap-6 pt-8 border-t border-outline-variant/30">
+            <div>
+              <div class="text-3xl font-extrabold font-headline text-on-surface tracking-tight">50+</div>
+              <div class="text-sm text-on-surface-variant font-body mt-1">Websites gebouwd</div>
+            </div>
+            <div>
+              <div class="text-3xl font-extrabold font-headline text-on-surface tracking-tight">3×</div>
+              <div class="text-sm text-on-surface-variant font-body mt-1">Meer conversie</div>
+            </div>
+            <div>
+              <div class="text-3xl font-extrabold font-headline text-on-surface tracking-tight">98%</div>
+              <div class="text-sm text-on-surface-variant font-body mt-1">Tevreden klanten</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ USPS ══════════════════════════════════ -->
+  <section class="py-28 px-8 bg-white" style="position:relative;z-index:1;">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label">Waarom SASA</span>
+        <h2 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tight text-on-surface max-w-2xl mx-auto leading-tight">
+          Alles wat jouw website nodig heeft om te scoren
+        </h2>
       </div>
 
-      <div class="grid lg:grid-cols-3 gap-8 items-start">
+      <div id="usp-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Core -->
-        <div class="bg-white p-10 rounded-[2rem] pricing-shadow border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300 reveal px-el" data-depth="0.4">
-          <div class="mb-8">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="material-symbols-outlined text-primary font-bold">bolt</span>
-              <h3 class="font-headline text-2xl font-bold text-on-background">Core</h3>
-            </div>
-            <p class="text-on-surface-variant text-sm mb-6">Alle essentiële tools die je nodig hebt voor een professionele online aanwezigheid.</p>
-            <div class="flex items-baseline">
-              <span class="text-4xl font-extrabold text-on-background tracking-tight">€2.450</span>
-              <span class="text-on-surface-variant text-sm ml-2">/project</span>
-            </div>
+        <!-- USP 1 -->
+        <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0s;">
+          <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">search</span>
           </div>
-          <div class="mb-8">
-            <button class="w-full py-4 rounded-full border-2 border-outline-variant font-bold text-on-surface hover:bg-surface-container-low transition-colors duration-200">
-              Kies Core
-            </button>
+          <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">Gevonden in Google</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">
+            SEO-geoptimaliseerd van de eerste regel code. Wij zorgen dat jouw doelgroep jou vindt — precies op het moment dat ze zoeken.
+          </p>
+          <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
+        </div>
+
+        <!-- USP 2 -->
+        <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0.1s;">
+          <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">trending_up</span>
           </div>
-          <div class="border-t border-slate-100 pt-8">
-            <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6 font-label">Core inclusief:</p>
-            <ul class="space-y-4 flex-grow">
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">sync_alt</span>
-                <span class="text-on-surface-variant text-sm">5 pagina's op maat ontworpen</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">desktop_windows</span>
-                <span class="text-on-surface-variant text-sm">SEO-fundament</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">phone_iphone</span>
-                <span class="text-on-surface-variant text-sm">Volledig responsief design</span>
-              </li>
-            </ul>
+          <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">Meer conversie</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">
+            Elke pixel werkt voor jou. Van CTA-plaatsing tot kleurgebruik — alles is bewust ontworpen om bezoekers te overtuigen actie te ondernemen.
+          </p>
+          <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
+        </div>
+
+        <!-- USP 3 -->
+        <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0.2s;">
+          <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">speed</span>
+          </div>
+          <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">Razendsnel & stabiel</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">
+            Meer dan 3 seconden laadtijd? Je verliest bezoekers én rankings. Onze sites scoren groen op Core Web Vitals — standaard.
+          </p>
+          <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
+        </div>
+
+        <!-- USP 4 -->
+        <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0.3s;">
+          <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0">
+            <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">phone_iphone</span>
+          </div>
+          <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">100% Mobielvriendelijk</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">
+            Meer dan 70% van het webverkeer komt via mobiel. Wij bouwen altijd mobile-first — perfect op elk scherm en elk apparaat.
+          </p>
+          <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
+        </div>
+
+        <!-- USP 5 — wide, green highlight -->
+        <div class="usp-card md:col-span-2 lg:col-span-2 rounded-[2rem] p-8 relative overflow-hidden group" style="transition-delay:0.4s;background:linear-gradient(135deg,#d0f7aa 0%,#9fe870 50%,#7ad444 100%);box-shadow:0 12px 32px -8px rgba(159,232,112,0.5),0 4px 12px rgba(0,0,0,0.08);">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div class="w-12 h-12 rounded-2xl bg-white/30 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">handshake</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold font-headline text-on-primary mb-2 tracking-tight">Maatwerk — altijd</h3>
+              <p class="text-on-primary/80 text-sm leading-relaxed font-body">
+                Geen templates van de plank. Jouw website wordt van scratch gebouwd, uniek voor jouw merk, doelgroep en ambities. Jij bepaalt de koers — wij zorgen voor de uitvoering.
+              </p>
+            </div>
+            <a href="./contact.html" class="shrink-0 bg-white text-on-primary px-6 py-3 rounded-xl font-bold text-sm hover:bg-white/90 active:scale-[0.98] transition-transform duration-200 whitespace-nowrap focus-visible:ring-2 focus-visible:ring-white/60">
+              Start jouw project
+            </a>
           </div>
         </div>
 
-        <!-- Advanced (Featured) -->
-        <div class="pricing-featured p-10 rounded-[2rem] pricing-shadow border-2 border-primary/40 flex flex-col relative transition-transform hover:-translate-y-1 duration-300 lg:scale-105 z-10 reveal px-el" data-depth="0.65">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-6 py-1.5 rounded-full text-xs font-black tracking-widest uppercase"
-            style="box-shadow: 0 4px 16px rgba(159,232,112,0.4);">
-            Meest Gekozen
-          </div>
-          <div class="mb-8">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="material-symbols-outlined text-primary font-bold">local_fire_department</span>
-              <h3 class="font-headline text-2xl font-bold text-on-background">Advanced</h3>
-            </div>
-            <p class="text-on-surface-variant text-sm mb-6">Voor groeiende ondernemers die maximale prestaties en een opvallende online aanwezigheid willen.</p>
-            <div class="flex items-baseline">
-              <span class="text-4xl font-extrabold text-on-background tracking-tight">€4.950</span>
-              <span class="text-on-surface-variant text-sm ml-2">/project</span>
-            </div>
-          </div>
-          <div class="mb-8">
-            <button class="w-full py-4 rounded-full bg-on-background text-white font-bold text-lg hover:opacity-90 transition-opacity duration-200 flex items-center justify-center gap-2"
-              style="box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
-              Neem contact op
-              <span class="material-symbols-outlined text-sm">chat_bubble</span>
-            </button>
-          </div>
-          <div class="border-t border-primary/20 pt-8">
-            <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6 font-label">Alles in Core, plus:</p>
-            <ul class="space-y-4 flex-grow">
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">bar_chart</span>
-                <span class="text-on-surface-variant text-sm">Geavanceerd animatiepakket</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">shopping_cart</span>
-                <span class="text-on-surface-variant text-sm">E-commerce integratie</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">cloud</span>
-                <span class="text-on-surface-variant text-sm">1 jaar premium hosting</span>
-              </li>
-            </ul>
-          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CLIENT LOGOS ══════════════════════════ -->
+  <section class="py-20 px-8 overflow-hidden" style="background:rgba(248,250,251,0.7);position:relative;z-index:1;">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-12 reveal">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant/50 font-label">Vertrouwd door groeiende ondernemers</p>
+      </div>
+
+      <div class="logos-grid flex flex-wrap justify-center items-center gap-8 md:gap-12">
+
+        <!-- Logo 1: Verdant -->
+        <div class="logo-card flex items-center gap-3 px-8 py-5 bg-white rounded-2xl border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all duration-200 cursor-default">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 3C14 3 5 8 5 16C5 20.4 9 24 14 24C19 24 23 20.4 23 16C23 8 14 3 14 3Z" fill="#9fe870" opacity="0.9"/>
+            <path d="M14 24V13M14 13C14 13 11 10 8 9M14 13C14 13 17 10 20 9" stroke="#4a7c30" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="text-base font-black font-headline tracking-tight text-on-surface/60">Verdant</span>
         </div>
 
-        <!-- Enterprise -->
-        <div class="bg-white p-10 rounded-[2rem] pricing-shadow border border-slate-100 flex flex-col transition-transform hover:-translate-y-1 duration-300 reveal px-el" data-depth="0.35">
-          <div class="mb-8">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="material-symbols-outlined text-primary font-bold">business</span>
-              <h3 class="font-headline text-2xl font-bold text-on-background">Enterprise</h3>
-            </div>
-            <p class="text-on-surface-variant text-sm mb-6">Complexe platformen en maatwerk webapplicaties voor grootschalige operaties.</p>
-            <div class="flex items-baseline">
-              <span class="text-4xl font-extrabold text-on-background tracking-tight">Op maat</span>
-            </div>
-          </div>
-          <div class="mb-8">
-            <button class="w-full py-4 rounded-full border-2 border-outline-variant font-bold text-on-surface hover:bg-surface-container-low transition-colors duration-200">
-              Vraag een offerte aan
-            </button>
-          </div>
-          <div class="border-t border-slate-100 pt-8">
-            <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6 font-label">Enterprise features:</p>
-            <ul class="space-y-4 flex-grow">
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">architecture</span>
-                <span class="text-on-surface-variant text-sm">Maatwerk SaaS-architectuur</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">brush</span>
-                <span class="text-on-surface-variant text-sm">Volledig brand identity design</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary text-xl mt-0.5">person_pin</span>
-                <span class="text-on-surface-variant text-sm">Dedicated projectmanager</span>
-              </li>
-            </ul>
-          </div>
+        <!-- Logo 2: Orbit -->
+        <div class="logo-card flex items-center gap-3 px-8 py-5 bg-white rounded-2xl border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all duration-200 cursor-default">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="4" fill="#9fe870"/>
+            <ellipse cx="14" cy="14" rx="11" ry="5" stroke="#9fe870" stroke-width="1.5" opacity="0.7"/>
+            <ellipse cx="14" cy="14" rx="11" ry="5" stroke="#9fe870" stroke-width="1.5" opacity="0.4" transform="rotate(60 14 14)"/>
+          </svg>
+          <span class="text-base font-black font-headline tracking-tight text-on-surface/60">Orbit</span>
+        </div>
+
+        <!-- Logo 3: Lumina -->
+        <div class="logo-card flex items-center gap-3 px-8 py-5 bg-white rounded-2xl border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all duration-200 cursor-default">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <polygon points="14,2 17,11 26,11 19,17 21,26 14,20 7,26 9,17 2,11 11,11" fill="#9fe870" opacity="0.85"/>
+            <polygon points="14,6 16.5,12 23,12 18,16 20,22 14,18 8,22 10,16 5,12 11.5,12" fill="white" opacity="0.5"/>
+          </svg>
+          <span class="text-base font-black font-headline tracking-tight text-on-surface/60">Lumina</span>
+        </div>
+
+        <!-- Logo 4: Kinetic -->
+        <div class="logo-card flex items-center gap-3 px-8 py-5 bg-white rounded-2xl border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all duration-200 cursor-default">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M4 14L12 6L20 14L12 22L4 14Z" fill="#9fe870" opacity="0.3"/>
+            <path d="M10 14L18 6L26 14L18 22L10 14Z" fill="#9fe870" opacity="0.7"/>
+            <path d="M16 14L20 10L24 14L20 18L16 14Z" fill="#7ad444"/>
+          </svg>
+          <span class="text-base font-black font-headline tracking-tight text-on-surface/60">Kinetic</span>
+        </div>
+
+        <!-- Logo 5: Nexus -->
+        <div class="logo-card flex items-center gap-3 px-8 py-5 bg-white rounded-2xl border border-outline-variant/20 hover:border-primary/40 hover:shadow-md transition-all duration-200 cursor-default">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="3" fill="#9fe870"/>
+            <circle cx="5"  cy="7"  r="2.5" fill="#9fe870" opacity="0.7"/>
+            <circle cx="23" cy="7"  r="2.5" fill="#9fe870" opacity="0.7"/>
+            <circle cx="5"  cy="21" r="2.5" fill="#9fe870" opacity="0.7"/>
+            <circle cx="23" cy="21" r="2.5" fill="#9fe870" opacity="0.7"/>
+            <line x1="14" y1="14" x2="5"  y2="7"  stroke="#9fe870" stroke-width="1.2" opacity="0.5"/>
+            <line x1="14" y1="14" x2="23" y2="7"  stroke="#9fe870" stroke-width="1.2" opacity="0.5"/>
+            <line x1="14" y1="14" x2="5"  y2="21" stroke="#9fe870" stroke-width="1.2" opacity="0.5"/>
+            <line x1="14" y1="14" x2="23" y2="21" stroke="#9fe870" stroke-width="1.2" opacity="0.5"/>
+          </svg>
+          <span class="text-base font-black font-headline tracking-tight text-on-surface/60">Nexus</span>
         </div>
 
       </div>
@@ -768,6 +895,45 @@
 (function(){var S=0.3,E=0.10,mx=0,my=0,items=[];document.querySelectorAll('.px-el[data-depth]').forEach(function(el){items.push({el:el,depth:parseFloat(el.dataset.depth||'1'),x:0,y:0});});window.addEventListener('mousemove',function(e){mx=e.clientX-innerWidth/2;my=e.clientY-innerHeight/2;},{passive:true});function loop(){items.forEach(function(i){var s=(i.depth*S)/20,tx=mx*s,ty=my*s;i.x+=(tx-i.x)*E;i.y+=(ty-i.y)*E;i.el.style.translate=i.x.toFixed(2)+'px '+i.y.toFixed(2)+'px';});requestAnimationFrame(loop);}requestAnimationFrame(loop);})();
 </script>
 <script>
+/* USP cards — staggered scroll reveal */
+(function () {
+  var grid = document.getElementById('usp-grid');
+  if (!grid) { document.querySelectorAll('.usp-card').forEach(function(c){c.classList.add('usp-visible');}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        var cards = entry.target.querySelectorAll('.usp-card');
+        cards.forEach(function(card, i){
+          var d = parseFloat(card.style.transitionDelay) || (i * 0.1);
+          card.style.transitionDelay = d + 's';
+          requestAnimationFrame(function(){ card.classList.add('usp-visible'); });
+        });
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  io.observe(grid);
+})();
+
+/* Client logos — staggered fade-up on scroll */
+(function () {
+  var grids = document.querySelectorAll('.logos-grid');
+  if (!grids.length) { document.querySelectorAll('.logo-card').forEach(function(c){c.classList.add('logo-animated');}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        var cards = entry.target.querySelectorAll('.logo-card');
+        cards.forEach(function(card, i){
+          card.style.animationDelay = (i * 0.12) + 's';
+          requestAnimationFrame(function(){ card.classList.add('logo-animated'); });
+        });
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  grids.forEach(function(g){ io.observe(g); });
+})();
+
 /* Werkwijze animation trigger */
 (function () {
   var targets = document.querySelectorAll('.ww-wrap, .ww-mob');
