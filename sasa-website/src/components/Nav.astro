@@ -1,0 +1,59 @@
+---
+interface Props {
+  currentPage?: string
+}
+const { currentPage = '' } = Astro.props
+
+const links = [
+  { href: '/diensten',  label: 'Diensten',  key: 'diensten' },
+  { href: '/projecten', label: 'Projecten', key: 'projecten' },
+  { href: '/over-ons',  label: 'Over ons',  key: 'over-ons' },
+  { href: '/blog',      label: 'Nieuws',    key: 'blog' },
+]
+---
+
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-surface-container">
+  <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+    <a href="/" class="text-xl font-black tracking-tighter text-on-surface font-headline">SASA</a>
+    <div class="hidden md:flex items-center gap-10">
+      {links.map(link => (
+        currentPage === link.key
+          ? <a href={link.href} class="font-headline font-semibold text-[#7bd345] border-b-2 border-[#7bd345] pb-1">{link.label}</a>
+          : <a href={link.href} class="nav-link font-headline font-semibold text-slate-500 hover:text-[#7bd345] transition-colors">{link.label}</a>
+      ))}
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="/contact" class="btn-primary-gradient text-on-primary px-7 py-3 rounded-full font-bold tracking-tight btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200">
+        Contact
+      </a>
+      <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Menu openen" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-surface-container px-8 py-6">
+    <div class="flex flex-col gap-1">
+      {links.map(link => (
+        currentPage === link.key
+          ? <a href={link.href} class="font-headline font-semibold text-[#7bd345] py-3 border-b border-slate-100">{link.label}</a>
+          : <a href={link.href} class="font-headline font-semibold text-slate-600 hover:text-[#7bd345] transition-colors py-3 border-b border-slate-100">{link.label}</a>
+      ))}
+      <a href="/contact" class="btn-primary-gradient text-on-primary px-6 py-3 rounded-full font-bold text-center mt-4 btn-deep-shadow block">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function() {
+  var toggle = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      var isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.querySelector('.material-symbols-outlined')!.textContent = isOpen ? 'menu' : 'close';
+    });
+  }
+})();
+</script>
