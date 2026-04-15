@@ -139,77 +139,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="text-on-surface-variant text-lg">Van eerste idee tot groeiend succes. Ons verhaal in vier fases.</p>
     </div>
 
-    <!-- ── Desktop: horizontale tijdlijn ───────────────── -->
-    <div class="tl-wrap hidden md:block">
+    <!-- ── Desktop: verticale zigzag tijdlijn ──────────── -->
+    <div class="tl-wrap hidden md:block relative" style="max-width:680px;margin:0 auto;">
 
-      <!-- Rij 1: kaartjes boven de lijn (fase 01 en 03) -->
-      <div class="grid grid-cols-4 gap-4 items-end">
+      <!-- Verticale lijn (geanimeerd, gradient groen → grijs) -->
+      <div class="tl-line absolute rounded-full"
+        style="left:calc(50% - 1px);top:24px;bottom:24px;width:2px;
+               background:linear-gradient(to bottom,
+                 #acf67c 0%,#7ad444 28%,
+                 rgba(0,0,0,0.15) 44%,rgba(0,0,0,0.09) 100%);"></div>
 
-        <!-- Fase 01 — voltooid -->
-        <div class="flex flex-col items-center">
-          <div class="tl-card tl-card-1 bg-white rounded-2xl p-6 w-full"
-            style="border:1px solid rgba(172,246,124,0.40);
-                   box-shadow:0 4px 24px rgba(0,0,0,0.07),0 16px 40px rgba(159,232,112,0.12);">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Fase 01</span>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/15 text-primary">
-                <span class="material-symbols-outlined" style="font-size:11px;font-variation-settings:'FILL' 1;">check_circle</span>
-                Voltooid
-              </span>
-            </div>
-            <h3 class="font-headline text-lg font-bold text-on-background mb-2">Startup</h3>
-            <p class="text-on-surface-variant text-sm leading-relaxed">Begonnen als twee vrienden met één missie: elke startende ondernemer verdient een professionele online aanwezigheid.</p>
+      <!-- Fase 01: kaart LINKS ──── node ──── leeg rechts -->
+      <div class="grid items-center mb-14" style="grid-template-columns:1fr 48px 1fr;">
+        <div class="tl-card tl-card-1 bg-white rounded-2xl p-6"
+          style="border:1px solid rgba(172,246,124,0.40);
+                 box-shadow:0 4px 24px rgba(0,0,0,0.07),0 16px 40px rgba(159,232,112,0.12);">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Fase 01</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/15 text-primary">
+              <span class="material-symbols-outlined" style="font-size:11px;font-variation-settings:'FILL' 1;">check_circle</span>
+              Voltooid
+            </span>
           </div>
-          <div style="width:1px;height:2rem;background:repeating-linear-gradient(to bottom,rgba(172,246,124,0.6) 0,rgba(172,246,124,0.6) 4px,transparent 4px,transparent 10px);"></div>
+          <h3 class="font-headline text-lg font-bold text-on-background mb-2">Startup</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Begonnen als twee vrienden met één missie: elke startende ondernemer verdient een professionele online aanwezigheid.</p>
         </div>
-
-        <div></div>
-
-        <!-- Fase 03 — toekomst -->
-        <div class="flex flex-col items-center">
-          <div class="tl-card tl-card-3 bg-white rounded-2xl p-6 w-full"
-            style="border:1px solid rgba(0,0,0,0.08); opacity:0.55;
-                   box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label">Fase 03</span>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-surface-container text-on-surface-variant">
-                Binnenkort
-              </span>
-            </div>
-            <h3 class="font-headline text-lg font-bold text-on-background mb-2">100 klanten</h3>
-            <p class="text-on-surface-variant text-sm leading-relaxed">100 tevreden ondernemers die hun doelen online bereiken. De mijlpaal die onze aanpak definitief bewijst.</p>
-          </div>
-          <div style="width:1px;height:2rem;background:repeating-linear-gradient(to bottom,rgba(0,0,0,0.15) 0,rgba(0,0,0,0.15) 4px,transparent 4px,transparent 10px);"></div>
-        </div>
-
-        <div></div>
-      </div>
-
-      <!-- Rij 2: de lijn met 4 nodes -->
-      <div class="relative grid grid-cols-4" style="height:44px;align-items:center;">
-
-        <!-- Voltooide lijn (fase 01 tot fase 02) -->
-        <div class="absolute"
-          style="top:50%;left:12.5%;width:25%;height:2.5px;
-                 background:linear-gradient(to right,#acf67c,#7ad444);
-                 margin-top:-1px;border-radius:2px;
-                 box-shadow:0 0 10px rgba(159,232,112,0.4);z-index:0;"></div>
-
-        <!-- Toekomstige lijn (fase 02 tot fase 04) - geanimeerd -->
-        <div class="tl-line absolute"
-          style="top:50%;left:37.5%;right:12.5%;height:2px;
-                 background:rgba(0,0,0,0.12);
-                 transform-origin:left center;margin-top:-1px;border-radius:2px;z-index:0;"></div>
-
-        <!-- Node 1 — voltooid (groen gevuld) -->
         <div class="flex justify-center relative z-10">
           <div class="w-5 h-5 rounded-full flex items-center justify-center"
             style="background:#7ad444;box-shadow:0 0 16px rgba(122,212,68,0.5);border:2.5px solid white;">
             <span class="material-symbols-outlined text-white" style="font-size:11px;font-variation-settings:'FILL' 1;">check</span>
           </div>
         </div>
+        <div></div>
+      </div>
 
-        <!-- Node 2 — huidig (groot, pulsend) -->
+      <!-- Fase 02: leeg links ──── node ──── kaart RECHTS -->
+      <div class="grid items-center mb-14" style="grid-template-columns:1fr 48px 1fr;">
+        <div></div>
         <div class="flex justify-center relative z-10">
           <div class="relative flex items-center justify-center">
             <div class="tl-pulse tl-pulse-1 absolute rounded-full"
@@ -222,68 +188,66 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
           </div>
         </div>
+        <div class="tl-card tl-card-2 bg-white rounded-2xl p-6"
+          style="border:2px solid rgba(159,232,112,0.55);
+                 box-shadow:0 4px 24px rgba(0,0,0,0.07),0 0 0 4px rgba(159,232,112,0.10),0 16px 40px rgba(159,232,112,0.15);">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Fase 02</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-white"
+              style="background:linear-gradient(135deg,#9fe870,#5ab52a);">
+              <span class="material-symbols-outlined" style="font-size:10px;font-variation-settings:'FILL' 1;">radio_button_checked</span>
+              Wij nu
+            </span>
+          </div>
+          <h3 class="font-headline text-lg font-bold text-on-background mb-2">Eerste klanten</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">We zijn klaar om onze eerste klanten te helpen met hun online aanwezigheid. Elk project is een leermoment en een kans om te bewijzen wat we waard zijn.</p>
+        </div>
+      </div>
 
-        <!-- Node 3 — toekomst (grijs) -->
+      <!-- Fase 03: kaart LINKS ──── node ──── leeg rechts -->
+      <div class="grid items-center mb-14" style="grid-template-columns:1fr 48px 1fr;">
+        <div class="tl-card tl-card-3 bg-white rounded-2xl p-6"
+          style="border:1px solid rgba(0,0,0,0.08);opacity:0.65;
+                 box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label">Fase 03</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-surface-container text-on-surface-variant">
+              Binnenkort
+            </span>
+          </div>
+          <h3 class="font-headline text-lg font-bold text-on-background mb-2">100 klanten</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">100 tevreden ondernemers die hun doelen online bereiken. De mijlpaal die onze aanpak definitief bewijst.</p>
+        </div>
         <div class="flex justify-center relative z-10">
           <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center"
             style="border:2px dashed rgba(0,0,0,0.2);">
             <div class="w-2 h-2 rounded-full" style="background:rgba(0,0,0,0.2);"></div>
           </div>
         </div>
+        <div></div>
+      </div>
 
-        <!-- Node 4 — toekomst (grijs) -->
+      <!-- Fase 04: leeg links ──── node ──── kaart RECHTS -->
+      <div class="grid items-center" style="grid-template-columns:1fr 48px 1fr;">
+        <div></div>
         <div class="flex justify-center relative z-10">
           <div class="w-5 h-5 rounded-full bg-white flex items-center justify-center"
             style="border:2px dashed rgba(0,0,0,0.15);">
             <div class="w-2 h-2 rounded-full" style="background:rgba(0,0,0,0.15);"></div>
           </div>
         </div>
-
-      </div>
-
-      <!-- Rij 3: kaartjes onder de lijn (fase 02 en 04) -->
-      <div class="grid grid-cols-4 gap-4 items-start">
-
-        <div></div>
-
-        <!-- Fase 02 — huidig -->
-        <div class="flex flex-col items-center">
-          <div style="width:1px;height:2rem;background:repeating-linear-gradient(to bottom,rgba(159,232,112,0.7) 0,rgba(159,232,112,0.7) 4px,transparent 4px,transparent 10px);"></div>
-          <div class="tl-card tl-card-2 bg-white rounded-2xl p-6 w-full"
-            style="border:2px solid rgba(159,232,112,0.55);
-                   box-shadow:0 4px 24px rgba(0,0,0,0.07),0 0 0 4px rgba(159,232,112,0.10),0 16px 40px rgba(159,232,112,0.15);">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Fase 02</span>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-white"
-                style="background:linear-gradient(135deg,#9fe870,#5ab52a);">
-                <span class="material-symbols-outlined" style="font-size:10px;font-variation-settings:'FILL' 1;">radio_button_checked</span>
-                Wij nu
-              </span>
-            </div>
-            <h3 class="font-headline text-lg font-bold text-on-background mb-2">Eerste klanten</h3>
-            <p class="text-on-surface-variant text-sm leading-relaxed">We zijn klaar om onze eerste klanten te helpen met hun online aanwezigheid. Elk project is een leermoment en een kans om te bewijzen wat we waard zijn.</p>
+        <div class="tl-card tl-card-4 bg-white rounded-2xl p-6"
+          style="border:1px solid rgba(0,0,0,0.06);opacity:0.50;
+                 box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label">Fase 04</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-surface-container text-on-surface-variant">
+              Toekomst
+            </span>
           </div>
+          <h3 class="font-headline text-lg font-bold text-on-background mb-2">Groei &amp; succes</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Over 5 jaar helpen we ondernemers in alle fases om hun online aanwezigheid en conversie te maximaliseren. De ondernemerscultuur in Nederland stimuleren.</p>
         </div>
-
-        <div></div>
-
-        <!-- Fase 04 — toekomst -->
-        <div class="flex flex-col items-center">
-          <div style="width:1px;height:2rem;background:repeating-linear-gradient(to bottom,rgba(0,0,0,0.12) 0,rgba(0,0,0,0.12) 4px,transparent 4px,transparent 10px);"></div>
-          <div class="tl-card tl-card-4 bg-white rounded-2xl p-6 w-full"
-            style="border:1px solid rgba(0,0,0,0.06); opacity:0.45;
-                   box-shadow:0 2px 12px rgba(0,0,0,0.04);">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label">Fase 04</span>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-surface-container text-on-surface-variant">
-                Toekomst
-              </span>
-            </div>
-            <h3 class="font-headline text-lg font-bold text-on-background mb-2">Groei &amp; succes</h3>
-            <p class="text-on-surface-variant text-sm leading-relaxed">Over 5 jaar helpen we ondernemers in alle fases om hun online aanwezigheid en conversie te maximaliseren. De ondernemerscultuur in Nederland stimuleren.</p>
-          </div>
-        </div>
-
       </div>
 
     </div><!-- end desktop tl-wrap -->
