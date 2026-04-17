@@ -1,0 +1,151 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  category: string;
+  categorySlug?: string;
+  date: string;
+  readTime?: string;
+  heroImage?: string;
+  authorName?: string;
+  authorRole?: string;
+  authorImage?: string;
+  intro?: string;
+}
+
+const {
+  title,
+  category,
+  date,
+  readTime = '5 min lezen',
+  heroImage = 'https://placehold.co/1400x640/1A2E26/9fe870?text=SASA',
+  authorName = 'SASA Redactie',
+  authorRole = 'Redactie',
+  authorImage = 'https://placehold.co/96x96/9fe870/1A2E26?text=S',
+  intro = '',
+} = Astro.props;
+---
+
+<BaseLayout title={`${title} | SASA Nieuws`} bodyClass="bg-white font-body text-on-surface antialiased">
+<main>
+
+  <!-- ═══════════ HERO ══════════════════════════════════════ -->
+  <div class="relative w-full overflow-hidden" style="padding-top:4rem;height:520px;">
+    <img
+      src={heroImage}
+      alt={title}
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(10,20,14,0.80) 0%,rgba(10,20,14,0.35) 50%,transparent 100%);"></div>
+    <!-- Subtle green tint at bottom -->
+    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(26,46,38,0.40) 0%,transparent 40%);"></div>
+
+    <!-- Content anchored at bottom -->
+    <div class="absolute bottom-0 left-0 right-0 pb-10 px-8">
+      <div class="max-w-4xl mx-auto">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 mb-5" style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.55);">
+          <a href="/blog" class="hover:text-white transition-colors">Nieuws</a>
+          <span class="material-symbols-outlined" style="font-size:14px;">chevron_right</span>
+          <span style="color:rgba(255,255,255,0.75);">{category}</span>
+        </nav>
+        <!-- Category badge -->
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-5"
+          style="background:rgba(159,232,112,0.18);color:#acf67c;border:1px solid rgba(159,232,112,0.35);">
+          {category}
+        </span>
+        <!-- Title -->
+        <h1 class="font-headline font-extrabold text-white leading-tight mb-6"
+          style="font-size:clamp(1.75rem,4vw,3rem);max-width:800px;">
+          {title}
+        </h1>
+        <!-- Author row in hero -->
+        <div class="flex items-center gap-3">
+          <img src={authorImage} alt={authorName}
+            class="rounded-full object-cover shrink-0"
+            style="width:36px;height:36px;border:2px solid rgba(159,232,112,0.5);" />
+          <div style="font-size:0.8125rem;">
+            <span class="font-bold text-white">{authorName}</span>
+            <span style="color:rgba(255,255,255,0.5);"> · </span>
+            <span style="color:rgba(255,255,255,0.6);">{date}</span>
+            <span style="color:rgba(255,255,255,0.5);"> · </span>
+            <span style="color:rgba(255,255,255,0.6);">{readTime}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ META BAR (sticky) ════════════════════════ -->
+  <div class="sticky z-20 border-b" style="top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-color:rgba(0,0,0,0.07);">
+    <div class="max-w-4xl mx-auto px-8 py-3 flex items-center justify-between gap-4">
+      <!-- Author compact -->
+      <div class="flex items-center gap-3">
+        <img src={authorImage} alt={authorName}
+          class="rounded-full object-cover shrink-0"
+          style="width:32px;height:32px;border:1.5px solid rgba(159,232,112,0.4);" />
+        <div style="font-size:0.75rem;">
+          <span class="font-bold text-on-surface">{authorName}</span>
+          <span class="text-on-surface-variant"> · {date} · {readTime}</span>
+        </div>
+      </div>
+      <!-- Back link -->
+      <a href="/blog"
+        class="flex items-center gap-1.5 font-semibold hover:text-primary transition-colors"
+        style="font-size:0.8125rem;color:#64748b;">
+        <span class="material-symbols-outlined" style="font-size:17px;">arrow_back</span>
+        Terug naar nieuws
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════ ARTIKEL INHOUD ════════════════════════════ -->
+  <article class="max-w-2xl mx-auto px-8 py-16 article-body">
+
+    {intro && (
+      <p class="article-intro">{intro}</p>
+    )}
+
+    <!-- ↓↓ Artikel inhoud komt hier ↓↓ -->
+    <slot />
+    <!-- ↑↑ ————————————————————————— ↑↑ -->
+
+  </article>
+
+  <!-- ═══════════ AUTEUR CARD ══════════════════════════════ -->
+  <div class="max-w-2xl mx-auto px-8 pb-16">
+    <div class="flex items-center gap-5 p-6 rounded-2xl"
+      style="background:rgba(248,250,251,0.9);border:1px solid rgba(0,0,0,0.06);">
+      <img src={authorImage} alt={authorName}
+        class="rounded-full object-cover shrink-0"
+        style="width:56px;height:56px;border:2px solid rgba(159,232,112,0.35);" />
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest text-primary mb-0.5">Geschreven door</p>
+        <p class="font-headline font-bold text-on-surface text-base">{authorName}</p>
+        <p class="text-sm text-on-surface-variant">{authorRole}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CTA ══════════════════════════════════════ -->
+  <section class="py-20 px-8" style="background:rgba(248,250,251,0.85);">
+    <div class="max-w-2xl mx-auto text-center">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest mb-6">Aan de slag</span>
+      <h3 class="font-headline text-3xl md:text-4xl font-extrabold text-on-background mb-4">
+        Klaar om samen te groeien?
+      </h3>
+      <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+        Wil je meer weten over hoe SASA jouw onderneming online kan laten groeien? Neem vrijblijvend contact op.
+      </p>
+      <a href="/contact"
+        class="inline-flex items-center gap-3 btn-primary-gradient text-on-surface px-8 py-4 rounded-xl font-headline font-extrabold btn-deep-shadow hover:-translate-y-0.5 active:scale-[0.98] transition-transform">
+        Neem contact op
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+</BaseLayout>

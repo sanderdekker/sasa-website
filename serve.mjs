@@ -21,20 +21,32 @@ const mimeTypes = {
   '.woff2': 'font/woff2',
 };
 
-const server = createServer(async (req, res) => {
-  const url = req.url === '/' ? '/index.html' : req.url;
-  const filePath = join(__dirname, url);
-  const ext = extname(filePath).toLowerCase();
-  const contentType = mimeTypes[ext] || 'application/octet-stream';
+const distDir = join(__dirname, 'dist');
 
-  try {
-    const content = await readFile(filePath);
-    res.writeHead(200, { 'Content-Type': contentType });
-    res.end(content);
-  } catch {
-    res.writeHead(404);
-    res.end('Not found');
+const server = createServer(async (req, res) => {
+  // Strip query string
+  const pathname = req.url.split('?')[0];
+
+  // Candidates to try in order
+  const candidates = [
+    join(distDir, pathname),                      // exact file
+    join(distDir, pathname, 'index.html'),        // directory index (Astro routes)
+    join(distDir, pathname.replace(/\/$/, ''), 'index.html'),
+  ];
+
+  for (const filePath of candidates) {
+    const ext = extname(filePath).toLowerCase() || '.html';
+    const contentType = mimeTypes[ext] || 'application/octet-stream';
+    try {
+      const content = await readFile(filePath);
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+      return;
+    } catch { /* try next */ }
   }
+
+  res.writeHead(404);
+  res.end('Not found');
 });
 
 server.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));

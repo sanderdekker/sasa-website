@@ -18,25 +18,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <!-- Featured Section -->
 <section class="mb-24">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-<div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl group relative px-el" data-depth="0.35">
-<img alt="Featured artikel" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" src="https://placehold.co/900x500"/>
+<a href="/blog/kwaliteit-website" class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl group relative px-el block" data-depth="0.35">
+<img alt="Waarom kwaliteit in je website belangrijk is" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80&auto=format&fit=crop"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-</div>
+</a>
 <div class="lg:col-span-5 flex flex-col justify-center px-4 lg:px-8 px-el" data-depth="0.6">
-<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/30 text-primary font-bold text-xs uppercase tracking-widest mb-6 w-fit">Nieuws</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-on-surface">Digitale excellentie in een AI-gedreven wereld</h2>
-<p class="text-on-surface-variant text-lg leading-relaxed mb-8">Ontdek hoe SASA traditionele marketingprocessen hertekent door generatieve AI te combineren met mensgerichte creatieve richting voor een ongekend resultaat.</p>
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/30 text-primary font-bold text-xs uppercase tracking-widest mb-6 w-fit">Groei</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-on-surface">Waarom kwaliteit in je website belangrijk is voor je bedrijf</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">Je werkt keihard. Maar als je website er niet uitziet, klikken mensen weg. Niet omdat jij niet goed bent, maar omdat de eerste indruk online alles bepaalt.</p>
 <div class="flex items-center gap-4 mb-10">
-<img alt="Auteur" class="w-12 h-12 rounded-full object-cover border-2 border-primary-container" src="https://placehold.co/48x48"/>
+<img alt="Sam" class="w-12 h-12 rounded-full object-cover border-2 border-primary-container" src="https://placehold.co/48x48/1A2E26/9fe870?text=S"/>
 <div>
-<p class="font-bold text-on-surface">Sarah Janssen</p>
-<p class="text-sm text-on-surface-variant">Directeur Strategie • 8 min lezen</p>
+<p class="font-bold text-on-surface">Sam</p>
+<p class="text-sm text-on-surface-variant">Co-founder SASA • 4 min lezen</p>
 </div>
 </div>
-<button class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
+<a href="/blog/kwaliteit-website" class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
   Lees meer
   <span class="material-symbols-outlined font-bold">arrow_forward</span>
-</button>
+</a>
 </div>
 </div>
 </section>
@@ -47,50 +47,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Card 1 -->
-<article class="group cursor-pointer px-el" data-category="marketing" data-depth="0.4">
+<a href="/blog/website-meer-dan-mooi" class="group cursor-pointer px-el" data-category="marketing" data-depth="0.4">
 <div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Inzicht 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span></div>
+<img alt="Waarom je website meer moet doen dan er mooi uitzien" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80&auto=format&fit=crop"/>
+<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Marketing</span></div>
 </div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">24 mrt 2024 • Marketing</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">De verschuiving naar zero-party data: Waarom privacy-first marketing wint</h4>
-</article>
+<p class="text-sm text-on-surface-variant font-medium mb-3">15 apr 2025 • Marketing</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Waarom je website meer moet doen dan er mooi uitzien</h4>
+</a>
 <!-- Card 2 -->
-<article class="group cursor-pointer px-el" data-category="strategie" data-depth="0.55">
+<a href="/blog/google-en-je-bedrijf" class="group cursor-pointer px-el" data-category="tech" data-depth="0.55">
 <div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Inzicht 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span></div>
+<img alt="Hoe Google bepaalt of jouw bedrijf bestaat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=600&q=80&auto=format&fit=crop"/>
+<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Tech</span></div>
 </div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">21 mrt 2024 • Strategie</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Navigeren in de nieuwe normale: hybride werkcultuur bij creatieve bureaus</h4>
-</article>
+<p class="text-sm text-on-surface-variant font-medium mb-3">15 apr 2025 • Tech</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Hoe Google bepaalt of jouw bedrijf bestaat</h4>
+</a>
 <!-- Card 3 -->
-<article class="group cursor-pointer px-el" data-category="tech" data-depth="0.35">
+<a href="/blog/goedkoop-is-duurkoop" class="group cursor-pointer px-el" data-category="strategie" data-depth="0.35">
 <div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Inzicht 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span></div>
+<img alt="Waarom de goedkoopste oplossing je het meeste kost" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80&auto=format&fit=crop"/>
+<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Strategie</span></div>
 </div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">18 mrt 2024 • Tech</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Bouwen voor morgen: Waarom Web3 nog steeds belangrijk is voor merkbetrokkenheid</h4>
-</article>
-<!-- Card 4 -->
-<article class="group cursor-pointer px-el" data-category="design" data-depth="0.5">
-<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Inzicht 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span></div>
+<p class="text-sm text-on-surface-variant font-medium mb-3">15 apr 2025 • Strategie</p>
+<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Waarom de goedkoopste oplossing je het meeste kost</h4>
+</a>
+<!-- Card 4 - Coming Soon -->
+<div class="px-el opacity-60 cursor-default" data-category="design" data-depth="0.5">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg bg-surface-container-low flex items-center justify-center">
+<div class="absolute inset-0 bg-surface-container"></div>
+<div class="relative z-10 text-center px-6">
+  <span class="material-symbols-outlined text-primary mb-3 block" style="font-size:36px;">schedule</span>
+  <p class="font-bold text-on-surface text-sm">Binnenkort</p>
 </div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">15 mrt 2024 • Design</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Visueel storytelling: De 2024 gids voor meeslepende merkidentiteiten</h4>
-</article>
-<!-- Card 5 -->
-<article class="group cursor-pointer px-el" data-category="groei" data-depth="0.45">
-<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Inzicht 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://placehold.co/600x450"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Nieuws</span></div>
+<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-on-surface-variant uppercase">Creative Direction</span></div>
 </div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">12 mrt 2024 • Groei</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Conversieoptimalisatie: Kleine aanpassingen die enorme resultaten opleveren</h4>
-</article>
+<p class="text-sm text-on-surface-variant font-medium mb-3">Binnenkort • Creative Direction</p>
+<h4 class="text-xl font-bold leading-snug text-on-surface-variant mb-4">Artikel volgt binnenkort</h4>
+</div>
+<!-- Card 5 - Coming Soon -->
+<div class="px-el opacity-60 cursor-default" data-category="groei" data-depth="0.45">
+<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg bg-surface-container-low flex items-center justify-center">
+<div class="absolute inset-0 bg-surface-container"></div>
+<div class="relative z-10 text-center px-6">
+  <span class="material-symbols-outlined text-primary mb-3 block" style="font-size:36px;">schedule</span>
+  <p class="font-bold text-on-surface text-sm">Binnenkort</p>
+</div>
+<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-on-surface-variant uppercase">Groei</span></div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mb-3">Binnenkort • Groei</p>
+<h4 class="text-xl font-bold leading-snug text-on-surface-variant mb-4">Artikel volgt binnenkort</h4>
+</div>
 <!-- Subscribe Card -->
 <div class="rounded-xl p-8 flex flex-col justify-between shadow-xl relative overflow-hidden px-el" data-depth="0.4" style="background:#acf67c;">
 <div class="absolute -right-12 -top-12 w-48 h-48 opacity-20 blur-3xl rounded-full" style="background:#7ad444;"></div>

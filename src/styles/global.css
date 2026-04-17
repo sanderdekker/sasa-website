@@ -206,8 +206,8 @@ h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* ── Horizontale tijdlijn ────────────────────────── */
 @keyframes tl-draw {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
 }
 @keyframes tl-card-up {
   from { opacity: 0; transform: translateY(14px); }
@@ -221,7 +221,7 @@ h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
   0%   { transform: scale(1); opacity: 0.5; }
   100% { transform: scale(2.4); opacity: 0; }
 }
-.tl-wrap .tl-line  { transform: scaleX(0); transform-origin: left center; }
+.tl-wrap .tl-line  { transform: scaleY(0); transform-origin: top center; }
 .tl-wrap .tl-card  { opacity: 0; }
 .tl-wrap .tl-pulse { opacity: 0; }
 .tl-wrap.tl-go .tl-line   { animation: tl-draw 1.6s cubic-bezier(0.4,0,0.2,1) 0.1s forwards; }
@@ -229,10 +229,10 @@ h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
 .tl-wrap.tl-go .tl-pulse-2 { animation: tl-pulse 2.4s ease-out 1.6s infinite; }
 .tl-wrap.tl-go .tl-pulse-3 { animation: tl-pulse 2.4s ease-out 2.0s infinite; }
 .tl-wrap.tl-go .tl-pulse-4 { animation: tl-pulse 2.4s ease-out 2.4s infinite; }
-.tl-wrap.tl-go .tl-card-1  { animation: tl-card-up   0.7s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; }
-.tl-wrap.tl-go .tl-card-2  { animation: tl-card-down 0.7s cubic-bezier(0.16,1,0.3,1) 1.0s forwards; }
-.tl-wrap.tl-go .tl-card-3  { animation: tl-card-up   0.7s cubic-bezier(0.16,1,0.3,1) 1.4s forwards; }
-.tl-wrap.tl-go .tl-card-4  { animation: tl-card-down 0.7s cubic-bezier(0.16,1,0.3,1) 1.8s forwards; }
+.tl-wrap.tl-go .tl-card-1  { animation: tl-card-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; }
+.tl-wrap.tl-go .tl-card-2  { animation: tl-card-up 0.7s cubic-bezier(0.16,1,0.3,1) 1.0s forwards; }
+.tl-wrap.tl-go .tl-card-3  { animation: tl-card-up 0.7s cubic-bezier(0.16,1,0.3,1) 1.4s forwards; }
+.tl-wrap.tl-go .tl-card-4  { animation: tl-card-up 0.7s cubic-bezier(0.16,1,0.3,1) 1.8s forwards; }
 
 /* ── Werkwijze premium graph ─────────────────────── */
 @keyframes ww-draw {
@@ -283,6 +283,64 @@ h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* ── Parallax hover ───────────────────────────────── */
 .px-el { will-change: translate; }
+
+/* ── Article body prose ──────────────────────────── */
+.article-intro {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.article-body h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1A2E26;
+  margin: 3rem 0 1rem;
+  line-height: 1.2;
+}
+.article-body h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1A2E26;
+  margin: 2.25rem 0 0.75rem;
+}
+.article-body p {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #374151;
+  margin: 0 0 1.5rem;
+}
+.article-body a { color: #5ab52a; text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: #7ad444; }
+.article-body ul, .article-body ol { padding-left: 1.5rem; margin: 0 0 1.5rem; }
+.article-body li { line-height: 1.85; margin-bottom: 0.5rem; color: #374151; }
+.article-body blockquote {
+  border-left: 3px solid #9fe870;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  margin: 2.5rem 0;
+}
+.article-body blockquote p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #1A2E26;
+  font-weight: 600;
+  margin: 0;
+}
+.article-body img {
+  width: 100%;
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+.article-body hr {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin: 3rem 0;
+}
 
 /* ── Logo marquee ─────────────────────────────────── */
 @keyframes marquee {
