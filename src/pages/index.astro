@@ -40,33 +40,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- ═══════════════ LOGO MARQUEE ════════════════════════ -->
-  <section class="bg-white border-y border-surface-container py-4 overflow-hidden" aria-hidden="true">
-    <div style="-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);" class="overflow-hidden">
+  <!-- ═══════════════ USP TICKER ══════════════════════════ -->
+  <section class="usp-ticker-strip overflow-hidden" aria-hidden="true">
+    <div class="usp-ticker-fade overflow-hidden">
       <div class="marquee-track">
-        <span class="flex items-center gap-10 pr-10 text-sm font-black font-headline tracking-tighter text-on-surface/20">
-          <span>FINTECH</span><span class="text-primary text-xs">✦</span>
-          <span>MODERNIST</span><span class="text-primary text-xs">✦</span>
-          <span>LUMINA</span><span class="text-primary text-xs">✦</span>
-          <span>ORBIT.CO</span><span class="text-primary text-xs">✦</span>
-          <span>KINETIC</span><span class="text-primary text-xs">✦</span>
-          <span>NEXUS</span><span class="text-primary text-xs">✦</span>
-          <span>AURA</span><span class="text-primary text-xs">✦</span>
-          <span>VERDANT</span><span class="text-primary text-xs">✦</span>
-          <span>STELLAR</span><span class="text-primary text-xs">✦</span>
-          <span>VAULT</span><span class="text-primary text-xs">✦</span>
+        <span class="usp-ticker-row">
+          <span class="usp-item">Op Maat Gemaakt</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Scherpe Tarieven</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Snel Opgeleverd</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Persoonlijk Contact</span><span class="usp-sep">◆</span>
+          <span class="usp-item">SEO-Geoptimaliseerd</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Mobiel-First Design</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Altijd Bereikbaar</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Resultaatgericht</span><span class="usp-sep">◆</span>
         </span>
-        <span class="flex items-center gap-10 pr-10 text-sm font-black font-headline tracking-tighter text-on-surface/20">
-          <span>FINTECH</span><span class="text-primary text-xs">✦</span>
-          <span>MODERNIST</span><span class="text-primary text-xs">✦</span>
-          <span>LUMINA</span><span class="text-primary text-xs">✦</span>
-          <span>ORBIT.CO</span><span class="text-primary text-xs">✦</span>
-          <span>KINETIC</span><span class="text-primary text-xs">✦</span>
-          <span>NEXUS</span><span class="text-primary text-xs">✦</span>
-          <span>AURA</span><span class="text-primary text-xs">✦</span>
-          <span>VERDANT</span><span class="text-primary text-xs">✦</span>
-          <span>STELLAR</span><span class="text-primary text-xs">✦</span>
-          <span>VAULT</span><span class="text-primary text-xs">✦</span>
+        <span class="usp-ticker-row">
+          <span class="usp-item">Op Maat Gemaakt</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Scherpe Tarieven</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Snel Opgeleverd</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Persoonlijk Contact</span><span class="usp-sep">◆</span>
+          <span class="usp-item">SEO-Geoptimaliseerd</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Mobiel-First Design</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Altijd Bereikbaar</span><span class="usp-sep">◆</span>
+          <span class="usp-item">Resultaatgericht</span><span class="usp-sep">◆</span>
         </span>
       </div>
     </div>
@@ -92,8 +88,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="flex items-start gap-6">
                 <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
                   <span class="text-4xl font-black font-headline text-primary/25 leading-none">01</span>
-                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
-                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">insights</span>
+                  <div class="step-icon-wrap">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow">
+                      <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">insights</span>
+                    </div>
                   </div>
                 </div>
                 <div class="flex-1">
@@ -116,8 +114,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="flex items-start gap-6">
                 <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
                   <span class="text-4xl font-black font-headline text-primary/25 leading-none">02</span>
-                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
-                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">terminal</span>
+                  <div class="step-icon-wrap">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow">
+                      <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">terminal</span>
+                    </div>
                   </div>
                 </div>
                 <div class="flex-1">
@@ -140,8 +140,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="flex items-start gap-6">
                 <div class="shrink-0 flex flex-col items-center gap-3 pt-1">
                   <span class="text-4xl font-black font-headline text-primary/25 leading-none">03</span>
-                  <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow shrink-0">
-                    <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">auto_graph</span>
+                  <div class="step-icon-wrap">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center editorial-shadow">
+                      <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1;">auto_graph</span>
+                    </div>
                   </div>
                 </div>
                 <div class="flex-1">
@@ -310,7 +312,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <script>
 (function () {
-  var words = ['websites', 'AI-automations'];
+  var words = ['websites'];
   var inner = document.getElementById('tr-inner');
   if (!inner) return;
   var idx = 0;
