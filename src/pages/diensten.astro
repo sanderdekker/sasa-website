@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <main class="pt-20">
 
   <!-- ═══════════════ HERO ═══════════════════════════════ -->
-  <section class="relative overflow-hidden py-20 lg:py-28">
+  <section class="relative overflow-hidden py-8 lg:py-10">
     <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container mb-3 hero-anim hero-anim-1 px-el" data-depth="0.9">
         <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">eco</span>
@@ -50,7 +50,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ═══════════════ WAAROM ONZE WEBSITES ════════════════ -->
-  <section id="waarom-sectie" class="py-28 relative" style="position:relative;z-index:1;">
+  <section id="waarom-sectie" class="py-16 relative" style="position:relative;z-index:1;">
     <div class="absolute inset-0 pointer-events-none" style="background:rgba(248,250,251,0.45);"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="grid lg:grid-cols-2 gap-20 items-start">
@@ -61,7 +61,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-background mb-8 leading-tight tracking-tight px-el" data-depth="0.5">
             Waarom onze websites<br/><span class="text-primary">écht resultaten leveren.</span>
           </h2>
-          <p class="text-on-surface-variant text-lg mb-8 leading-relaxed">Wij bouwen geen pagina's — wij bouwen conversiemachines. Door cutting-edge performance te combineren met intuïtieve UX creëren we digitale ervaringen die bezoekers omzetten in loyale klanten.</p>
+          <p class="text-on-surface-variant text-lg mb-8 leading-relaxed">Wij bouwen jouw online fundament. Door slimme technologie te combineren met een ontwerp dat aanvoelt als logisch, zorgen we dat bezoekers doen wat jij wilt: contact opnemen, kopen of terugkomen.</p>
 
           <div class="mb-10">
             <a href="/contact" class="btn-primary-gradient text-on-primary px-8 py-4 rounded-xl font-bold inline-flex items-center gap-2 btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 group">
@@ -86,7 +86,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h4 class="font-headline text-base font-bold text-on-background">Maximale Performance</h4>
                   <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md" style="color:#5ab52a;background:rgba(122,212,68,0.10);border:1px solid rgba(122,212,68,0.20);">100/100</span>
                 </div>
-                <p class="text-on-surface-variant text-sm leading-relaxed">Sub-seconde laadtijden die bouncerates laag houden en Google's Core Web Vitals tevreden stellen.</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Sub-seconde laadtijden die zorgen dat bezoekers blijven én dat Google je serieus neemt.</p>
               </div>
             </div>
 
@@ -100,10 +100,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <div class="relative z-10 flex-1">
                 <div class="flex items-center justify-between mb-1">
-                  <h4 class="font-headline text-base font-bold text-on-background">Frictionloze UX</h4>
+                  <h4 class="font-headline text-base font-bold text-on-background">Gebruikerservaring</h4>
                   <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md" style="color:#5ab52a;background:rgba(122,212,68,0.10);border:1px solid rgba(122,212,68,0.20);">+3× conversie</span>
                 </div>
-                <p class="text-on-surface-variant text-sm leading-relaxed">Gebruikersreizen ontworpen rondom psychologie — het pad naar aankoop is moeiteloos.</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Meer bezoekers levert niets op als ze niet converteren. Wij bouwen pagina's die mensen overtuigen en bezoekers omzetten in klanten.</p>
               </div>
             </div>
 
@@ -120,7 +120,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h4 class="font-headline text-base font-bold text-on-background">Hoge Conversieratio</h4>
                   <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-md" style="color:#5ab52a;background:rgba(122,212,68,0.10);border:1px solid rgba(122,212,68,0.20);">98% tevredenheid</span>
                 </div>
-                <p class="text-on-surface-variant text-sm leading-relaxed">Data-gedreven design dat gebruikers stuurt richting jouw belangrijkste bedrijfsdoelen.</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Elk element op de pagina heeft een doel: de bezoeker richting jouw belangrijkste actie sturen.</p>
               </div>
             </div>
 
@@ -143,7 +143,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ═══════════════ ONZE AANPAK ══════════════════════════ -->
-  <section id="werkwijze" class="py-28 relative overflow-hidden" style="position:relative;z-index:1;">
+  <section id="werkwijze" class="py-16 relative overflow-hidden" style="position:relative;z-index:1;">
 
     <div class="absolute inset-0 pointer-events-none" style="background:rgba(248,250,251,0.42);"></div>
     <div class="absolute inset-0 pointer-events-none" style="background-image:radial-gradient(circle, rgba(122,212,68,0.07) 1px, transparent 1px);background-size:28px 28px;opacity:0.7;"></div>
@@ -236,53 +236,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </svg>
 
         <!-- Card 1: Plan -->
-        <div class="ww-card absolute rounded-2xl p-6 bg-white"
+        <div class="ww-card ww-step absolute rounded-2xl p-6 bg-white" tabindex="0"
           style="left:0; bottom:36px; width:220px;
                  border:1px solid rgba(172,246,124,0.35);
                  box-shadow:0 4px 24px rgba(0,0,0,0.07),0 0 0 1px rgba(172,246,124,0.10),0 16px 40px rgba(159,232,112,0.12);">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-              style="background:rgba(172,246,124,0.18);border:1px solid rgba(172,246,124,0.35);">
-              <span class="material-symbols-outlined" style="font-size:18px;color:#5ab52a;">lightbulb</span>
+            <div class="ww-icon-glass shrink-0" style="width:36px;height:36px;border-radius:12px;">
+              <span class="material-symbols-outlined" style="font-size:18px;">lightbulb</span>
             </div>
             <h3 class="font-headline text-base font-bold text-on-background">Plan</h3>
           </div>
           <p class="text-sm leading-relaxed text-on-surface-variant">
-            Diepgaand gesprek over jouw doelen. Roadmap op maat voor jouw succes.
+            We starten met een gesprek over jouw bedrijf, doelen en doelgroep. We maken een plan voor jouw succes.
           </p>
         </div>
 
         <!-- Card 2: Bouwen — positioned below node 2 (node at cy=220, card starts at 250) -->
-        <div class="ww-card absolute rounded-2xl p-6 bg-white"
+        <div class="ww-card ww-step absolute rounded-2xl p-6 bg-white" tabindex="0"
           style="left:50%; transform:translateX(-50%); top:250px; width:220px;
                  border:1px solid rgba(159,232,112,0.35);
                  box-shadow:0 4px 24px rgba(0,0,0,0.07),0 0 0 1px rgba(159,232,112,0.10),0 16px 40px rgba(159,232,112,0.12);">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-              style="background:rgba(159,232,112,0.18);border:1px solid rgba(159,232,112,0.35);">
-              <span class="material-symbols-outlined" style="font-size:18px;color:#5ab52a;">code</span>
+            <div class="ww-icon-glass ww-float-2 shrink-0" style="width:36px;height:36px;border-radius:12px;">
+              <span class="material-symbols-outlined" style="font-size:18px;">code</span>
             </div>
             <h3 class="font-headline text-base font-bold text-on-background">Bouwen</h3>
           </div>
           <p class="text-sm leading-relaxed text-on-surface-variant">
-            Strakke code en responsief design. Alleen performance, geen ballast.
+            Wij ontwerpen en bouwen jouw website op maat. Jij geeft feedback, wij verwerken het. Net zo lang tot het klopt.
           </p>
         </div>
 
         <!-- Card 3: Groeien -->
-        <div class="ww-card absolute rounded-2xl p-6 bg-white"
+        <div class="ww-card ww-step absolute rounded-2xl p-6 bg-white" tabindex="0"
           style="right:0; top:20px; width:220px;
                  border:1px solid rgba(122,212,68,0.40);
                  box-shadow:0 4px 24px rgba(0,0,0,0.07),0 0 0 1px rgba(122,212,68,0.12),0 16px 40px rgba(122,212,68,0.15);">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-              style="background:rgba(122,212,68,0.18);border:1px solid rgba(122,212,68,0.38);">
-              <span class="material-symbols-outlined" style="font-size:18px;color:#5ab52a;">trending_up</span>
+            <div class="ww-icon-glass ww-float-3 shrink-0" style="width:36px;height:36px;border-radius:12px;">
+              <span class="material-symbols-outlined" style="font-size:18px;">trending_up</span>
             </div>
             <h3 class="font-headline text-base font-bold text-on-background">Groeien</h3>
           </div>
           <p class="text-sm leading-relaxed text-on-surface-variant">
-            Continue optimalisatie en data-analyse: jouw website als groeiend ROI-asset.
+            Je site staat live en we meten wat werkt. We blijven samen optimaliseren, want een goede website staat nooit stil.
           </p>
         </div>
 
@@ -295,63 +292,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           style="left:21px; top:28px; bottom:28px; width:2px;
                  background:linear-gradient(to bottom, #acf67c 0%, #9fe870 50%, rgba(122,212,68,0.3) 100%);"></div>
 
-        <div class="ww-card relative flex gap-4 p-5 rounded-2xl mb-4 bg-white"
+        <div class="ww-card ww-step relative flex gap-4 p-5 rounded-2xl mb-4 bg-white" tabindex="0"
           style="border:1px solid rgba(172,246,124,0.30);box-shadow:0 4px 20px rgba(0,0,0,0.06),0 0 24px rgba(172,246,124,0.10);">
           <div class="absolute rounded-full flex items-center justify-center"
             style="left:-46px;top:50%;transform:translateY(-50%);width:22px;height:22px;
                    background:white;border:2px solid #acf67c;box-shadow:0 0 10px rgba(172,246,124,0.5);">
             <div style="width:7px;height:7px;border-radius:50%;background:#7ad444;"></div>
           </div>
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-            style="background:rgba(172,246,124,0.15);border:1px solid rgba(172,246,124,0.28);">
-            <span class="material-symbols-outlined" style="font-size:20px;color:#5ab52a;font-variation-settings:'FILL' 1;">lightbulb</span>
+          <div class="ww-icon-glass shrink-0" style="width:44px;height:44px;border-radius:14px;">
+            <span class="material-symbols-outlined" style="font-size:20px;">lightbulb</span>
           </div>
           <div>
             <div class="flex items-baseline gap-2 mb-1">
               <span class="font-mono text-xs font-black text-primary">01</span>
               <h3 class="font-headline text-base font-bold text-on-background">Plan</h3>
             </div>
-            <p class="text-sm leading-relaxed text-on-surface-variant">Diepgaand gesprek over jouw doelen. We bouwen een roadmap op maat.</p>
+            <p class="text-sm leading-relaxed text-on-surface-variant">We starten met een gesprek over jouw bedrijf, doelen en doelgroep. We maken een plan voor jouw succes.</p>
           </div>
         </div>
 
-        <div class="ww-card relative flex gap-4 p-5 rounded-2xl mb-4 bg-white"
+        <div class="ww-card ww-step relative flex gap-4 p-5 rounded-2xl mb-4 bg-white" tabindex="0"
           style="border:1px solid rgba(159,232,112,0.30);box-shadow:0 4px 20px rgba(0,0,0,0.06),0 0 24px rgba(159,232,112,0.10);">
           <div class="absolute rounded-full flex items-center justify-center"
             style="left:-46px;top:50%;transform:translateY(-50%);width:22px;height:22px;
                    background:white;border:2px solid #9fe870;box-shadow:0 0 10px rgba(159,232,112,0.5);">
             <div style="width:7px;height:7px;border-radius:50%;background:#5ab52a;"></div>
           </div>
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-            style="background:rgba(159,232,112,0.15);border:1px solid rgba(159,232,112,0.28);">
-            <span class="material-symbols-outlined" style="font-size:20px;color:#5ab52a;font-variation-settings:'FILL' 1;">code</span>
+          <div class="ww-icon-glass ww-float-2 shrink-0" style="width:44px;height:44px;border-radius:14px;">
+            <span class="material-symbols-outlined" style="font-size:20px;">code</span>
           </div>
           <div>
             <div class="flex items-baseline gap-2 mb-1">
               <span class="font-mono text-xs font-black text-primary">02</span>
               <h3 class="font-headline text-base font-bold text-on-background">Bouwen</h3>
             </div>
-            <p class="text-sm leading-relaxed text-on-surface-variant">Strakke code en responsief design. Geen ballast — alleen performance.</p>
+            <p class="text-sm leading-relaxed text-on-surface-variant">Wij ontwerpen en bouwen jouw website op maat. Jij geeft feedback, wij verwerken het. Net zo lang tot het klopt.</p>
           </div>
         </div>
 
-        <div class="ww-card relative flex gap-4 p-5 rounded-2xl bg-white"
+        <div class="ww-card ww-step relative flex gap-4 p-5 rounded-2xl bg-white" tabindex="0"
           style="border:1px solid rgba(122,212,68,0.35);box-shadow:0 4px 20px rgba(0,0,0,0.06),0 0 28px rgba(122,212,68,0.12);">
           <div class="absolute rounded-full flex items-center justify-center"
             style="left:-46px;top:50%;transform:translateY(-50%);width:22px;height:22px;
                    background:white;border:2px solid #7ad444;box-shadow:0 0 12px rgba(122,212,68,0.55);">
             <div style="width:7px;height:7px;border-radius:50%;background:#5ab52a;"></div>
           </div>
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-            style="background:rgba(122,212,68,0.15);border:1px solid rgba(122,212,68,0.30);">
-            <span class="material-symbols-outlined" style="font-size:20px;color:#5ab52a;font-variation-settings:'FILL' 1;">trending_up</span>
+          <div class="ww-icon-glass ww-float-3 shrink-0" style="width:44px;height:44px;border-radius:14px;">
+            <span class="material-symbols-outlined" style="font-size:20px;">trending_up</span>
           </div>
           <div>
             <div class="flex items-baseline gap-2 mb-1">
               <span class="font-mono text-xs font-black text-primary">03</span>
               <h3 class="font-headline text-base font-bold text-on-background">Groeien</h3>
             </div>
-            <p class="text-sm leading-relaxed text-on-surface-variant">Continue optimalisatie via data-analyse zodat jouw website blijft groeien.</p>
+            <p class="text-sm leading-relaxed text-on-surface-variant">Je site staat live en we meten wat werkt. We blijven samen optimaliseren, want een goede website staat nooit stil.</p>
           </div>
         </div>
 
@@ -361,8 +355,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ═══════════════ USPS ══════════════════════════════════ -->
-  <section class="py-28 px-8 relative" style="position:relative;z-index:1;">
-    <div class="absolute inset-0 pointer-events-none" style="background:rgba(255,255,255,0.55);"></div>
+  <section class="py-16 px-8 relative" style="position:relative;z-index:1;">
     <div class="max-w-7xl mx-auto relative z-10">
       <div class="text-center mb-16 reveal">
         <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block font-label">Waarom SASA</span>
@@ -374,25 +367,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0s;">
           <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0"><span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">search</span></div>
           <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">Gevonden in Google</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed font-body">SEO-geoptimaliseerd van de eerste regel code. Wij zorgen dat jouw doelgroep jou vindt — precies op het moment dat ze zoeken.</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">SEO-geoptimaliseerd. Wij zorgen dat jouw doelgroep jou vindt, precies op het moment dat ze er naar zoeken.</p>
           <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
         </div>
         <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0.1s;">
           <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0"><span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">trending_up</span></div>
           <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">Meer conversie</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed font-body">Elke pixel werkt voor jou. Van CTA-plaatsing tot kleurgebruik — alles is bewust ontworpen om bezoekers te overtuigen actie te ondernemen.</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">Van CTA-plaatsing tot kleurgebruik, alles is bewust ontworpen om bezoekers te overtuigen actie te ondernemen.</p>
           <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
         </div>
         <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0.2s;">
           <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0"><span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">speed</span></div>
           <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">Razendsnel &amp; stabiel</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed font-body">Meer dan 3 seconden laadtijd? Je verliest bezoekers én rankings. Onze sites scoren groen op Core Web Vitals — standaard.</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">Meer dan 3 seconden laden kost je bezoekers én rankings. Onze sites scoren groen op techniek zodat Google jouw website omhoog laat komen en bezoekers een fijne ervaring hebben.</p>
           <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
         </div>
         <div class="usp-card bg-surface-container-low rounded-[2rem] p-8 relative overflow-hidden group cursor-default" style="transition-delay:0.3s;">
           <div class="usp-icon-ring w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shrink-0"><span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">phone_iphone</span></div>
           <h3 class="text-xl font-bold font-headline text-on-surface mb-3 tracking-tight">100% Mobielvriendelijk</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed font-body">Meer dan 70% van het webverkeer komt via mobiel. Wij bouwen altijd mobile-first — perfect op elk scherm en elk apparaat.</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed font-body">Veel webverkeer komt via mobiel. Jouw website werkt altijd op mobiel. Perfect op elk scherm en elk apparaat.</p>
           <div class="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-full translate-x-6 translate-y-6 group-hover:bg-primary/10 transition-colors duration-300 pointer-events-none"></div>
         </div>
         <div class="usp-card md:col-span-2 lg:col-span-2 rounded-[2rem] p-8 relative overflow-hidden group" style="transition-delay:0.4s;background:linear-gradient(135deg,#d0f7aa 0%,#9fe870 50%,#7ad444 100%);box-shadow:0 12px 32px -8px rgba(159,232,112,0.5),0 4px 12px rgba(0,0,0,0.08);">
@@ -400,9 +393,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="w-12 h-12 rounded-2xl bg-white/30 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-xl" style="font-variation-settings:'FILL' 1;">handshake</span></div>
             <div class="flex-1">
               <h3 class="text-xl font-bold font-headline text-on-primary mb-2 tracking-tight">Maatwerk — altijd</h3>
-              <p class="text-on-primary/80 text-sm leading-relaxed font-body">Geen templates van de plank. Jouw website wordt van scratch gebouwd, uniek voor jouw merk, doelgroep en ambities. Jij bepaalt de koers — wij zorgen voor de uitvoering.</p>
+              <p class="text-on-primary/80 text-sm leading-relaxed font-body">Jouw website wordt vanaf scratch gebouwd, voor jouw merk, doelgroep en ambities. Jij bepaalt de koers, wij zorgen voor de uitvoering.</p>
             </div>
-            <a href="/contact" class="shrink-0 bg-white text-on-primary px-6 py-3 rounded-xl font-bold text-sm hover:bg-white/90 active:scale-[0.98] transition-transform duration-200 whitespace-nowrap">Start jouw project</a>
+            <a href="/contact" class="shrink-0 bg-white text-on-primary px-6 py-3 rounded-xl font-bold text-sm hover:bg-white/90 active:scale-[0.98] transition-transform duration-200 whitespace-nowrap">Vrijblijvend gesprek</a>
           </div>
         </div>
       </div>
@@ -410,26 +403,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- ═══════════════ CTA ════════════════════════════════ -->
-  <section class="py-24 bg-mesh border-t border-surface-container">
+  <section class="py-16 bg-mesh border-t border-surface-container">
     <div class="max-w-4xl mx-auto px-8 text-center reveal">
-      <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6 tracking-tight text-on-background px-el" data-depth="0.4">Klaar om te starten?</h2>
-      <p class="text-on-surface-variant text-lg mb-12 max-w-xl mx-auto">We nemen momenteel nieuwe projecten aan. Reserveer jouw plek en laten we samen iets bouwen dat groeit.</p>
+      <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6 tracking-tight text-on-background px-el" data-depth="0.4">Online groeien?</h2>
+      <p class="text-on-surface-variant text-lg mb-12 max-w-xl mx-auto">Het is als bedrijf belangrijk dat je online aanwezig bent. Het zorgt voor zichtbaarheid en meer klanten.</p>
       <div class="flex flex-wrap justify-center gap-8 mb-12">
         <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary">verified</span>
-          <span class="font-bold text-on-surface font-label">Google Cloud Partner</span>
+          <span class="material-symbols-outlined text-primary">handshake</span>
+          <span class="font-bold text-on-surface font-label">Maatwerk</span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary">bolt</span>
-          <span class="font-bold text-on-surface font-label">Core Web Vitals Ready</span>
+          <span class="material-symbols-outlined text-primary">trending_up</span>
+          <span class="font-bold text-on-surface font-label">Meer conversie</span>
         </div>
         <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary">eco</span>
-          <span class="font-bold text-on-surface font-label">100% Green Hosting</span>
+          <span class="material-symbols-outlined text-primary">language</span>
+          <span class="font-bold text-on-surface font-label">Online aanwezigheid</span>
         </div>
       </div>
       <a href="/contact" class="btn-primary-gradient text-on-primary px-12 py-5 rounded-2xl font-bold text-lg btn-deep-shadow hover:translate-y-[-2px] active:scale-[0.98] transition-transform duration-200 inline-block">
-        Start een gesprek
+        Vrijblijvend gesprek
       </a>
     </div>
   </section>
