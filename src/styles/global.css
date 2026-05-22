@@ -342,6 +342,76 @@ h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
   margin: 3rem 0;
 }
 
+/* ── USP Ticker ───────────────────────────────────── */
+.usp-ticker-strip {
+  background: linear-gradient(to right, #edfcd8, #f3fde8, #edfcd8);
+  border-top: 1px solid rgba(122,212,68,0.25);
+  border-bottom: 1px solid rgba(122,212,68,0.25);
+  padding: 13px 0;
+  position: relative;
+}
+.usp-ticker-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+.usp-ticker-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.usp-item {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(45,90,20,0.65);
+  padding: 0 2.4rem;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+.usp-item:hover { color: rgba(45,90,20,1); }
+.usp-sep {
+  display: inline-block;
+  width: 18px;
+  height: 1.5px;
+  background: linear-gradient(to right, #9fe870, #7ad444);
+  border-radius: 2px;
+  opacity: 0.55;
+  flex-shrink: 0;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* ── Werkwijze step icon ──────────────────────────── */
+.step-icon-wrap {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+.step-icon-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(159,232,112,0.5);
+  animation: step-ring-pulse 2.8s ease-in-out infinite;
+}
+.step-icon-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -13px;
+  border-radius: 50%;
+  border: 1px solid rgba(159,232,112,0.18);
+  animation: step-ring-pulse 2.8s ease-in-out infinite 0.7s;
+}
+@keyframes step-ring-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 1;    transform: scale(1.06); }
+}
+
 /* ── Logo marquee ─────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -354,159 +424,12 @@ h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 72s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 .marquee-track-rev {
   display: flex;
   width: max-content;
-  animation: marquee-rev 60s linear infinite;
+  animation: marquee-rev 26s linear infinite;
 }
 .marquee-track:hover,
 .marquee-track-rev:hover { animation-play-state: paused; }
-
-.usp-pill {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  padding: 0.35rem 1rem;
-  border-radius: 9999px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: rgba(45, 58, 30, 0.85);
-  background: linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.55) 100%);
-  border: 1px solid rgba(172,246,124,0.55);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.9),
-    0 2px 8px rgba(122,212,68,0.10),
-    0 1px 2px rgba(0,0,0,0.04);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.ticker-sep {
-  display: inline-block;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
-  color: rgba(90, 181, 42, 0.55);
-  transform: translateY(-1px);
-  letter-spacing: 0.08em;
-  user-select: none;
-}
-
-/* ── Werkwijze premium glass icons ─────────────────── */
-@keyframes ww-float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-3px); }
-}
-@keyframes ww-line-pulse {
-  0%, 100% { stroke-opacity: 0.65; }
-  50%      { stroke-opacity: 1; }
-}
-@keyframes ww-aura-pulse {
-  0%, 100% { opacity: 0.35; transform: scale(1); }
-  50%      { opacity: 0.6;  transform: scale(1.08); }
-}
-.ww-icon-glass {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.35) 100%),
-    radial-gradient(circle at 30% 25%, rgba(172,246,124,0.35) 0%, rgba(159,232,112,0.12) 60%, transparent 100%);
-  border: 1px solid rgba(172,246,124,0.55);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.9),
-    inset 0 -1px 1px rgba(122,212,68,0.08),
-    0 4px 14px rgba(122,212,68,0.14),
-    0 1px 2px rgba(0,0,0,0.04);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  animation: ww-float 4.8s ease-in-out infinite;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.4s ease,
-              border-color 0.4s ease;
-  isolation: isolate;
-}
-.ww-icon-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(172,246,124,0.9), rgba(122,212,68,0) 45%, rgba(90,181,42,0.7));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  opacity: 0.9;
-  pointer-events: none;
-}
-.ww-icon-glass::after {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: inherit;
-  background: radial-gradient(circle, rgba(159,232,112,0.45) 0%, rgba(172,246,124,0.12) 55%, transparent 75%);
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-.ww-icon-glass > .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' -25, 'opsz' 24;
-  background: linear-gradient(135deg, #acf67c 0%, #5ab52a 60%, #3d8a1c 100%);
-  background-size: 180% 180%;
-  background-position: 0% 0%;
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  transition: background-position 0.6s ease;
-  position: relative;
-  z-index: 1;
-}
-.ww-icon-glass.ww-float-2 { animation-delay: -0.8s; }
-.ww-icon-glass.ww-float-3 { animation-delay: -1.6s; }
-
-/* Hover / focus states on the parent step container */
-.ww-step:hover .ww-icon-glass,
-.ww-step:focus-visible .ww-icon-glass {
-  transform: translateY(-4px) scale(1.06);
-  border-color: rgba(122,212,68,0.85);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.9),
-    0 0 0 1px rgba(122,212,68,0.4),
-    0 12px 28px rgba(159,232,112,0.35),
-    0 0 48px rgba(172,246,124,0.3);
-}
-.ww-step:hover .ww-icon-glass::after,
-.ww-step:focus-visible .ww-icon-glass::after { opacity: 1; animation: ww-aura-pulse 2.4s ease-in-out infinite; }
-.ww-step:hover .ww-icon-glass > .material-symbols-outlined,
-.ww-step:focus-visible .ww-icon-glass > .material-symbols-outlined { background-position: 100% 100%; }
-
-/* Connector line shimmer on homepage */
-@keyframes ww-connector-shimmer {
-  0%, 100% { opacity: 0.4; }
-  50%      { opacity: 1; }
-}
-.ww-connector-line {
-  animation: ww-connector-shimmer 3.2s ease-in-out infinite;
-}
-.ww-connector-line.ww-float-2 { animation-delay: -1.2s; }
-
-/* Diensten SVG line pulse */
-.ww-wrap.ww-go .ww-line { animation: ww-draw 1.8s cubic-bezier(0.4,0,0.2,1) 0.1s forwards, ww-line-pulse 3.6s ease-in-out 2s infinite; }
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .ww-icon-glass,
-  .ww-icon-glass.ww-float-2,
-  .ww-icon-glass.ww-float-3 { animation: none; }
-  .ww-connector-line { animation: none; }
-  .ww-step:hover .ww-icon-glass::after,
-  .ww-step:focus-visible .ww-icon-glass::after { animation: none; }
-  .ww-wrap.ww-go .ww-line { animation: ww-draw 1.8s cubic-bezier(0.4,0,0.2,1) 0.1s forwards; }
-}
