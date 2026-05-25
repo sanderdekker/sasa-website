@@ -1,0 +1,108 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+---
+<BlogPostLayout
+  title="Structured data: laat Google jouw website écht begrijpen"
+  category="SEO"
+  categorySlug="seo"
+  date="25 mei 2026"
+  readTime="5 min lezen"
+  heroImage="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=1400&q=80&auto=format&fit=crop"
+  authorName="Sam Keijsers"
+  authorRole="Co-founder SASA"
+  authorImage="https://placehold.co/96x96/3f9e3c/ffffff?text=SK"
+  intro="Jouw website kan technisch perfect zijn en de teksten kunnen uitstekend zijn, maar als Google de inhoud niet goed kan interpreteren, mis je kansen. Structured data is de taal die Google wél begrijpt."
+>
+
+  <h2>Wat is structured data (schema markup)?</h2>
+  <p>Structured data, ook wel schema markup, is code die je toevoegt aan jouw website om zoekmachines te vertellen wat de inhoud precies betekent. Het is geen zichtbare tekst voor bezoekers, maar een gestructureerde beschrijving van jouw pagina, bedrijfsgegevens of content. Denk aan het doorgeven van jouw naam, adres, openingstijden, beoordelingen en het type content op een manier die Google direct kan lezen en verwerken.</p>
+  <p>Schema markup is gebaseerd op een open standaard van Schema.org, een samenwerking tussen Google, Bing, Yahoo en Yandex. Bijna elke zoekmachine begrijpt het, en Google gebruikt het steeds intensiever naarmate AI een grotere rol speelt in zoekresultaten.</p>
+
+  <h2>Waarom structured data in 2026 onmisbaar is geworden</h2>
+  <p>Twee jaar geleden was schema markup een nice-to-have. In 2026 is het een must, om twee concrete redenen.</p>
+  <p>De eerste reden: <strong>rich snippets en zichtbaarheid.</strong> Zoekmachines geven websites met correcte structured data voorrang voor uitgebreide zoekresultaten, ook wel rich snippets. Denk aan gele sterren bij beoordelingen, uitklapbare FAQ-blokken, openingstijden en prijsinformatie direct in Google. Meer zichtbaarheid betekent meer kliks, ook zonder dat jouw positie verandert.</p>
+  <p>De tweede reden: <strong>AI-zoekmachines.</strong> Google's Gemini-powered AI Mode gebruikt schema markup om claims te verifiëren, entiteitsrelaties te leggen en de betrouwbaarheid van bronnen te beoordelen. Wie schema markup correct implementeert, vergroot de kans dat Google jouw bedrijf noemt als antwoord op een AI-gestuurde zoekvraag. Dat is precies waar GEO (Generative Engine Optimization) om draait.</p>
+
+  <h3>Van featured snippet naar AI-bron</h3>
+  <p>Vroeger was structured data handig voor featured snippets, de antwoordbox bovenaan Google. Nu is het een vereiste om serieus genomen te worden door AI-zoekmachines. ChatGPT Search, Google AI Mode en Perplexity gebruiken schema markup om te bepalen of jouw website een betrouwbare bron is voor specifieke onderwerpen. Wie dit goed regelt, heeft een duurzaam concurrentievoordeel.</p>
+
+  <h2>De 4 belangrijkste schema types voor MKB</h2>
+  <p>Er zijn honderden schema types beschikbaar, maar voor de meeste MKB-bedrijven zijn vier types het meest relevant en het meest impactvol.</p>
+
+  <h3>1. LocalBusiness schema</h3>
+  <p>LocalBusiness schema vertelt Google exact wie je bent, wat je doet, waar je zit en wanneer je open bent. Dit is de absolute basis voor lokale vindbaarheid en Google Maps-resultaten. Je communiceert hiermee jouw naam, adres, telefoonnummer, openingstijden en URL op een manier die Google direct kan verwerken. Zonder dit schema mis je een belangrijk fundament voor lokale SEO.</p>
+
+  <h3>2. FAQ schema</h3>
+  <p>Met FAQ schema markeer je veelgestelde vragen op jouw pagina's. Google kan deze direct tonen als uitklapbare secties in de zoekresultaten, precies onder jouw resultaat. Dat geeft jou extra ruimte in Google zonder extra kosten. FAQ schema is ook waardevol voor AI-antwoorden: de gestructureerde vragen en antwoorden worden direct gebruikt als input voor AI-gegenereerde antwoorden.</p>
+
+  <h3>3. Article schema</h3>
+  <p>Article schema markeert blogartikelen en nieuwsberichten als officieel artikel. Hiermee geef je Google informatie over de auteur, publicatiedatum en het onderwerp van het artikel. Dit is belangrijk voor E-E-A-T signalen: Google begrijpt niet alleen wát er staat, maar ook wie het geschreven heeft en wanneer. Elke blog die je publiceert, verdient dit schema.</p>
+
+  <h3>4. Review schema</h3>
+  <p>Als jij klantbeoordelingen verzamelt, kun je die met review schema tonen als gele sterren in de zoekresultaten. Dat verhoogt de klikratio aanzienlijk, want mensen vertrouwen sterren. Studies tonen aan dat rich snippets met sterren 20 tot 30% meer kliks genereren dan resultaten zonder. Voor een lokaal bedrijf is dat direct merkbaar in het aantal aanvragen.</p>
+
+  <h2>Zo voeg je structured data toe aan jouw website</h2>
+  <p>Je kunt structured data op drie manieren toevoegen: via JSON-LD, via Microdata of via RDFa. Google raadt JSON-LD aan, en dat is ook veruit de eenvoudigste methode. Je voegt een stukje code toe in de <code>&lt;head&gt;</code> van jouw pagina, los van de zichtbare content. Je hoeft daarvoor niets aan de lay-out te veranderen.</p>
+  <p>Een basisvoorbeeld voor een lokaal bedrijf:</p>
+  <pre><code>{`{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Jouw Bedrijfsnaam",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jouw straat 1",
+    "addressLocality": "Tilburg",
+    "postalCode": "5000 AB",
+    "addressCountry": "NL"
+  },
+  "telephone": "+31 6 12345678",
+  "openingHours": "Mo-Fr 09:00-17:00",
+  "url": "https://jouwebsite.nl"
+}`}</code></pre>
+  <p>Dit is de basis. Van hieruit kun je uitbreiden met openingstijden per dag, prijs-indicaties, reviews en meer. Controleer je implementatie gratis via Google's Rich Results Test op <strong>search.google.com/test/rich-results</strong>. Die tool laat direct zien wat Google leest en of er fouten in zitten.</p>
+
+  <h2>Hoe SASA structured data aanpakt</h2>
+  <p>Elke website die wij bouwen bij SASA, krijgt standaard de basis schema markup mee. LocalBusiness schema voor het bedrijf, Article schema voor blogposts, FAQ schema waar relevant. Dat is geen optionele extra, dat is gewoon hoe we werken. Toen we de website van een klant volledig opnieuw bouwden met Astro, was een van de eerste dingen die we toevoegden een volledig geconfigureerd LocalBusiness-schema. Het verschil in lokale zichtbaarheid was binnen twee maanden merkbaar.</p>
+  <p>Structured data is een van die technische optimalisaties die grote bedrijven al jaren standaard toepassen en die kleine bedrijven vaak overslaan. Dat is precies jouw kans.</p>
+
+  <h2>Klaar om online te groeien?</h2>
+  <p>Structured data implementeren hoeft niet ingewikkeld te zijn, maar het vraagt wel om de juiste aanpak. Wil je weten of jouw website correct is ingericht en welke schema types voor jouw bedrijf het meeste opleveren? Neem vrijblijvend contact op met SASA. Wij kijken het graag met je door.</p>
+
+  <h2>Veelgestelde vragen over structured data</h2>
+
+  <details>
+    <summary>Wat is het verschil tussen structured data en metadata?</summary>
+    <p>Metadata zijn gegevens over jouw pagina die onzichtbaar zijn voor bezoekers, zoals de meta-titel en meta-omschrijving. Structured data gaat een stap verder: het beschrijft de inhoud van jouw pagina in een gestandaardiseerde taal (Schema.org) die zoekmachines direct kunnen verwerken en gebruiken voor rich snippets en AI-antwoorden.</p>
+  </details>
+
+  <details>
+    <summary>Is structured data een directe rankingfactor voor Google?</summary>
+    <p>Google geeft aan dat structured data op zichzelf geen directe rankingfactor is. Maar het heeft wel indirecte voordelen: rich snippets verhogen je klikratio, AI-zoekmachines selecteren vaker geciteerde bronnen met goede schema markup, en correcte implementatie versterkt E-E-A-T signalen. In de praktijk zien we dat sites met goede structured data beter presteren.</p>
+  </details>
+
+  <details>
+    <summary>Welk schema type is het belangrijkst voor een lokaal MKB-bedrijf?</summary>
+    <p>Voor de meeste lokale MKB-bedrijven is LocalBusiness schema de belangrijkste prioriteit. Dit schema geeft Google jouw naam, adres, telefoonnummer en openingstijden op een gestandaardiseerde manier, wat direct bijdraagt aan lokale vindbaarheid en Google Maps-resultaten. Daarna volgen FAQ schema en Review schema als impactvolle toevoegingen.</p>
+  </details>
+
+  <details>
+    <summary>Werkt structured data ook voor AI-zoekmachines zoals ChatGPT?</summary>
+    <p>Ja. Zowel Google AI Mode als ChatGPT Search en Perplexity gebruiken structured data om de betrouwbaarheid en relevantie van bronnen te beoordelen. Schema markup helpt AI-systemen om jouw bedrijf, expertise en content te begrijpen als samenhangende entiteit, waardoor je vaker als bron wordt geciteerd in AI-antwoorden.</p>
+  </details>
+
+  <details>
+    <summary>Hoe test ik of mijn structured data correct is?</summary>
+    <p>Gebruik Google's Rich Results Test op search.google.com/test/rich-results. Je kunt jouw URL invoeren of de code direct plakken. De tool laat zien welke schema types Google herkent, of er fouten of waarschuwingen zijn, en welke rich snippets jij in aanmerking komt voor. Volledig gratis en direct beschikbaar.</p>
+  </details>
+
+  <details>
+    <summary>Kan ik structured data zelf toevoegen zonder developer?</summary>
+    <p>Dat hangt af van jouw website. In WordPress kun je plugins zoals Yoast SEO of Rank Math gebruiken die basis schema markup automatisch genereren. Voor maatwerk websites is het verstandiger om een developer te laten helpen, zodat de implementatie correct en volledig is. Halve implementaties kunnen meer kwaad dan goed doen.</p>
+  </details>
+
+  <details>
+    <summary>Wat is een rich snippet en hoe krijg ik die?</summary>
+    <p>Een rich snippet is een uitgebreid zoekresultaat dat aanvullende informatie toont, zoals sterren, FAQ-blokken, openingstijden of prijzen. Je krijgt een rich snippet door de juiste structured data te implementeren en door Google's kwaliteitsrichtlijnen te volgen. Google beslist uiteindelijk zelf of het rich snippet toont, maar de juiste schema markup is de vereiste eerste stap.</p>
+  </details>
+
+</BlogPostLayout>
