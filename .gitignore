@@ -2,9 +2,23 @@ agents/
 rules/
 skills/
 mijn-astro-project/
+sasa-website/
 node_modules/
 
 .vercel
 node_modules
 dist/
 .astro/
+
+# environment variables
+.env
+.env.local
+.env.*.local
+
+# lokale bestanden
+.claude/settings.local.json
+"temporary screenshots/"
+temporary screenshots/
+shots/
+*.lnk
+_ss3.mjs

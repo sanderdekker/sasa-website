@@ -151,7 +151,7 @@ Startende ondernemers en MKB in Nederland die een professionele online aanwezigh
 ### Artikel-focus
 - Beide artikelen per week richten zich op **startende ondernemers in Nederland**
 - Artikel 1: SEO/content-trend vanuit Search Engine Journal, altijd relevant voor MKB
-- Artikel 2: Lokaal Tilburg SEO (bijv. "webdesign Tilburg", "SEO bureau Tilburg") — positioneer SASA als het lokale bureau
+- Artikel 2: Tweede informatief artikel — andere invalshoek dan artikel 1 (bijv. praktijkcase, opinie, trends, how-to). Geen lokale SEO focus. Mag gaan over webdesign, branding, UX, strategie, of een actuele digital marketing trend
 
 ### SEO-eisen
 - Maximaal 3 zoekwoorden per artikel
@@ -164,6 +164,25 @@ Startende ondernemers en MKB in Nederland die een professionele online aanwezigh
 - Deel inzichten, niet oplossingen alleen
 - Verwijs slechts subtiel naar SASA (artikel 2 expliciet, artikel 1 impliciet)
 - Geen hype, geen marketing-BS — echte waarde
+
+### E-E-A-T Principe
+Elk artikel moet Experience, Expertise, Authoritativeness en Trustworthiness uitstralen:
+- Deel een mening of standpunt van SASA ("Bij SASA zien we dat...", "Onze ervaring leert...")
+- Beschrijf hoe SASA iets aanpakt of heeft aangepakt
+- Geef concrete voorbeelden, zelfs als ze fictief maar plausibel zijn
+- Geen vaag taalgebruik — stellig en onderbouwd
+
+### Engelstalige Vaktermen
+Gebruik de Engelstalige naam wanneer die de originele of gangbaardere term is:
+- "Google Business Profile" (niet "Google Mijn Bedrijf")
+- "Core Update", "Search Console", "featured snippet", "call-to-action", "E-E-A-T"
+Vertaal alleen als de Nederlandse term echt courant is in het MKB-vakgebied.
+
+### SASA-koppeling in artikelen
+- Beide artikelen mogen een subtiele verwijzing naar SASA bevatten (max 1-2 zinnen)
+- Artikel 1: impliciet (als expert-perspectief)
+- Artikel 2: iets explicieter (als praktijk-voorbeeld of mening)
+- Nooit als advertentie — altijd organisch in de tekst
 
 ---
 

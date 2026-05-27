@@ -46,6 +46,21 @@
 - **Spacing:** Use intentional, consistent spacing tokens — not random Tailwind steps.
 - **Depth:** Surfaces should have a layering system (base → elevated → floating), not all sit at the same z-plane.
 
+## AI FAQ formatting
+
+Every AI FAQ section on the page MUST be implemented as an accordion. Each question MUST be clickable. The answer MUST be hidden by default and only revealed when the user clicks the question.
+
+Use this exact HTML pattern for every FAQ item — no plain text Q&A blocks allowed:
+
+```html
+<details>
+  <summary>[Question text here]</summary>
+  <p>[Answer text here]</p>
+</details>
+```
+
+NEVER render FAQ items as visible paragraph pairs (Q: ... A: ...). If the current implementation uses any other pattern, replace it with the `<details>/<summary>` accordion above.
+
 ## Hard Rules
 - Do not add sections, features, or content not in the reference
 - Do not "improve" a reference design — match it

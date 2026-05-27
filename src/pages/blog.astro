@@ -1,118 +1,145 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPosts } from '../lib/cms';
+
+const posts = await getPosts();
+const featured = posts[0] ?? null;
+const rest = posts.slice(1);
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('nl-NL', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// Categorieën voor de filterknopppen (uniek, gesorteerd)
+const categories = [...new Set(posts.map(p => p.category).filter(Boolean))].sort();
 ---
+
 <BaseLayout title="Nieuws | SASA">
 <main class="max-w-7xl mx-auto px-8 pt-32 pb-20">
+
 <!-- Header & Category Filter -->
 <header class="mb-16">
-<h1 class="text-5xl md:text-6xl font-extrabold text-on-surface mb-8 tracking-tight px-el" data-depth="0.5">Nieuws</h1>
-<div class="flex flex-wrap gap-3" id="category-filters">
-<button data-filter="alles" class="filter-btn px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-bold text-sm transition-all shadow-sm active-filter">Alles</button>
-<button data-filter="marketing" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Marketing Tips</button>
-<button data-filter="strategie" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Bedrijfsstrategie</button>
-<button data-filter="groei" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Groei</button>
-<button data-filter="design" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Creative Direction</button>
-<button data-filter="tech" class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all">Tech Stack</button>
-</div>
+  <h1 class="text-5xl md:text-6xl font-extrabold text-on-surface mb-8 tracking-tight px-el" data-depth="0.5">Nieuws</h1>
+  <div class="flex flex-wrap gap-3" id="category-filters">
+    <button data-filter="alles" class="filter-btn px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-bold text-sm transition-all shadow-sm active-filter">Alles</button>
+    {categories.map(cat => (
+      <button
+        data-filter={cat.toLowerCase()}
+        class="filter-btn px-6 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-semibold text-sm hover:bg-surface-container-high transition-all"
+      >
+        {cat}
+      </button>
+    ))}
+  </div>
 </header>
-<!-- Featured Section -->
-<section class="mb-24">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-<a href="/blog/kwaliteit-website" class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl group relative px-el block" data-depth="0.35">
-<img alt="Waarom kwaliteit in je website belangrijk is" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80&auto=format&fit=crop"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-</a>
-<div class="lg:col-span-5 flex flex-col justify-center px-4 lg:px-8 px-el" data-depth="0.6">
-<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/30 text-primary font-bold text-xs uppercase tracking-widest mb-6 w-fit">Groei</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-on-surface">Waarom kwaliteit in je website belangrijk is voor je bedrijf</h2>
-<p class="text-on-surface-variant text-lg leading-relaxed mb-8">Je werkt keihard. Maar als je website er niet uitziet, klikken mensen weg. Niet omdat jij niet goed bent, maar omdat de eerste indruk online alles bepaalt.</p>
-<div class="flex items-center gap-4 mb-10">
-<img alt="Sam" class="w-12 h-12 rounded-full object-cover border-2 border-primary-container" src="https://placehold.co/48x48/1A2E26/9fe870?text=S"/>
-<div>
-<p class="font-bold text-on-surface">Sam</p>
-<p class="text-sm text-on-surface-variant">Co-founder SASA • 4 min lezen</p>
-</div>
-</div>
-<a href="/blog/kwaliteit-website" class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
-  Lees meer
-  <span class="material-symbols-outlined font-bold">arrow_forward</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Latest Insights Section -->
-<section>
-<div class="flex items-center justify-between mb-12">
-<h3 class="text-3xl font-bold tracking-tight">Laatste inzichten en trends</h3>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<a href="/blog/website-meer-dan-mooi" class="group cursor-pointer px-el" data-category="marketing" data-depth="0.4">
-<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Waarom je website meer moet doen dan er mooi uitzien" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80&auto=format&fit=crop"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Marketing</span></div>
-</div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">15 apr 2025 • Marketing</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Waarom je website meer moet doen dan er mooi uitzien</h4>
-</a>
-<!-- Card 2 -->
-<a href="/blog/google-en-je-bedrijf" class="group cursor-pointer px-el" data-category="tech" data-depth="0.55">
-<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Hoe Google bepaalt of jouw bedrijf bestaat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=600&q=80&auto=format&fit=crop"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Tech</span></div>
-</div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">15 apr 2025 • Tech</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Hoe Google bepaalt of jouw bedrijf bestaat</h4>
-</a>
-<!-- Card 3 -->
-<a href="/blog/goedkoop-is-duurkoop" class="group cursor-pointer px-el" data-category="strategie" data-depth="0.35">
-<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Waarom de goedkoopste oplossing je het meeste kost" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80&auto=format&fit=crop"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Strategie</span></div>
-</div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">15 apr 2025 • Strategie</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Waarom de goedkoopste oplossing je het meeste kost</h4>
-</a>
-<!-- Card 4 -->
-<a href="/blog/google-mei-2026-core-update" class="group cursor-pointer px-el" data-category="tech" data-depth="0.5">
-<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Google Mei 2026 Core Update: wat betekent dit voor jouw MKB-website?" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80&auto=format&fit=crop"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Tech</span></div>
-</div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">20 mei 2026 • Tech</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Google Mei 2026 Core Update: wat betekent dit voor jouw MKB-website?</h4>
-</a>
-<!-- Card 5 -->
-<a href="/blog/digitale-marketingtrends-2026" class="group cursor-pointer px-el" data-category="marketing" data-depth="0.45">
-<div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
-<img alt="Digitale marketingtrends 2026: zo groeit jouw MKB online" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop"/>
-<div class="absolute top-4 left-4"><span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">Marketing</span></div>
-</div>
-<p class="text-sm text-on-surface-variant font-medium mb-3">20 mei 2026 • Marketing</p>
-<h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">Digitale marketingtrends 2026: zo groeit jouw MKB online</h4>
-</a>
-<!-- Subscribe Card -->
-<div class="rounded-xl p-8 flex flex-col justify-between shadow-xl relative overflow-hidden px-el" data-depth="0.4" style="background:#acf67c;">
-<div class="absolute -right-12 -top-12 w-48 h-48 opacity-20 blur-3xl rounded-full" style="background:#7ad444;"></div>
-<div>
-<h4 class="text-2xl font-bold mb-4 text-[#1A2E26]">Blijf voorop lopen</h4>
-<p class="mb-8 text-[#1A2E26]/70">Ontvang onze wekelijkse samenvatting van de meest impactvolle trends in digitale strategie en tech.</p>
-</div>
-<div class="space-y-4">
-<input class="w-full px-4 py-3 rounded-lg bg-white border border-[#7bd345]/30 text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-[#7bd345]" placeholder="Jouw e-mailadres" type="email"/>
-<button class="w-full py-3 rounded-lg bg-[#1A2E26] text-white font-bold hover:bg-[#2a4034] transition-colors">Nu inschrijven</button>
-</div>
-</div>
-</div>
-</section>
+
+{posts.length === 0 ? (
+  <p class="text-on-surface-variant text-lg py-16">Er zijn nog geen artikelen gepubliceerd.</p>
+) : (
+  <>
+    {/* Featured — meest recente post */}
+    {featured && (
+      <section class="mb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <a href={`/blog/${featured.slug}`} class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl group relative px-el block" data-depth="0.35">
+            <img
+              alt={featured.heroImage?.alt ?? featured.title}
+              class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+              src={featured.heroImage?.url ?? 'https://placehold.co/900x500/1A2E26/9fe870?text=SASA'}
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </a>
+          <div class="lg:col-span-5 flex flex-col justify-center px-4 lg:px-8 px-el" data-depth="0.6">
+            {featured.category && (
+              <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container/30 text-primary font-bold text-xs uppercase tracking-widest mb-6 w-fit">
+                {featured.category}
+              </div>
+            )}
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-on-surface">{featured.title}</h2>
+            <p class="text-on-surface-variant text-lg leading-relaxed mb-8">{featured.excerpt}</p>
+            <div class="flex items-center gap-4 mb-10">
+              <img
+                alt={featured.author?.fullName ?? 'SASA'}
+                class="w-12 h-12 rounded-full object-cover border-2 border-primary-container"
+                src={featured.author?.avatar?.url ?? 'https://placehold.co/48x48/1A2E26/9fe870?text=S'}
+              />
+              <div>
+                <p class="font-bold text-on-surface">{featured.author?.fullName ?? 'SASA Redactie'}</p>
+                <p class="text-sm text-on-surface-variant">
+                  {featured.author?.authorRole ?? 'Redactie'}
+                  {featured.readTime ? ` • ${featured.readTime} min lezen` : ''}
+                </p>
+              </div>
+            </div>
+            <a href={`/blog/${featured.slug}`} class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
+              Lees meer
+              <span class="material-symbols-outlined font-bold">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Grid — overige posts */}
+    <section>
+      <div class="flex items-center justify-between mb-12">
+        <h3 class="text-3xl font-bold tracking-tight">Laatste inzichten en trends</h3>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {rest.map(post => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="group cursor-pointer px-el"
+            data-category={post.category?.toLowerCase() ?? ''}
+            data-depth="0.4"
+          >
+            <div class="relative rounded-xl overflow-hidden mb-6 aspect-[4/3] shadow-lg">
+              <img
+                alt={post.heroImage?.alt ?? post.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src={post.heroImage?.url ?? 'https://placehold.co/600x450/1A2E26/9fe870?text=SASA'}
+              />
+              {post.category && (
+                <div class="absolute top-4 left-4">
+                  <span class="bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-primary uppercase">
+                    {post.category}
+                  </span>
+                </div>
+              )}
+            </div>
+            <p class="text-sm text-on-surface-variant font-medium mb-3">
+              {formatDate(post.publishDate)}{post.category ? ` • ${post.category}` : ''}
+            </p>
+            <h4 class="text-xl font-bold leading-snug group-hover:text-primary transition-colors mb-4">{post.title}</h4>
+          </a>
+        ))}
+
+        {/* Subscribe-card — altijd als laatste */}
+        <div class="rounded-xl p-8 flex flex-col justify-between shadow-xl relative overflow-hidden px-el" data-depth="0.4" style="background:#acf67c;">
+          <div class="absolute -right-12 -top-12 w-48 h-48 opacity-20 blur-3xl rounded-full" style="background:#7ad444;"></div>
+          <div>
+            <h4 class="text-2xl font-bold mb-4 text-[#1A2E26]">Blijf voorop lopen</h4>
+            <p class="mb-8 text-[#1A2E26]/70">Ontvang onze wekelijkse samenvatting van de meest impactvolle trends in digitale strategie en tech.</p>
+          </div>
+          <div class="space-y-4">
+            <input class="w-full px-4 py-3 rounded-lg bg-white border border-[#7bd345]/30 text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-[#7bd345]" placeholder="Jouw e-mailadres" type="email"/>
+            <button class="w-full py-3 rounded-lg bg-[#1A2E26] text-white font-bold hover:bg-[#2a4034] transition-colors">Nu inschrijven</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </>
+)}
+
 <!-- CTA -->
 <section class="mt-24 py-16 px-8 rounded-full bg-surface-container-low border border-outline-variant/30 text-center relative overflow-hidden">
-<div class="max-w-2xl mx-auto relative z-10">
-<h3 class="text-3xl font-bold mb-4">Klaar om jouw project te starten?</h3>
-<p class="text-on-surface-variant mb-8 text-lg">Laten we samen iets bijzonders bouwen. Ons team staat klaar om jouw visie te verwezenlijken.</p>
-<a href="/contact" class="bg-[#1A2E26] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-800 transition-all shadow-xl inline-block">Neem contact op</a>
-</div>
+  <div class="max-w-2xl mx-auto relative z-10">
+    <h3 class="text-3xl font-bold mb-4">Klaar om jouw project te starten?</h3>
+    <p class="text-on-surface-variant mb-8 text-lg">Laten we samen iets bijzonders bouwen. Ons team staat klaar om jouw visie te verwezenlijken.</p>
+    <a href="/contact" class="bg-[#1A2E26] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-800 transition-all shadow-xl inline-block">Neem contact op</a>
+  </div>
 </section>
+
 </main>
 
 <script>
@@ -133,9 +160,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       activeClass.forEach(function(c) { btn.classList.add(c); });
       articles.forEach(function(card) {
         if (filter === 'alles' || card.getAttribute('data-category') === filter) {
-          card.style.display = '';
+          (card as HTMLElement).style.display = '';
         } else {
-          card.style.display = 'none';
+          (card as HTMLElement).style.display = 'none';
         }
       });
     });

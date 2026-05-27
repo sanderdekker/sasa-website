@@ -8,6 +8,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@sasa/cms-astro": "file:../../sasa-cms-astro",
     "astro": "^5.0.0"
   },
   "devDependencies": {
