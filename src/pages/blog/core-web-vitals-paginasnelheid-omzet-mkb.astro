@@ -1,0 +1,99 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+---
+<BlogPostLayout
+  title="Core Web Vitals: zo verhoogt paginasnelheid je omzet"
+  category="Webdesign"
+  categorySlug="webdesign"
+  date="1 juni 2026"
+  readTime="5 min lezen"
+  heroImage="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80&auto=format&fit=crop"
+  authorName="Sander Dekker"
+  authorRole="Co-founder SASA"
+  authorImage="https://placehold.co/96x96/1A2E26/9fe870?text=SD"
+  intro="Laadt jouw website in meer dan 3 seconden? Dan mis je klanten én Google-posities tegelijk. Core Web Vitals zijn de drie technische scores die dat bepalen, en ze zijn veel eenvoudiger te begrijpen dan je denkt."
+>
+
+  <h2>Wat zijn Core Web Vitals?</h2>
+  <p>Core Web Vitals zijn drie door Google gedefinieerde maatstaven voor de gebruikerservaring op een website: Largest Contentful Paint (LCP) voor laadsnelheid, Interaction to Next Paint (INP) voor interactiviteit, en Cumulative Layout Shift (CLS) voor visuele stabiliteit. Google gebruikt deze drie scores als rankingsignaal bij het bepalen van jouw positie in de zoekresultaten.</p>
+
+  <p>Kort gezegd meten ze hoe snel je pagina laadt, hoe snel ze reageert als iemand iets aanklikt, en of elementen onverwacht verschuiven terwijl de pagina nog aan het laden is. Klinkt technisch, maar de gevolgen zijn heel concreet: slechte scores kosten je bezoekers, rankings en uiteindelijk klanten.</p>
+
+  <h2>Waarom een trage website direct klanten kost</h2>
+  <p>Elke seconde extra laadtijd kost gemiddeld 7% aan conversie. 53% van de mobiele gebruikers verlaat een pagina die langer dan 3 seconden laadt. Een slechte Core Web Vitals-score heeft dus twee negatieve effecten tegelijk: je rankt lager in Google en je verliest ook nog eens meer bezoekers die wel op je pagina terechtkomen.</p>
+
+  <p>Het gevaarlijke is dat je dit als eigenaar vaak niet merkt. Jij kijkt je eigen website op een snelle verbinding met een krachtige laptop. Je bezoeker opent hem op zijn mobiel, via 4G, terwijl hij in de trein zit. Dat is een heel andere ervaring. En als die ervaring slecht is, vertrekt hij gewoon, zonder te zeggen waarom.</p>
+
+  <p>Bij SASA zien we dit patroon regelmatig bij bedrijven die voor het eerst bij ons aankloppen: een mooie website, prima inhoud, maar een Lighthouse-score van 40 of 50. Dat is de onzichtbare rem op hun groei.</p>
+
+  <h2>Wat zijn goede Core Web Vitals scores?</h2>
+  <p>Google hanteert drie drempelwaarden. LCP (laadsnelheid) moet onder 2,5 seconden zijn. INP (interactiviteit) moet onder 200 milliseconden blijven. En CLS (visuele stabiliteit) moet onder 0,1 liggen. Scoort jouw website in het oranje of rode gebied op een van deze drie, dan zijn er verbeteringen mogelijk die direct zichtbaar zijn in je Google-rankings én je conversieratio.</p>
+
+  <p>Je kunt je eigen scores gratis checken via Google's PageSpeed Insights (pagespeed.web.dev) of via de Search Console onder het tabblad Core Web Vitals. Die tool geeft je ook concreet aan wát er verbeterd moet worden, per pagina.</p>
+
+  <h2>Maatwerkwebsite versus standaard CMS: een groot verschil</h2>
+  <p>Onderzoek naar Core Web Vitals laat zien dat websites op Astro en handgebouwde maatwerkoplossingen structureel beter scoren dan sites op generieke platforms. Dat verschil is niet toevallig; het zit in de hoeveelheid code die een browser moet verwerken voordat een pagina zichtbaar is.</p>
+
+  <p>Wij bouwen op Astro, en dat is een bewuste keuze. Astro laadt standaard geen JavaScript tenzij een specifiek component het echt nodig heeft. Dat levert pagina's op die razendsnel zijn, zelfs op trage mobiele verbindingen. Een Lighthouse-score van 90 of hoger is bij ons geen bonus, maar het startpunt van elk project.</p>
+
+  <p>Een gemiddelde WordPress-installatie heeft meerdere plugins, een zwaar thema en third-party scripts die allemaal tegelijk moeten laden. Elke plugin voegt gewicht toe. Elke advertentietag of trackingscript vertraagt de pagina. Dat is de reden dat je bij goedkopere websites zo vaak traagheid ziet, en dat een website van 299 euro je op de lange termijn meer kost dan hij oplevert. Daar schreven we eerder over in ons artikel over <a href="/blog/goedkoop-is-duurkoop">waarom de goedkoopste oplossing je het meeste kost</a>.</p>
+
+  <h2>Zo verbeter je jouw Core Web Vitals</h2>
+  <p>De grootste winst bij Core Web Vitals zit in drie aanpassingen: afbeeldingen optimaliseren naar het moderne WebP-formaat, overbodige JavaScript en onnodige plugins verwijderen, en kiezen voor een betrouwbare hostingprovider die snel reageert. Daarmee haal je in de meeste gevallen al de grootste knelpunten weg.</p>
+
+  <p>Wat je concreet kunt doen per metriek:</p>
+
+  <ul>
+    <li><strong>LCP verbeteren:</strong> Zorg dat het grootste element op de pagina (vaak een hero-afbeelding) snel laadt. Gebruik WebP, voeg een <code>loading="eager"</code> toe aan de hero en kies een snelle hostingprovider dichtbij jouw doelgroep.</li>
+    <li><strong>INP verbeteren:</strong> Verminder de hoeveelheid JavaScript die op de pagina wordt uitgevoerd. Elk script dat laadt kost interactietijd. Plugins voor analytics, chat en cookies zijn de grootste boosdoeners.</li>
+    <li><strong>CLS verbeteren:</strong> Geef afbeeldingen en video's altijd een vaste breedte en hoogte in je HTML. Dan weet de browser hoeveel ruimte hij moet reserveren nog voordat het element geladen is, en verschuift de rest van de pagina niet.</li>
+  </ul>
+
+  <p>Is jouw huidige website technisch verouderd? Dan is dit een goed moment om te bekijken of een nieuwe website via <a href="/diensten">onze webdiensten</a> de investering waard is. Een snellere website verdient zichzelf terug via betere rankings en hogere conversie.</p>
+
+  <h2>Core Web Vitals en conversie: het directe verband</h2>
+  <p>Een betere Core Web Vitals-score verbetert niet alleen je SEO; het verbetert de ervaring van elke bezoeker op je site. Iemand die op een knop klikt en onmiddellijk reactie krijgt, vertrouwt de website meer. Iemand die pagina's ziet verschuiven terwijl hij wil klikken, raakt gefrustreerd. Die frustratie is onzichtbaar in je statistieken, maar zichtbaar in je bouncepercentage en je conversieratio.</p>
+
+  <p>De klant die afhaakte omdat jouw website 4 seconden laadde, zal je nooit melden dat hij is weggegaan vanwege snelheid. Hij is gewoon weg. Dat maakt paginasnelheid tot een van de meest onderschatte factoren in digitale groei voor MKB-bedrijven.</p>
+
+  <h2>Klaar om jouw website te laten presteren?</h2>
+  <p>Core Web Vitals zijn geen technisch bijzaakje voor developers. Ze zijn een direct meetpunt voor de kwaliteit van de ervaring die jij je bezoekers biedt, én een rankingfactor die Google steeds zwaarder laat meewegen. Wil je weten hoe jouw website scoort en wat er concreet beter kan? <a href="/contact">Plan een vrijblijvend gesprek</a> en we kijken samen naar jouw scores en mogelijkheden.</p>
+
+  <h2>Veelgestelde vragen over Core Web Vitals en paginasnelheid</h2>
+
+  <details>
+    <summary>Wat zijn Core Web Vitals en waarom zijn ze belangrijk voor mijn website?</summary>
+    <p>Core Web Vitals zijn drie technische maatstaven van Google: Largest Contentful Paint (LCP) voor laadsnelheid, Interaction to Next Paint (INP) voor interactiviteit, en Cumulative Layout Shift (CLS) voor visuele stabiliteit. Ze zijn belangrijk omdat Google ze gebruikt als rankingfactor, maar ook omdat ze direct de gebruikerservaring op jouw website meten. Slechte scores betekenen minder bezoekers én minder conversies.</p>
+  </details>
+
+  <details>
+    <summary>Hoe kan ik mijn Core Web Vitals score gratis controleren?</summary>
+    <p>Ga naar PageSpeed Insights (pagespeed.web.dev) en voer de URL van jouw website in. Je krijgt direct een score voor zowel mobiel als desktop, samen met concrete verbeterpunten. Alternatief: open Google Search Console en klik op "Core Web Vitals" in het linkermenu. Daar zie je hoe jouw pagina's scoren op echte gebruikersdata, niet alleen in een laboratoriumtest.</p>
+  </details>
+
+  <details>
+    <summary>Heeft paginasnelheid echt invloed op mijn Google-ranking?</summary>
+    <p>Ja. Google bevestigde Core Web Vitals als officieel rankingsignaal via de Page Experience Update. Dat betekent dat twee websites met vergelijkbare content, de snellere website een voordeel heeft in de zoekresultaten. Bij gelijke kwaliteit geeft Google de voorkeur aan de website die een betere gebruikerservaring biedt, wat deels wordt gemeten via Core Web Vitals.</p>
+  </details>
+
+  <details>
+    <summary>Wat is een goede Largest Contentful Paint (LCP) score?</summary>
+    <p>Google beschouwt een LCP van minder dan 2,5 seconden als "goed". Tussen 2,5 en 4 seconden is "verbetering nodig". Boven de 4 seconden is "slecht". LCP meet hoe snel het grootste zichtbare element op de pagina geladen is, meestal een hero-afbeelding of een grote tekstregel. Dit is de metriek die bezoekers het sterkst ervaren als "hoe snel laadt deze website".</p>
+  </details>
+
+  <details>
+    <summary>Waarom scoort een WordPress-website vaak slechter op Core Web Vitals?</summary>
+    <p>WordPress-websites laden gemiddeld meer JavaScript, CSS en third-party scripts dan maatwerkwebsites of sites gebouwd op moderne frameworks. Elke plugin voegt code toe die de browser moet verwerken. Dat vertaalt zich in tragere laadtijden en slechtere INP-scores. Het is niet onmogelijk om een snelle WordPress-site te bouwen, maar het vereist specifieke optimalisaties die bij maatwerkbouw van nature al ingebakken zitten.</p>
+  </details>
+
+  <details>
+    <summary>Wat is Cumulative Layout Shift (CLS) en hoe merk ik dat aan mijn website?</summary>
+    <p>Cumulative Layout Shift meet hoe vaak en hoe sterk elementen op je pagina onverwacht van positie verschuiven terwijl de pagina laadt. Je merkt het als je op een knop wilt klikken, maar opeens verschuift de pagina en je klikt op iets anders. De oorzaak is bijna altijd een afbeelding of advertentieblok zonder vaste afmeting. Dit is irritant voor bezoekers en leidt tot foute klikken en hogere uitstappercentages.</p>
+  </details>
+
+  <details>
+    <summary>Hoeveel conversie verlies ik per seconde extra laadtijd?</summary>
+    <p>Onderzoek laat zien dat elke seconde extra laadtijd gemiddeld 7% conversieverlies oplevert. Google's eigen data toont dat 53% van de mobiele gebruikers een pagina verlaat die langer dan 3 seconden laadt. Dat betekent: op een website met 1.000 bezoekers per maand en een laadtijd van 5 seconden, verlies je al snel honderden potentiële klantcontacten per maand puur op basis van snelheid.</p>
+  </details>
+
+</BlogPostLayout>
