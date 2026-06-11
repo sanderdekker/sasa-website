@@ -1,0 +1,44 @@
+---
+/**
+ * Dynamische route voor CMS-blogposts.
+ * Bestaande individuele .astro bestanden (bijv. kwaliteit-website.astro)
+ * hebben prioriteit in Astro's routing — die werken gewoon door.
+ * Nieuwe posts die via het CMS worden gepubliceerd, verschijnen hier.
+ */
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getAllPostSlugs, getPostBySlug, lexicalToHtml, postImage } from '../../lib/cms';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const slugs = await getAllPostSlugs();
+  return slugs.map(slug => ({ params: { slug } }));
+};
+
+const { slug } = Astro.params;
+const post = await getPostBySlug(slug);
+
+if (!post) {
+  return Astro.redirect('/blog', 302);
+}
+
+const bodyHtml = lexicalToHtml(post.body);
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('nl-NL', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+---
+
+<BlogPostLayout
+  title={post.title}
+  category={post.category ?? 'Nieuws'}
+  categorySlug={post.category?.toLowerCase()}
+  date={formatDate(post.publishDate)}
+  readTime={post.readTime ? `${post.readTime} min lezen` : undefined}
+  heroImage={postImage(post, 1400)}
+  authorName={post.author?.fullName ?? 'SASA Redactie'}
+  authorRole={post.author?.authorRole ?? 'Redactie'}
+  authorImage={post.author?.avatar?.url ?? 'https://placehold.co/96x96/1A2E26/9fe870?text=S'}
+  intro={post.excerpt}
+>
+  <div set:html={bodyHtml} />
+</BlogPostLayout>
