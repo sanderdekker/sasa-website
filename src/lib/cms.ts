@@ -54,14 +54,29 @@ interface LexicalNode {
   listType?: 'bullet' | 'number';
   format?: number; // bitmask: 1=bold, 2=italic, 8=underline
   children?: LexicalNode[];
-  // fields draagt zowel link-data (url/newTab) als block-data (FAQ) afhankelijk van het nodetype.
+  // fields draagt zowel link-data (url/newTab/doc) als block-data (FAQ) afhankelijk van het nodetype.
   fields?: {
     url?: string;
     newTab?: boolean;
+    linkType?: 'custom' | 'internal';
+    doc?: { relationTo?: string; value?: { slug?: string } | string | number };
     blockType?: string;
     heading?: string;
     items?: FaqItem[];
   };
+}
+
+/**
+ * Bepaalt de href van een link-node. Custom links gebruiken de url; interne links
+ * worden opgelost naar het juiste pad op basis van de gekoppelde collectie + slug.
+ */
+function resolveLinkHref(node: LexicalNode): string {
+  const f = node.fields;
+  if (f?.linkType === 'internal' && f.doc && typeof f.doc.value === 'object' && f.doc.value?.slug) {
+    const slug = f.doc.value.slug;
+    return f.doc.relationTo === 'posts' ? `/blog/${slug}` : `/${slug}`;
+  }
+  return f?.url ?? node.url ?? '#';
 }
 
 // ---------------------------------------------------------------------------
@@ -177,7 +192,7 @@ function serializeNode(node: LexicalNode): string {
       return `<li>${serializeChildren(node.children ?? [])}</li>`;
 
     case 'link': {
-      const href = node.fields?.url ?? node.url ?? '#';
+      const href = resolveLinkHref(node);
       const target = node.fields?.newTab ? ' target="_blank" rel="noopener"' : '';
       return `<a href="${escapeAttr(href)}"${target}>${serializeChildren(node.children ?? [])}</a>`;
     }
