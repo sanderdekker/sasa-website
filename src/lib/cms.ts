@@ -41,6 +41,11 @@ interface LexicalRoot {
   root: LexicalNode;
 }
 
+interface FaqItem {
+  question?: string;
+  answer?: string;
+}
+
 interface LexicalNode {
   type: string;
   tag?: string;
@@ -49,7 +54,14 @@ interface LexicalNode {
   listType?: 'bullet' | 'number';
   format?: number; // bitmask: 1=bold, 2=italic, 8=underline
   children?: LexicalNode[];
-  fields?: { url?: string; newTab?: boolean };
+  // fields draagt zowel link-data (url/newTab) als block-data (FAQ) afhankelijk van het nodetype.
+  fields?: {
+    url?: string;
+    newTab?: boolean;
+    blockType?: string;
+    heading?: string;
+    items?: FaqItem[];
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -181,6 +193,25 @@ function serializeNode(node: LexicalNode): string {
 
     case 'linebreak':
       return '<br>';
+
+    case 'block': {
+      // Payload block-node. Voorlopig alleen het FAQ-block (accordions).
+      if (node.fields?.blockType === 'faq') {
+        const heading = node.fields.heading
+          ? `<h2>${escapeHtml(node.fields.heading)}</h2>`
+          : '';
+        const items = (node.fields.items ?? [])
+          .map(
+            (it) =>
+              `<details class="faq-item"><summary>${escapeHtml(it.question ?? '')}</summary>` +
+              `<div class="faq-answer"><p>${escapeHtml(it.answer ?? '')}</p></div></details>`,
+          )
+          .join('');
+        return `<section class="faq">${heading}${items}</section>`;
+      }
+      // Onbekend blocktype: render eventuele children, anders niets.
+      return serializeChildren(node.children ?? []);
+    }
 
     default:
       if (node.children?.length) return serializeChildren(node.children);
